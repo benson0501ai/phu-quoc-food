@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>富國島美食清單</title>
+<meta name="description" content="富國島全島美食清單：餐廳、咖啡、甜點、麵包、小吃、夜市、海鮮與特色料理。支援個人勾選、儲存與我的清單置頂。">
+<meta property="og:title" content="富國島美食清單">
+<meta property="og:description" content="富國島全島美食資料庫｜可個人勾選、儲存，下次開啟仍保留我的清單">
+<meta property="og:type" content="website">
+<style>
+:root{--font:14px;--scale:1;--bg:#f5f7fb;--card:#fff;--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--brand:#0f766e;--soft:#ecfdf5;--warn:#fff7ed;--shadow:0 8px 30px rgba(15,23,42,.08)}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-size:calc(var(--font)*var(--scale));line-height:1.55}
+.wrap{max-width:1500px;margin:auto;padding:18px}
+.header{background:linear-gradient(135deg,#0f766e,#115e59);color:#fff;border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.header h1{margin:0 0 6px;font-size:28px} .header p{margin:3px 0;opacity:.94}
+.toolbar,.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.toolbar{margin-top:14px;padding:14px;position:sticky;top:8px;z-index:30}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0}
+button,.btn,select,input[type=text]{font:inherit;border:1px solid #cbd5e1;border-radius:10px;padding:8px 10px;background:#fff;color:var(--ink)}
+button,.btn{cursor:pointer} button.active{background:var(--brand);color:#fff;border-color:var(--brand)} button:hover{filter:brightness(.98)}
+.primary{background:var(--brand);color:#fff;border-color:var(--brand)} .danger{color:#b91c1c}
+.label{font-weight:700;margin-right:3px} .small{font-size:.9em;color:var(--muted)}
+#myCard{margin:14px 0;padding:16px;border:2px solid #99f6e4;background:#f0fdfa}
+#myCard h2{margin:0 0 4px;font-size:21px} .my-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-top:10px}
+.my-item{background:#fff;border:1px solid #ccfbf1;border-radius:12px;padding:10px;display:flex;gap:9px;align-items:flex-start}
+.my-item b{display:block} .my-item .meta{font-size:.88em;color:var(--muted)} .pin{font-size:18px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px} .pill{background:#fff;color:#0f766e;border-radius:999px;padding:4px 9px;font-weight:700}
+.section{margin:16px 0} .section h2{font-size:20px;margin:0 0 8px;display:flex;align-items:center;gap:8px}
+.count{font-size:.75em;color:var(--muted);font-weight:500}
+.table-wrap{overflow:auto;border-radius:14px;border:1px solid var(--line);background:#fff}
+table{width:100%;border-collapse:collapse;min-width:1180px}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:middle} th{position:sticky;top:0;background:#f8fafc;text-align:left;z-index:2;white-space:nowrap}
+tr:hover td{background:#fafafa} tr.chosen td{background:#f0fdfa}
+.center{text-align:center} .name{font-weight:800} .zh{display:block;color:#0f766e;font-weight:700;margin-top:2px}
+.tag{display:inline-block;border-radius:999px;padding:2px 7px;font-size:.82em;margin:1px;background:#eef2ff} .tier{font-weight:900} .tier-S{color:#b45309} .tier-A{color:#047857} .tier-B{color:#475569}
+.rating{white-space:nowrap} .rating strong{font-size:1.04em} .unknown{color:#94a3b8}
+.google{white-space:nowrap;color:#0369a1;text-decoration:none;font-weight:700} .google:hover{text-decoration:underline}
+.note{color:#475569;font-size:.91em}
+.savebar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px;padding-top:10px;border-top:1px dashed #99f6e4}
+.profile{min-width:140px}
+.empty{color:var(--muted);padding:10px 0}
+.footer{text-align:center;color:var(--muted);padding:25px 8px}
+.hidden{display:none!important}
+@media(max-width:720px){
+  :root{--font:12px}
+  .wrap{padding:8px} .header{padding:15px;border-radius:13px} .header h1{font-size:20px}
+  .toolbar{top:4px;padding:9px;border-radius:12px} button,.btn,select,input[type=text]{padding:7px 8px}
+  #myCard{padding:11px} .my-grid{grid-template-columns:1fr}
+  th,td{padding:7px 6px} .section h2{font-size:17px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="header">
+    <h1>🍴 富國島美食清單</h1>
+    <p>全島資料庫｜餐廳・咖啡・麵包・甜點・小吃・夜市・海鮮</p>
+    <p>目前收錄 <b>102</b> 個候選項目。Google 評分與評論數會變動；「—」代表這版尚未完成即時複核，不代表沒有評價。</p>
+  </header>
+
+  <section id="myCard" class="card">
+    <h2>📌 我的清單 <span id="myCount" class="count"></span></h2>
+    <div class="small">勾選後會立即出現在這裡；按「儲存我的清單」後，下次重新開啟網址仍會保留。原本各區完整清單與排序不會改動。</div>
+    <div id="myList" class="my-grid"></div>
+    <div class="savebar">
+      <span class="label">使用者：</span>
+      <input id="profileName" class="profile" type="text" placeholder="例如：爸爸、媽媽">
+      <button class="primary" onclick="saveMine()">儲存我的清單</button>
+      <button onclick="loadMine()">讀取此使用者</button>
+      <button onclick="copyMine()">複製我的清單</button>
+      <button class="danger" onclick="clearMine()">清空目前勾選</button>
+      <span id="saveStatus" class="small"></span>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <div class="row">
+      <span class="label">區域</span>
+      <button class="filter active" data-kind="region" data-value="全部">全部</button>
+      <button class="filter" data-kind="region" data-value="北島">北島</button>
+      <button class="filter" data-kind="region" data-value="西北">西北／翁朗</button>
+      <button class="filter" data-kind="region" data-value="中島">中島／楊東</button>
+      <button class="filter" data-kind="region" data-value="中南">中南／Long Beach</button>
+      <button class="filter" data-kind="region" data-value="東島">東島／咸寧</button>
+      <button class="filter" data-kind="region" data-value="南島">南島</button>
+    </div>
+    <div class="row">
+      <span class="label">類型</span>
+      <select id="typeFilter"><option value="全部">全部類型</option></select>
+      <span class="label">必吃</span>
+      <select id="tierFilter">
+        <option value="全部">全部</option><option value="S">只看 S</option><option value="A">只看 A</option><option value="B">只看 B</option>
+      </select>
+      <span class="label">Google</span>
+      <select id="ratingFilter">
+        <option value="全部">全部</option><option value="4.8">4.8★以上</option><option value="4.7">4.7★以上</option><option value="4.5">4.5★以上</option><option value="verified">已有複核評分</option>
+      </select>
+      <input id="search" type="text" placeholder="搜尋店名、中文名、料理、區域…">
+      <button onclick="resetFilters()">重設篩選</button>
+    </div>
+    <div class="row small">
+      <span>ABC：A＝近期熱門／熱搜　B＝在地特色　C＝長期名店／代表性。</span>
+      <span>必吃：S＝優先鎖定　A＝很值得　B＝備選。</span>
+      <span style="margin-left:auto">字體 <button onclick="fontStep(-.1)">A−</button> <b id="fontPct">100%</b> <button onclick="fontStep(.1)">A＋</button></span>
+    </div>
+  </div>
+
+  <main id="sections"></main>
+
+  <footer class="footer">
+    研究版 1.0｜建立日期 2026-09-05｜資料會隨後續區域深挖與 Google 評論更新持續擴充。
+  </footer>
+</div>
+
+<script>
+const DATA = [{"id": 1, "region": "北島", "area": "Grand World・TH2", "name": "Bách Restaurant Phú Quốc", "zh": "百味餐廳", "type": "越南料理／亞洲料理", "time": "午餐／晚餐", "abc": "B", "tier": "A", "rating": null, "reviews": null, "note": "TH2 周邊，適合住宿期間步行用餐。"}, {"id": 2, "region": "北島", "area": "Grand World・TH2", "name": "DINO Restaurant Grand World Phú Quốc", "zh": "DINO 恐龍餐廳", "type": "越南料理", "time": "早餐／午餐／晚餐", "abc": "A+B", "tier": "A", "rating": 4.8, "reviews": null, "note": "家庭用餐方便。"}, {"id": 3, "region": "北島", "area": "Grand World・上海街", "name": "Madam Thảo Grand World Phú Quốc", "zh": "草夫人越南餐廳", "type": "越南料理", "time": "早餐／午餐／晚餐", "abc": "A+B", "tier": "A", "rating": 4.7, "reviews": 2118, "note": "北島人氣越南料理。"}, {"id": 4, "region": "北島", "area": "Grand World・TH2", "name": "Ikusachi Sushi", "zh": "伊久幸壽司", "type": "日式料理／壽司", "time": "午餐／晚餐", "abc": "A", "tier": "B", "rating": null, "reviews": null, "note": "異國料理備選。"}, {"id": 5, "region": "北島", "area": "Grand World・上海街", "name": "Cuong Kua Seafood Restaurant", "zh": "強哥螃蟹海鮮餐廳", "type": "海鮮", "time": "午餐／晚餐", "abc": "B", "tier": "A", "rating": null, "reviews": null, "note": "海鮮秤重前先確認單價、重量與料理費。"}, {"id": 6, "region": "北島", "area": "Grand World・上海街", "name": "I Am Coffee", "zh": "我是咖啡", "type": "咖啡／飲料", "time": "早餐後／下午", "abc": "A", "tier": "B", "rating": null, "reviews": null, "note": "住宿周邊咖啡備選。"}, {"id": 7, "region": "北島", "area": "Grand World", "name": "Highlands Coffee", "zh": "高原咖啡", "type": "咖啡／飲料", "time": "早餐後／下午", "abc": "C", "tier": "A", "rating": null, "reviews": null, "note": "越南大型連鎖咖啡品牌。"}, {"id": 8, "region": "北島", "area": "Grand World・上海街", "name": "Bún Quậy Kiến Xây", "zh": "Kiến Xây 富國島攪拌米粉", "type": "富國島特色／米粉", "time": "午餐／晚餐", "abc": "A+B+C", "tier": "S", "rating": 4.2, "reviews": 6389, "note": "富國島代表性料理；即使星等不是最高仍屬必吃候選。"}, {"id": 9, "region": "北島", "area": "Grand World・TH1", "name": "Mai Hương Restaurant - Grand World Phú Quốc", "zh": "梅香餐廳・富國大世界店", "type": "海鮮／越南料理", "time": "下午／晚餐", "abc": "A+B+C", "tier": "S", "rating": 4.8, "reviews": 3421, "note": "北島高人氣海鮮；海鮮秤重先確認價格。"}, {"id": 10, "region": "北島", "area": "Grand World", "name": "Cơm Niêu Việt", "zh": "越式砂鍋飯", "type": "越南料理／砂鍋飯", "time": "午餐／晚餐", "abc": "A+B", "tier": "A", "rating": null, "reviews": null, "note": "適合多人共享。"}, {"id": 11, "region": "北島", "area": "Grand World", "name": "Bò Tơ 68", "zh": "68 嫩牛肉", "type": "牛肉／燒烤", "time": "晚餐", "abc": "A+B", "tier": "A", "rating": null, "reviews": null, "note": "牛肉與燒烤類。"}, {"id": 12, "region": "北島", "area": "Grand World", "name": "Madam Khánh Phú Quốc", "zh": "慶夫人餐廳", "type": "海鮮／越南料理", "time": "午餐／晚餐", "abc": "A+B", "tier": "B", "rating": null, "reviews": null, "note": "家庭正餐備選。"}, {"id": 13, "region": "北島", "area": "Grand World", "name": "Piola Uzbek Turkish Cuisine", "zh": "Piola 烏茲別克・土耳其料理", "type": "異國料理", "time": "午餐／晚餐", "abc": "A", "tier": "B", "rating": null, "reviews": null, "note": "非富國島特色，作為換口味備選。"}, {"id": 14, "region": "北島", "area": "Grand World・Beachfront", "name": "Grand World Food Court", "zh": "富國大世界美食廣場", "type": "小吃／綜合", "time": "午餐／晚餐", "abc": "A+B", "tier": "A", "rating": 4.9, "reviews": 1695, "note": "多人各自選餐方便；攤位可能變動。"}, {"id": 15, "region": "北島", "area": "Grand World・Beachfront", "name": "Mai Hương Beachfront", "zh": "梅香海濱餐廳", "type": "海鮮／景觀餐廳", "time": "午餐／傍晚／晚餐", "abc": "A+C", "tier": "S", "rating": 4.9, "reviews": 3101, "note": "高評價海景海鮮餐廳。"}, {"id": 16, "region": "北島", "area": "Grand World・威尼斯河", "name": "Bếp Nhà Restaurant - Grand World Phú Quốc", "zh": "家廚越南餐廳", "type": "越南料理", "time": "午餐／晚餐", "abc": "A+B", "tier": "A", "rating": 4.5, "reviews": 807, "note": "越式家常菜。"}, {"id": 17, "region": "北島", "area": "Grand World・威尼斯河", "name": "HANA Coffee", "zh": "HANA 哈娜咖啡", "type": "咖啡／飲料", "time": "上午／下午／晚上", "abc": "A", "tier": "A", "rating": 4.8, "reviews": 1097, "note": "評論量高的咖啡選擇。"}, {"id": 18, "region": "北島", "area": "Grand World・威尼斯河", "name": "The Riverside Coffee Grand World Phú Quốc", "zh": "河畔咖啡", "type": "咖啡／飲料", "time": "上午／下午／晚上", "abc": "A", "tier": "B", "rating": 4.3, "reviews": 573, "note": "威尼斯河景觀咖啡。"}, {"id": 19, "region": "北島", "area": "Grand World・中央湖", "name": "Saigon Domain - Phu Quoc", "zh": "西貢領域餐廳", "type": "越南料理／西式料理", "time": "晚餐", "abc": "B", "tier": "B", "rating": 4.4, "reviews": null, "note": "景觀與正餐備選。"}, {"id": 20, "region": "北島", "area": "Grand World・Beachfront", "name": "Sunset Bistro & Bar - Grand World", "zh": "日落海濱餐酒館", "type": "景觀餐廳／西式料理", "time": "傍晚／晚餐", "abc": "A", "tier": "A", "rating": 4.9, "reviews": null, "note": "適合傍晚景觀。"}, {"id": 21, "region": "北島", "area": "Grand World・上海街", "name": "Cơm Bắc 1983", "zh": "1983 北越家常菜", "type": "越南料理／家常菜", "time": "早餐／午餐／晚餐", "abc": "B", "tier": "A", "rating": null, "reviews": null, "note": "北越家常菜，多人共享。"}, {"id": 22, "region": "北島", "area": "Grand World・Indochine", "name": "Cơm Niêu Cái Bếp Garden", "zh": "Cái Bếp Garden 越式砂鍋飯", "type": "越南料理／砂鍋飯", "time": "午餐／晚餐", "abc": "B+C", "tier": "A", "rating": null, "reviews": null, "note": "官方旅遊資訊收錄；砂鍋飯、鯡魚沙拉與家常菜。"}, {"id": 23, "region": "北島", "area": "Grand World・上海街", "name": "Sông Hằng Restaurant", "zh": "恆河越南餐廳", "type": "越南料理", "time": "午餐／晚餐", "abc": "B", "tier": "B", "rating": null, "reviews": null, "note": "家庭餐廳備選。"}, {"id": 24, "region": "北島", "area": "Grand World・上海街", "name": "The Mekong Connect", "zh": "湄公河餐廳", "type": "越南料理", "time": "午餐／晚餐", "abc": "B", "tier": "B", "rating": null, "reviews": null, "note": "越南料理候選。"}, {"id": 25, "region": "北島", "area": "Grand World・上海街", "name": "Phở Lý Quốc Sư", "zh": "李國師河粉", "type": "越南料理／河粉", "time": "早餐／午餐／晚餐", "abc": "B+C", "tier": "A", "rating": null, "reviews": null, "note": "河內風格牛肉河粉。"}, {"id": 26, "region": "北島", "area": "Grand World・Indochine", "name": "Cơm Chiên Nguyễn Ký Phú Quốc", "zh": "Nguyễn Ký 富國島炒飯", "type": "越南料理／炒飯", "time": "午餐／晚餐", "abc": "B", "tier": "B", "rating": null, "reviews": null, "note": "簡單正餐備選。"}, {"id": 27, "region": "北島", "area": "Grand World・Indochine", "name": "Thế Giới Hải Sản Hàm Ninh Grand World Phú Quốc", "zh": "咸寧海鮮世界・富國大世界店", "type": "海鮮", "time": "晚餐／宵夜", "abc": "A+B", "tier": "A", "rating": 4.2, "reviews": 71, "note": "海鮮秤重前確認重量與料理費。"}, {"id": 28, "region": "北島", "area": "Grand World・中央湖", "name": "Nhà hàng Vua Hải Sản", "zh": "海鮮王餐廳", "type": "海鮮", "time": "下午／晚餐", "abc": "A+C", "tier": "A", "rating": 4.8, "reviews": 2089, "note": "評論數高但價位偏高；先確認海鮮單價。"}, {"id": 29, "region": "北島", "area": "Grand World・南京街", "name": "Curry Kingdom Grand World Phu Quoc", "zh": "咖哩王國印度餐廳", "type": "印度料理", "time": "午餐／晚餐／宵夜", "abc": "A", "tier": "B", "rating": 4.8, "reviews": 129, "note": "換口味備選。"}, {"id": 30, "region": "北島", "area": "Grand World・南京街", "name": "Lake Masala", "zh": "湖畔瑪莎拉印度餐廳", "type": "印度料理", "time": "午餐／晚餐／宵夜", "abc": "A", "tier": "A", "rating": 4.8, "reviews": 1729, "note": "異國料理中評論量很高。"}, {"id": 31, "region": "北島", "area": "Grand World・TH1", "name": "Nhà hàng Phu Zim - Grand World Phú Quốc", "zh": "Phu Zim 韓式餐廳", "type": "韓式料理", "time": "午餐／晚餐", "abc": "A", "tier": "B", "rating": 4.6, "reviews": 647, "note": "非富國島特色，適合換口味。"}, {"id": 32, "region": "北島", "area": "Grand World・TH1", "name": "쌈 Ssam 한식당", "zh": "Ssam 韓式餐廳", "type": "韓式料理／燒肉", "time": "午餐／晚餐", "abc": "A", "tier": "A", "rating": 4.9, "reviews": 1685, "note": "韓式料理中高評價高評論數。"}, {"id": 33, "region": "北島", "area": "Grand World・TH1", "name": "고향식당 - Korean Restaurant", "zh": "故鄉韓式餐廳", "type": "韓式料理", "time": "午餐／晚餐", "abc": "A", "tier": "B", "rating": null, "reviews": null, "note": "韓式備選。"}, {"id": 34, "region": "北島", "area": "Grand World・威尼斯河", "name": "Namaste India - Indian Restaurant & Luxury Stay", "zh": "Namaste India 印度餐廳", "type": "印度料理", "time": "午餐／晚餐", "abc": "A", "tier": "A", "rating": 4.8, "reviews": 507, "note": "威尼斯河區異國料理。"}, {"id": 35, "region": "北島", "area": "Grand World・商業街", "name": "Quán ăn The Scent (Tiệm ăn cô Hằng) - Grand World Phú Quốc", "zh": "The Scent 越式小館", "type": "越南料理", "time": "午餐／晚餐", "abc": "B", "tier": "B", "rating": 4.3, "reviews": 120, "note": "家常小館型。"}, {"id": 36, "region": "北島", "area": "Grand World・夜市周邊", "name": "BôngBBQ Grand World", "zh": "Bông BBQ 燒烤海鮮", "type": "海鮮／燒烤", "time": "晚餐／宵夜", "abc": "A", "tier": "B", "rating": 4.5, "reviews": 42, "note": "偏晚餐、宵夜。"}, {"id": 37, "region": "北島", "area": "Grand World", "name": "TAO Coffee Phu Quoc", "zh": "TAO 咖啡", "type": "咖啡／飲料", "time": "早餐後／下午", "abc": "A", "tier": "B", "rating": 4.7, "reviews": 88, "note": "白天咖啡候選。"}, {"id": 38, "region": "北島", "area": "Grand World・威尼斯河", "name": "TRUNG NGUYÊN LEGEND GRAND WORLD PHÚ QUỐC", "zh": "中原傳奇咖啡・富國大世界店", "type": "咖啡／飲料", "time": "早餐後／下午／晚上", "abc": "C", "tier": "A", "rating": 4.0, "reviews": 29, "note": "越南代表性咖啡品牌。"}, {"id": 39, "region": "北島", "area": "Grand World", "name": "Trung Nguyên E-Coffee Grand World Phú Quốc", "zh": "中原 E-Coffee・富國大世界店", "type": "咖啡／飲料", "time": "早餐／上午／下午", "abc": "B", "tier": "B", "rating": 4.4, "reviews": 31, "note": "適合白天。"}, {"id": 40, "region": "北島", "area": "Grand World・Hội Hè街", "name": "Cơm Niêu Ba Miền", "zh": "三地越式砂鍋飯", "type": "越南料理／砂鍋飯", "time": "午餐／晚餐", "abc": "B", "tier": "A", "rating": 4.5, "reviews": 480, "note": "適合家庭多人共享。"}, {"id": 41, "region": "西北", "area": "Ông Lang 翁朗", "name": "Camia Restaurant", "zh": "Camia 海濱餐廳", "type": "景觀餐廳／越南・西式", "time": "傍晚／晚餐", "abc": "A+C", "tier": "S", "rating": 4.8, "reviews": 2571, "note": "夕陽與海景兼具，適合安排一餐。"}, {"id": 42, "region": "西北", "area": "Ông Lang 翁朗", "name": "Eco Beach Restaurant", "zh": "Eco 海灘餐廳", "type": "景觀餐廳／綜合料理", "time": "午餐／晚餐", "abc": "B", "tier": "A", "rating": 4.5, "reviews": 104, "note": "翁朗海灘周邊備選。"}, {"id": 43, "region": "西北", "area": "Ông Lang 翁朗", "name": "THE OLD FOREST RESTAURANT AND CAFÉ", "zh": "老森林餐廳咖啡館", "type": "咖啡／餐廳", "time": "早餐／午餐／下午／晚餐", "abc": "A+B", "tier": "A", "rating": 4.7, "reviews": 84, "note": "兼具咖啡與正餐。"}, {"id": 44, "region": "西北", "area": "Ông Lang 翁朗", "name": "Mango Bay Restaurant", "zh": "芒果灣餐廳", "type": "景觀餐廳／越南・西式", "time": "傍晚／晚餐", "abc": "C", "tier": "A", "rating": null, "reviews": null, "note": "度假型海邊餐飲代表候選。"}, {"id": 45, "region": "西北", "area": "Ông Lang 翁朗", "name": "On The Rocks Restaurant", "zh": "岩石海濱餐廳", "type": "景觀餐廳／海鮮", "time": "傍晚／晚餐", "abc": "A+C", "tier": "A", "rating": null, "reviews": null, "note": "海邊夕陽景觀型。"}, {"id": 46, "region": "西北", "area": "Ông Lang 翁朗", "name": "Mai Jo Refined Restaurant", "zh": "Mai Jo 精緻越南餐廳", "type": "越南料理", "time": "晚餐", "abc": "A+B", "tier": "A", "rating": null, "reviews": null, "note": "偏精緻越式料理。"}, {"id": 47, "region": "西北", "area": "Ông Lang 翁朗", "name": "Nha Hang Yen Son Phu Quoc", "zh": "Yên Sơn 越南餐廳", "type": "越南料理／海鮮", "time": "午餐／晚餐", "abc": "B", "tier": "B", "rating": null, "reviews": null, "note": "翁朗在地餐飲候選。"}, {"id": 48, "region": "西北", "area": "Ông Lang 翁朗", "name": "Tin Tin Pizza", "zh": "Tin Tin 披薩", "type": "披薩／西式", "time": "午餐／晚餐", "abc": "A", "tier": "B", "rating": null, "reviews": null, "note": "家庭換口味備選。"}, {"id": 49, "region": "西北", "area": "Ông Lang 翁朗", "name": "Bittersweet Bistro", "zh": "苦甜小酒館", "type": "西式料理／酒吧", "time": "晚餐／宵夜", "abc": "A", "tier": "B", "rating": null, "reviews": null, "note": "偏大人晚間餐飲。"}, {"id": 50, "region": "西北", "area": "Ông Lang 翁朗", "name": "Coco Palm Restaurant", "zh": "椰林餐廳", "type": "越南料理／海鮮", "time": "午餐／晚餐", "abc": "B", "tier": "B", "rating": null, "reviews": null, "note": "翁朗區備選。"}, {"id": 51, "region": "中島", "area": "Dương Đông 楊東", "name": "Hải sản Động Tôm Hùm - Lobster Cave seafood", "zh": "龍蝦洞海鮮餐廳", "type": "海鮮", "time": "午餐／晚餐", "abc": "A+C", "tier": "S", "rating": 4.8, "reviews": 8020, "note": "高分且8千則評論，強力必吃候選。"}, {"id": 52, "region": "中島", "area": "Dương Đông 楊東", "name": "Bún quậy KIẾN - XÂY", "zh": "Kiến Xây 富國島攪拌米粉", "type": "富國島特色／米粉", "time": "早餐／午餐／晚餐", "abc": "A+B+C", "tier": "S", "rating": 4.2, "reviews": 6389, "note": "富國島代表性料理。"}, {"id": 53, "region": "中島", "area": "Dương Đông 楊東", "name": "Xin Chao seafood restaurant", "zh": "Xin Chao 欣潮海鮮餐廳", "type": "海鮮／景觀餐廳", "time": "傍晚／晚餐", "abc": "A+C", "tier": "A", "rating": 4.2, "reviews": 5116, "note": "高知名度、評論量大、適合夕陽時段。"}, {"id": 54, "region": "中島", "area": "Dương Đông 楊東", "name": "Bún Kèn Út Lượm", "zh": "Út Lượm 富國島魚咖哩米粉", "type": "富國島特色／米粉", "time": "早餐／午餐", "abc": "B+C", "tier": "S", "rating": 4.3, "reviews": 894, "note": "地方特色非常強，即使星等不頂尖仍值得保留。"}, {"id": 55, "region": "中島", "area": "Dương Đông 楊東", "name": "Bánh Canh Ghẹ Huỳnh Như", "zh": "Huỳnh Như 螃蟹湯粉", "type": "富國島特色／湯粉", "time": "早餐／午餐", "abc": "B+C", "tier": "A", "rating": null, "reviews": null, "note": "富國島官方旅遊資訊收錄的小吃。"}, {"id": 56, "region": "中島", "area": "Dương Đông 楊東", "name": "Sen River Restaurant", "zh": "蓮河越南餐廳", "type": "越南料理", "time": "早餐／午餐／晚餐", "abc": "A+B", "tier": "A", "rating": 4.9, "reviews": 179, "note": "高分但評論數仍屬中等，作為潛力店。"}, {"id": 57, "region": "中島", "area": "Dương Đông 楊東", "name": "Crab House Restaurant", "zh": "螃蟹屋餐廳", "type": "海鮮／螃蟹", "time": "午餐／晚餐", "abc": "A+C", "tier": "A", "rating": null, "reviews": null, "note": "長期旅遊平台熱門海鮮店。"}, {"id": 58, "region": "中島", "area": "Dương Đông 楊東", "name": "Chuồn Chuồn Bistro & Bar", "zh": "蜻蜓山景餐酒館", "type": "景觀餐廳／咖啡", "time": "早餐／下午／傍晚／晚餐", "abc": "A+C", "tier": "A", "rating": 4.3, "reviews": 6134, "note": "評論量非常大；重點是山景與夕陽。"}, {"id": 59, "region": "中島", "area": "Dương Đông 楊東", "name": "ANBA COFFEE", "zh": "ANBA 咖啡", "type": "咖啡／飲料", "time": "早餐／下午", "abc": "A", "tier": "A", "rating": 4.6, "reviews": 1364, "note": "評論量大的咖啡店。"}, {"id": 60, "region": "中島", "area": "Dương Đông 楊東", "name": "Zyzu Kafé", "zh": "Zyzu 咖啡館", "type": "咖啡／飲料", "time": "上午／下午／晚上", "abc": "A", "tier": "B", "rating": 4.4, "reviews": 344, "note": "市中心咖啡備選。"}, {"id": 61, "region": "中島", "area": "Dương Đông 楊東", "name": "The Cake Corner", "zh": "蛋糕角落", "type": "甜點／蛋糕", "time": "下午", "abc": "A", "tier": "A", "rating": 4.9, "reviews": 68, "note": "高分甜點店，評論數較少。"}, {"id": 62, "region": "中島", "area": "Dương Đông 楊東", "name": "Tiệm Bánh Kem Phú Quốc - PP Bakery", "zh": "PP 富國島蛋糕烘焙坊", "type": "麵包／甜點／蛋糕", "time": "上午／下午", "abc": "A", "tier": "B", "rating": 4.9, "reviews": 37, "note": "高分但樣本較小。"}, {"id": 63, "region": "中島", "area": "Dương Đông 楊東", "name": "IG Island Gelato", "zh": "IG 島嶼義式冰淇淋", "type": "冰品／甜點", "time": "下午／晚上", "abc": "A", "tier": "B", "rating": 4.9, "reviews": 39, "note": "甜點冰品備選。"}, {"id": 64, "region": "中島", "area": "Dương Đông 楊東", "name": "Coconut ice cream", "zh": "椰子冰淇淋", "type": "冰品／甜點", "time": "下午／晚上", "abc": "B", "tier": "B", "rating": 4.7, "reviews": 105, "note": "適合夜市前後甜點。"}, {"id": 65, "region": "中島", "area": "Dương Đông 夜市", "name": "Phu Quoc Night Market", "zh": "富國島夜市", "type": "夜市／小吃／海鮮／甜點", "time": "晚餐／宵夜", "abc": "A+B+C", "tier": "S", "rating": null, "reviews": null, "note": "官方資料指出超過100個攤位；適合一次蒐集多種小吃。"}, {"id": 66, "region": "中島", "area": "Dương Đông 楊東", "name": "Nhà Ghẹ Phú Quốc", "zh": "富國島螃蟹之家", "type": "海鮮／螃蟹", "time": "午餐／晚餐", "abc": "B", "tier": "A", "rating": null, "reviews": null, "note": "螃蟹與海鮮類候選。"}, {"id": 67, "region": "中島", "area": "Dương Đông 楊東", "name": "Bánh Mì Lam", "zh": "Lam 越式法國麵包", "type": "麵包／越式法國麵包", "time": "早餐／點心", "abc": "B", "tier": "A", "rating": null, "reviews": null, "note": "補足 Bánh mì 類型。"}, {"id": 68, "region": "中島", "area": "Dương Đông 楊東", "name": "Phở Sài Gòn", "zh": "西貢河粉", "type": "越南料理／河粉", "time": "早餐／午餐", "abc": "B", "tier": "B", "rating": null, "reviews": null, "note": "傳統早餐、午餐候選。"}, {"id": 69, "region": "中島", "area": "Dương Đông 楊東", "name": "Bún Chả Hà Nội - Phú Quốc", "zh": "富國島河內烤肉米線", "type": "越南料理／米線", "time": "午餐／晚餐", "abc": "B", "tier": "A", "rating": null, "reviews": null, "note": "平價越南料理候選。"}, {"id": 70, "region": "中島", "area": "Dương Đông 楊東", "name": "Phụng Bánh Canh Chả Cá", "zh": "Phụng 魚餅湯粉", "type": "富國島特色／湯粉", "time": "早餐／午餐", "abc": "B+C", "tier": "S", "rating": null, "reviews": null, "note": "富國島傳統湯粉代表候選。"}, {"id": 71, "region": "中南", "area": "Long Beach／Cửa Lấp", "name": "MEO Kitchen", "zh": "MEO 越南廚房", "type": "越南料理", "time": "午餐／晚餐", "abc": "A+B", "tier": "S", "rating": 4.8, "reviews": 8265, "note": "高分且評論數極高。"}, {"id": 72, "region": "中南", "area": "Cửa Lấp", "name": "Banh Xeo CUỘI restaurant (Branch 3)", "zh": "Cuội 越式煎餅餐廳（三店）", "type": "越南料理／越式煎餅", "time": "午餐／晚餐", "abc": "A+B", "tier": "S", "rating": 4.8, "reviews": 6346, "note": "高分＋大量評論。"}, {"id": 73, "region": "中南", "area": "Long Beach", "name": "Bếp An Restaurant", "zh": "安廚房越南餐廳", "type": "越南料理", "time": "午餐／晚餐", "abc": "A+B", "tier": "A", "rating": 4.7, "reviews": 2283, "note": "家庭正餐候選。"}, {"id": 74, "region": "中南", "area": "Long Beach", "name": "Sunset Beach Bar & Restaurant", "zh": "日落海灘餐酒館", "type": "景觀餐廳／亞洲料理", "time": "傍晚／晚餐", "abc": "A+C", "tier": "A", "rating": null, "reviews": null, "note": "旅遊平台長期高人氣；重點是夕陽與海灘。"}, {"id": 75, "region": "中南", "area": "Long Beach", "name": "The Home Pizza - Tran Hung Dao", "zh": "The Home Pizza・陳興道路店", "type": "披薩／西式料理", "time": "午餐／晚餐", "abc": "A+C", "tier": "A", "rating": null, "reviews": null, "note": "家庭換口味熱門備選。"}, {"id": 76, "region": "中南", "area": "Long Beach", "name": "The Spice House at Cassia Cottage", "zh": "Cassia Cottage 香料屋餐廳", "type": "越南料理／海鮮", "time": "午餐／晚餐", "abc": "C", "tier": "A", "rating": null, "reviews": null, "note": "長期旅遊平台知名餐廳。"}, {"id": 77, "region": "中南", "area": "Long Beach", "name": "Nora’s Cafe", "zh": "Nora 咖啡館", "type": "咖啡／早午餐／甜點", "time": "早餐／早午餐／下午", "abc": "A+C", "tier": "A", "rating": null, "reviews": null, "note": "咖啡、早午餐類的重要候選。"}, {"id": 78, "region": "中南", "area": "Long Beach", "name": "Long Life Coffee & Dine", "zh": "Long Life 咖啡餐館", "type": "咖啡／餐廳", "time": "早餐／午餐／下午", "abc": "B", "tier": "B", "rating": 4.5, "reviews": 90, "note": "Long Beach Center 周邊。"}, {"id": 79, "region": "中南", "area": "Long Beach", "name": "The Greek Restaurant Phu Quoc", "zh": "富國島希臘餐廳", "type": "希臘料理／景觀餐廳", "time": "午餐／晚餐", "abc": "A", "tier": "B", "rating": 4.8, "reviews": 68, "note": "海景、夕陽與異國料理。"}, {"id": 80, "region": "中南", "area": "Long Beach", "name": "Ocsen Beach Bar & Club", "zh": "Ocsen 海灘酒吧", "type": "酒吧／景觀／小吃", "time": "傍晚／晚間", "abc": "A+C", "tier": "B", "rating": null, "reviews": null, "note": "偏大人晚間行程，家庭使用需視情況。"}, {"id": 81, "region": "中南", "area": "Long Beach", "name": "Winston's Burgers & Beer", "zh": "Winston 漢堡啤酒餐廳", "type": "漢堡／西式料理", "time": "午餐／晚餐", "abc": "C", "tier": "B", "rating": null, "reviews": null, "note": "長期人氣異國料理。"}, {"id": 82, "region": "中南", "area": "Long Beach", "name": "MYLA SEAFOOD", "zh": "MYLA 海鮮餐廳", "type": "海鮮", "time": "午餐／晚餐", "abc": "A", "tier": "A", "rating": 4.9, "reviews": 894, "note": "高分且接近千則評論。"}, {"id": 83, "region": "中南", "area": "Long Beach", "name": "Huong Bien Restaurant - Vietnamese Cuisine & Seafood", "zh": "香海越南海鮮餐廳", "type": "越南料理／海鮮", "time": "午餐／晚餐", "abc": "B", "tier": "A", "rating": 4.7, "reviews": 793, "note": "越式正餐與海鮮。"}, {"id": 84, "region": "中南", "area": "Long Beach", "name": "Tween's Kitchen - Main Street Branch", "zh": "Tween's Kitchen 主街店", "type": "越南料理", "time": "午餐／晚餐", "abc": "A+B", "tier": "A", "rating": 4.7, "reviews": 755, "note": "高評價家庭餐廳候選。"}, {"id": 85, "region": "中南", "area": "Long Beach", "name": "Bánh Xèo Cuội 2", "zh": "Cuội 越式煎餅二店", "type": "越南小吃／煎餅", "time": "午餐／晚餐", "abc": "A+B", "tier": "A", "rating": 4.8, "reviews": 659, "note": "越式煎餅與在地小吃。"}, {"id": 86, "region": "東島", "area": "Hàm Ninh 咸寧", "name": "Nhà hàng Biển Xanh Hàm Ninh", "zh": "咸寧碧海海鮮餐廳", "type": "海鮮／螃蟹", "time": "午餐／晚餐", "abc": "B+C", "tier": "A", "rating": null, "reviews": null, "note": "咸寧以海鮮、螃蟹為核心；秤重先確認價格。"}, {"id": 87, "region": "東島", "area": "Hàm Ninh 咸寧", "name": "Nhà Bè Bé Ghẹ Hàm Ninh", "zh": "咸寧小螃蟹海上餐廳", "type": "海鮮／螃蟹", "time": "午餐／晚餐", "abc": "B", "tier": "A", "rating": null, "reviews": null, "note": "海上餐廳型，重點是螃蟹與現撈海鮮。"}, {"id": 88, "region": "東島", "area": "Hàm Ninh 咸寧", "name": "Nhà hàng Hạnh Nhung Hàm Ninh", "zh": "咸寧 Hạnh Nhung 海鮮餐廳", "type": "海鮮", "time": "午餐／晚餐", "abc": "B", "tier": "A", "rating": null, "reviews": null, "note": "咸寧海鮮候選。"}, {"id": 89, "region": "東島", "area": "Hàm Ninh 咸寧", "name": "Nhà hàng Song Lê Hàm Ninh", "zh": "咸寧 Song Lê 海鮮餐廳", "type": "海鮮", "time": "午餐／晚餐", "abc": "B", "tier": "B", "rating": null, "reviews": null, "note": "東岸海鮮備選。"}, {"id": 90, "region": "東島", "area": "Hàm Ninh 咸寧", "name": "Nhà Bè Tình Biển Hàm Ninh", "zh": "咸寧情海海上餐廳", "type": "海鮮／景觀", "time": "午餐／晚餐", "abc": "B", "tier": "B", "rating": null, "reviews": null, "note": "海景與海鮮為主。"}, {"id": 91, "region": "東島", "area": "Hàm Ninh 咸寧", "name": "Hàm Ninh Fishing Village Seafood", "zh": "咸寧漁村海鮮", "type": "海鮮／小吃", "time": "午餐／晚餐", "abc": "B+C", "tier": "A", "rating": null, "reviews": null, "note": "以漁村現場店家與攤位為一個區域型候選；實際店家需現場比較價格。"}, {"id": 92, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "CÁI MÂM BISTRO", "zh": "Cái Mâm 越式餐館", "type": "越南料理", "time": "午餐／晚餐", "abc": "A+B", "tier": "S", "rating": 4.7, "reviews": 1263, "note": "南島高人氣越南料理候選。"}, {"id": 93, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "NamBo Kitchen", "zh": "NamBo 南部越南廚房", "type": "越南料理", "time": "午餐／晚餐", "abc": "A+B", "tier": "S", "rating": 4.8, "reviews": 743, "note": "南島高分、評論量具參考性。"}, {"id": 94, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "Maharaja Lounge - 100% Pure Veg Authentic Indian Restaurant Sunset Town", "zh": "Maharaja 印度素食餐廳・日落小鎮店", "type": "印度料理／素食", "time": "午餐／晚餐", "abc": "A", "tier": "B", "rating": 4.9, "reviews": 182, "note": "高分異國料理，非富國島特色。"}, {"id": 95, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "WAVE CAFE&PUB 3F - SUNSET TOWN", "zh": "WAVE 三樓景觀咖啡酒館", "type": "咖啡／景觀／酒吧", "time": "下午／傍晚／晚上", "abc": "A", "tier": "B", "rating": 5.0, "reviews": 21, "note": "分數極高但樣本很小，先列潛力店。"}, {"id": 96, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "Starbucks Sunset Town", "zh": "星巴克・日落小鎮店", "type": "咖啡／飲料", "time": "上午／下午／晚上", "abc": "C", "tier": "B", "rating": null, "reviews": null, "note": "位置方便，非在地特色。"}, {"id": 97, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "Sunset Town Night Market / VUI-Fest Bazaar", "zh": "日落小鎮 VUI-Fest 夜市", "type": "夜市／小吃／甜點／海鮮", "time": "晚餐／宵夜", "abc": "A+B", "tier": "A", "rating": null, "reviews": null, "note": "適合一次蒐集多種小吃與甜點。"}, {"id": 98, "region": "南島", "area": "An Thới 安泰", "name": "Draft Beer Phu Quoc - Sunset Town", "zh": "富國島生啤餐廳・日落小鎮店", "type": "越南料理／海鮮／酒吧", "time": "晚餐／宵夜", "abc": "A", "tier": "B", "rating": null, "reviews": null, "note": "晚間餐飲候選。"}, {"id": 99, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "Runam Cafe Sunset Town", "zh": "RuNam 咖啡・日落小鎮店", "type": "咖啡／甜點／輕食", "time": "早餐／下午", "abc": "A+C", "tier": "A", "rating": null, "reviews": null, "note": "越南知名咖啡品牌型候選。"}, {"id": 100, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "Sunset Seafood Restaurant", "zh": "日落海鮮餐廳", "type": "海鮮／景觀餐廳", "time": "傍晚／晚餐", "abc": "A", "tier": "A", "rating": null, "reviews": null, "note": "南島景觀海鮮候選；海鮮價格先確認。"}, {"id": 101, "region": "南島", "area": "An Thới 安泰", "name": "Quán Ăn Thuận Kiều 2", "zh": "Thuận Kiều 2 安泰在地餐館", "type": "越南料理／海鮮", "time": "午餐／晚餐", "abc": "B", "tier": "A", "rating": null, "reviews": null, "note": "南島在地餐飲候選。"}, {"id": 102, "region": "南島", "area": "An Thới 安泰", "name": "Bánh Mì An Thới", "zh": "安泰越式法國麵包", "type": "麵包／越式法國麵包", "time": "早餐／點心", "abc": "B", "tier": "B", "rating": null, "reviews": null, "note": "以安泰鎮早餐型 Bánh mì 類別收錄，實際店家可再擴充。"}];
+const REGIONS = ["北島","西北","中島","中南","東島","南島"];
+const STORE_PREFIX = "phuQuocFoodListV1:";
+const PROFILE_KEY = "phuQuocFoodListV1:lastProfile";
+const FONT_KEY = "phuQuocFoodListV1:fontScale";
+let chosen = new Set();
+let activeRegion = "全部";
+
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function googleUrl(x){return "https://www.google.com/search?q="+encodeURIComponent(x.name+" 富國島")}
+function ratingText(x){
+  if(x.rating==null) return '<span class="unknown">—</span>';
+  const r=x.reviews!=null ? `・${Number(x.reviews).toLocaleString()}則` : "";
+  return `<span class="rating"><strong>${x.rating.toFixed(1)}★</strong>${r}</span>`;
+}
+function checked(id){return chosen.has(id) ? "checked" : ""}
+function rowHtml(x){
+return `<tr class="${chosen.has(x.id)?"chosen":""}" data-id="${x.id}">
+<td class="center"><input type="checkbox" ${checked(x.id)} onchange="toggleItem(${x.id},this.checked)"></td>
+<td class="center">${x.id}</td>
+<td>${esc(x.area)}</td>
+<td><span class="name">${esc(x.name)}</span><span class="zh">${esc(x.zh)}</span></td>
+<td><a class="google" target="_blank" rel="noopener" href="${googleUrl(x)}">Google 搜尋</a></td>
+<td><span class="tag">${esc(x.abc)}</span></td>
+<td>${esc(x.type)}</td>
+<td>${esc(x.time)}</td>
+<td class="center tier tier-${x.tier}">${x.tier}</td>
+<td>${ratingText(x)}</td>
+<td class="note">${esc(x.note)}</td>
+</tr>`;
+}
+function currentFiltered(){
+  const t=document.getElementById("typeFilter").value;
+  const tier=document.getElementById("tierFilter").value;
+  const rf=document.getElementById("ratingFilter").value;
+  const q=document.getElementById("search").value.trim().toLowerCase();
+  return DATA.filter(x=>{
+    if(activeRegion!=="全部" && x.region!==activeRegion) return false;
+    if(t!=="全部" && !x.type.includes(t)) return false;
+    if(tier!=="全部" && x.tier!==tier) return false;
+    if(rf==="verified" && x.rating==null) return false;
+    if(!["全部","verified"].includes(rf) && (x.rating==null || x.rating < Number(rf))) return false;
+    if(q){
+      const hay=[x.region,x.area,x.name,x.zh,x.type,x.note,x.abc,x.tier].join(" ").toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+}
+function render(){
+  const filtered=currentFiltered();
+  const root=document.getElementById("sections");
+  root.innerHTML=REGIONS.map(r=>{
+    const arr=filtered.filter(x=>x.region===r);
+    if(!arr.length) return "";
+    return `<section class="section">
+      <h2>${regionLabel(r)} <span class="count">${arr.length} 家</span></h2>
+      <div class="table-wrap"><table>
+      <thead><tr><th>勾選</th><th>項次</th><th>區域</th><th>店家（原文＋中文）</th><th>查看介紹</th><th>ABC</th><th>美食種類</th><th>適合時間</th><th>必吃</th><th>Google</th><th>備註</th></tr></thead>
+      <tbody>${arr.map(rowHtml).join("")}</tbody></table></div>
+    </section>`;
+  }).join("") || '<div class="card" style="padding:20px;margin-top:15px">沒有符合目前篩選條件的項目。</div>';
+  renderMine();
+}
+function regionLabel(r){
+ return ({"北島":"🟦 北島｜Grand World・Gành Dầu","西北":"🟩 西北｜Ông Lang 翁朗","中島":"🟨 中島｜Dương Đông 楊東","中南":"🟧 中南｜Long Beach・Cửa Lấp","東島":"🟫 東島｜Hàm Ninh 咸寧","南島":"🟪 南島｜An Thới・Sunset Town"})[r]||r;
+}
+function toggleItem(id,on){on?chosen.add(id):chosen.delete(id); render();}
+function renderMine(){
+  const box=document.getElementById("myList");
+  const arr=DATA.filter(x=>chosen.has(x.id));
+  document.getElementById("myCount").textContent=`${arr.length} 家`;
+  if(!arr.length){box.innerHTML='<div class="empty">尚未勾選。從下方清單勾選後，會立即置頂顯示在這裡。</div>';return;}
+  box.innerHTML=arr.map(x=>`<div class="my-item"><span class="pin">✓</span><div style="flex:1"><b>${esc(x.zh)}</b><div>${esc(x.name)}</div><div class="meta">${esc(x.area)}｜${esc(x.type)}｜${x.tier}｜${x.rating!=null?x.rating.toFixed(1)+"★":"評分待複核"}</div></div><button title="取消" onclick="toggleItem(${x.id},false)">×</button></div>`).join("");
+}
+function profile(){return document.getElementById("profileName").value.trim()}
+function keyForProfile(p){return STORE_PREFIX+p}
+function saveMine(){
+ const p=profile(); if(!p){setStatus("請先輸入使用者名稱。");return;}
+ localStorage.setItem(keyForProfile(p),JSON.stringify([...chosen]));
+ localStorage.setItem(PROFILE_KEY,p); setStatus(`已儲存「${p}」的 ${chosen.size} 家。`);
+}
+function loadMine(){
+ const p=profile(); if(!p){setStatus("請先輸入使用者名稱。");return;}
+ const raw=localStorage.getItem(keyForProfile(p));
+ chosen=new Set(raw?JSON.parse(raw):[]); localStorage.setItem(PROFILE_KEY,p);
+ setStatus(raw?`已讀取「${p}」的清單。`:`「${p}」目前沒有已儲存清單。`); render();
+}
+function clearMine(){chosen.clear();render();setStatus("目前勾選已清空；尚未覆寫已儲存版本。");}
+function copyMine(){
+ const arr=DATA.filter(x=>chosen.has(x.id));
+ if(!arr.length){setStatus("目前沒有勾選內容。");return;}
+ const p=profile()||"我的";
+ const txt=`🍴 富國島美食清單｜${p}\n`+arr.map((x,i)=>`${i+1}. ${x.zh}｜${x.name}\n   ${x.area}｜${x.type}｜必吃${x.tier}${x.rating!=null?"｜Google "+x.rating.toFixed(1)+"★":""}`).join("\n");
+ navigator.clipboard.writeText(txt).then(()=>setStatus("已複製，可貼到 LINE。")).catch(()=>setStatus("瀏覽器無法自動複製，請手動選取。"));
+}
+function setStatus(s){document.getElementById("saveStatus").textContent=s;}
+function resetFilters(){
+ activeRegion="全部"; document.querySelectorAll('[data-kind="region"]').forEach(b=>b.classList.toggle("active",b.dataset.value==="全部"));
+ document.getElementById("typeFilter").value="全部";document.getElementById("tierFilter").value="全部";document.getElementById("ratingFilter").value="全部";document.getElementById("search").value="";render();
+}
+document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{
+ activeRegion=b.dataset.value;document.querySelectorAll('[data-kind="region"]').forEach(x=>x.classList.toggle("active",x===b));render();
+}));
+["typeFilter","tierFilter","ratingFilter"].forEach(id=>document.getElementById(id).addEventListener("change",render));
+document.getElementById("search").addEventListener("input",render);
+
+const typeRoots=[...new Set(DATA.flatMap(x=>x.type.split("／")))].sort((a,b)=>a.localeCompare(b,"zh-Hant"));
+const typeSel=document.getElementById("typeFilter");
+typeRoots.forEach(t=>{const o=document.createElement("option");o.value=t;o.textContent=t;typeSel.appendChild(o)});
+
+let fs=Number(localStorage.getItem(FONT_KEY)||1);
+function applyFont(){fs=Math.min(1.3,Math.max(.8,fs));document.documentElement.style.setProperty("--scale",fs);document.getElementById("fontPct").textContent=Math.round(fs*100)+"%";localStorage.setItem(FONT_KEY,fs)}
+function fontStep(d){fs=Math.round((fs+d)*10)/10;applyFont()}
+applyFont();
+
+const last=localStorage.getItem(PROFILE_KEY);
+if(last){document.getElementById("profileName").value=last;const raw=localStorage.getItem(keyForProfile(last));if(raw) chosen=new Set(JSON.parse(raw));}
+render();
+</script>
+</body></html>
