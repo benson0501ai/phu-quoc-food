@@ -51,26 +51,86 @@ button{cursor:pointer} button:hover{filter:brightness(.98)} .primary{background:
 .section.south h2{background:#faf5ff;color:#7e22ce}
 .count{font-size:.75em;color:inherit;opacity:.75;font-weight:600}
 
-.table-wrap{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;border-radius:14px;border:1px solid var(--line);background:#fff}
-table{width:100%;border-collapse:collapse;min-width:1260px}
-th,td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
-th{position:static;background:#f8fafc;text-align:left;z-index:auto;white-space:nowrap}
-tr:hover td{background:#fafafa} tr.chosen td{background:#f0fdfa}
-.center{text-align:center} .name{font-weight:800} .zh{display:block;color:#0f766e;font-weight:700;margin-top:2px}
-.tier{font-weight:900;font-size:1.06em} .tier-Splus{color:#b91c1c;font-size:1.12em} .tier-S{color:#b45309} .tier-A{color:#047857} .tier-B{color:#475569}
-.rating{white-space:nowrap} .rating strong{font-size:1.04em}
+.section-table-head{
+  position:sticky;
+  top:var(--table-sticky-top);
+  z-index:17;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-bottom:0;
+  border-radius:14px 14px 0 0;
+  background:#f8fafc;
+  box-shadow:0 2px 8px rgba(15,23,42,.04);
+}
+.section-table-head .head-track{
+  width:1440px;
+  will-change:transform;
+}
+.table-wrap{
+  overflow-x:auto;
+  overflow-y:visible;
+  -webkit-overflow-scrolling:touch;
+  border:1px solid var(--line);
+  border-top:0;
+  border-radius:0 0 14px 14px;
+  background:#fff;
+}
+.food-table,.head-table{
+  width:1440px;
+  min-width:1440px;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+.food-table col:nth-child(1),.head-table col:nth-child(1){width:52px}
+.food-table col:nth-child(2),.head-table col:nth-child(2){width:58px}
+.food-table col:nth-child(3),.head-table col:nth-child(3){width:250px}
+.food-table col:nth-child(4),.head-table col:nth-child(4){width:360px}
+.food-table col:nth-child(5),.head-table col:nth-child(5){width:60px}
+.food-table col:nth-child(6),.head-table col:nth-child(6){width:120px}
+.food-table col:nth-child(7),.head-table col:nth-child(7){width:105px}
+.food-table col:nth-child(8),.head-table col:nth-child(8){width:140px}
+.food-table col:nth-child(9),.head-table col:nth-child(9){width:120px}
+.food-table col:nth-child(10),.head-table col:nth-child(10){width:175px}
+.food-table th,.food-table td,.head-table th{
+  padding:9px 8px;
+  border-bottom:1px solid var(--line);
+  vertical-align:middle;
+  box-sizing:border-box;
+}
+.head-table th{
+  background:#f8fafc;
+  text-align:left;
+  white-space:nowrap;
+  font-weight:800;
+}
+.food-table tbody tr:nth-child(odd) td{background:#eef6ff}
+.food-table tbody tr:nth-child(even) td{background:#ffffff}
+.food-table tbody tr:hover td{background:#e0f2fe}
+.food-table tbody tr.chosen td{background:#d1fae5}
+.center{text-align:center}
+.name{font-weight:800}
+.zh{display:block;color:#0f766e;font-weight:700;margin-top:2px}
+.tier{font-weight:900;font-size:1.06em}
+.tier-Splus{color:#b91c1c;font-size:1.12em}
+.tier-S{color:#b45309}
+.tier-A{color:#047857}
+.tier-B{color:#475569}
+.rating{white-space:nowrap}
+.rating strong{font-size:1.04em}
 .no-review{color:#9f1239;font-weight:800;white-space:nowrap}
-.google{white-space:nowrap;color:#0369a1;text-decoration:none;font-weight:700} .google:hover{text-decoration:underline}
+.google{white-space:nowrap;color:#0369a1;text-decoration:none;font-weight:700}
+.google:hover{text-decoration:underline}
 .note{color:#475569;font-size:.91em}
 .my-table-title{font-weight:800;margin:12px 0 7px;color:#0f766e}
 .footer{text-align:center;color:var(--muted);padding:25px 8px}
 @media(max-width:720px){
-  :root{--font:12px;--section-sticky-top:calc(env(safe-area-inset-top, 0px) + 4px);--table-sticky-top:calc(env(safe-area-inset-top, 0px) + 48px)}
-  .wrap{padding:8px} .header{padding:15px;border-radius:13px} .header h1{font-size:20px}
+  :root{--font:12px;--section-sticky-top:calc(env(safe-area-inset-top, 0px) + 4px);--table-sticky-top:calc(env(safe-area-inset-top, 0px) + 52px)}
+  .wrap{padding:8px}
+  .header{padding:15px;border-radius:13px}
+  .header h1{font-size:20px}
   .toolbar{position:relative;top:auto;padding:9px;border-radius:12px;z-index:20}
   button,select,input[type=text]{padding:7px 8px}
   #myCard{padding:11px}
-  th,td{padding:7px 6px}
   .section{overflow:visible}
   .section h2{
     font-size:17px;
@@ -79,11 +139,10 @@ tr:hover td{background:#fafafa} tr.chosen td{background:#f0fdfa}
     margin-bottom:8px;
     min-height:40px;
   }
-  .table-wrap{
-    overflow-x:auto;
-    overflow-y:visible;
-    -webkit-overflow-scrolling:touch;
+  .section-table-head{
+    z-index:39;
   }
+  .food-table th,.food-table td,.head-table th{padding:7px 6px}
 }
 </style>
 </head>
@@ -142,7 +201,7 @@ tr:hover td{background:#fafafa} tr.chosen td{background:#f0fdfa}
 </div>
 
 <main id="sections"></main>
-<footer class="footer">研究版 1.6｜更新日期 2026-09-05｜Google 星等與評論數會持續變動。</footer>
+<footer class="footer">研究版 1.7｜更新日期 2026-09-05｜Google 星等與評論數會持續變動。</footer>
 </div>
 
 <script>
@@ -164,6 +223,7 @@ function updateStickyOffsets(){
   if(isMobile){
     const safeTop=4;
     document.documentElement.style.setProperty("--section-sticky-top", `calc(env(safe-area-inset-top, 0px) + ${safeTop}px)`);
+    document.documentElement.style.setProperty("--table-sticky-top", `calc(env(safe-area-inset-top, 0px) + ${safeTop + headerH + 8}px)`);
     return;
   }
 
@@ -173,6 +233,7 @@ function updateStickyOffsets(){
   const toolbarH=Math.ceil(toolbar.getBoundingClientRect().height);
   const sectionTop=toolbarTop + toolbarH + 8;
   document.documentElement.style.setProperty("--section-sticky-top", sectionTop+"px");
+  document.documentElement.style.setProperty("--table-sticky-top", (sectionTop + headerH + 8)+"px");
 }
 
 function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
@@ -196,9 +257,27 @@ return `<tr class="${chosen.has(x.id)?"chosen":""}" data-id="${x.id}">
 <td class="note">${esc(x.note)}</td>
 </tr>`;
 }
-function tableHtml(arr){
- return `<div class="table-wrap"><table>
+function colGroupHtml(){
+ return `<colgroup><col><col><col><col><col><col><col><col><col><col></colgroup>`;
+}
+function tableHeaderHtml(){
+ return `<div class="section-table-head"><div class="head-track"><table class="head-table">
+ ${colGroupHtml()}
  <thead><tr><th>勾選</th><th>項次</th><th>區域</th><th>店家（原文＋中文）</th><th>必吃</th><th>Google</th><th>查看介紹</th><th>美食種類</th><th>適合時間</th><th>備註</th></tr></thead>
+ </table></div></div>`;
+}
+function colGroupHtml(){
+ return `<colgroup><col><col><col><col><col><col><col><col><col><col></colgroup>`;
+}
+function tableHeaderHtml(){
+ return `<div class="section-table-head"><div class="head-track"><table class="head-table">
+ ${colGroupHtml()}
+ <thead><tr><th>勾選</th><th>項次</th><th>區域</th><th>店家（原文＋中文）</th><th>必吃</th><th>Google</th><th>查看介紹</th><th>美食種類</th><th>適合時間</th><th>備註</th></tr></thead>
+ </table></div></div>`;
+}
+function tableHtml(arr){
+ return `${tableHeaderHtml()}<div class="table-wrap"><table class="food-table">
+ ${colGroupHtml()}
  <tbody>${arr.map(rowHtml).join("")}</tbody></table></div>`;
 }
 function currentFiltered(){
@@ -220,13 +299,25 @@ function currentFiltered(){
    return true;
  });
 }
+
+function bindTableScrollSync(){
+  document.querySelectorAll(".table-wrap").forEach(wrap=>{
+    const head=wrap.previousElementSibling;
+    if(!head || !head.classList.contains("section-table-head")) return;
+    const track=head.querySelector(".head-track");
+    const sync=()=>{track.style.transform=`translateX(${-wrap.scrollLeft}px)`};
+    wrap.addEventListener("scroll",sync,{passive:true});
+    sync();
+  });
+}
+
 function render(){
  const filtered=currentFiltered();
  document.getElementById("sections").innerHTML=REGIONS.map(r=>{
    const arr=filtered.filter(x=>x.region===r); if(!arr.length) return "";
    return `<section class="section ${REGION_CLASS[r]}"><h2>${regionLabel(r)} <span class="count">${arr.length} 家</span></h2>${tableHtml(arr)}</section>`;
  }).join("") || '<div class="card" style="padding:20px;margin-top:15px">沒有符合目前篩選條件的項目。</div>';
- renderMine(); updateRegionButtons(); requestAnimationFrame(updateStickyOffsets);
+ renderMine(); updateRegionButtons(); bindTableScrollSync(); requestAnimationFrame(updateStickyOffsets);
 }
 function regionLabel(r){
  return ({"北島":"北島｜Grand World 富國大世界・Gành Dầu 甘油角","西北":"西北｜Ông Lang 翁朗","中島":"中島｜Dương Đông 楊東","中南":"中南｜Long Beach 長灘・Cửa Lấp 庫阿拉普","東島":"東島｜Hàm Ninh 咸寧","南島":"南島｜An Thới 安泰・Sunset Town 日落小鎮"})[r]||r;
