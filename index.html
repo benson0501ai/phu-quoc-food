@@ -6,52 +6,52 @@
 <title>富國島美食清單</title>
 <meta name="description" content="富國島全島美食清單：餐廳、咖啡、麵包、甜點、小吃、夜市、海鮮與各國料理。">
 <meta property="og:title" content="富國島美食清單">
-<meta property="og:description" content="全島美食資料庫｜可篩選、勾選、儲存個人清單">
+<meta property="og:description" content="146 家富國島美食｜可複選篩選、勾選與儲存個人清單">
 <style>
-:root{
-  --bg:#f5f7fb;--card:#fff;--ink:#1f2937;--muted:#64748b;--line:#dbe3ee;
-  --brand:#0f766e;--section-top:6px;--font:14px;
-}
+:root{--bg:#f5f7fb;--card:#fff;--ink:#1f2937;--muted:#64748b;--line:#dbe3ee;--brand:#0f766e;--sticky-top:4px;--font:14px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans TC",sans-serif;font-size:var(--font)}
-.wrap{max-width:1500px;margin:auto;padding:14px}
-.header,.toolbar,#myCard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:14px}
+.wrap{max-width:1500px;margin:auto;padding:12px}
+.header,.toolbar,#myCard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:14px}
 .header h1{margin:0 0 6px;font-size:28px}
-.header p{margin:0;color:var(--muted)}
+.header p,.small{color:var(--muted)}
 .toolbar{position:relative;z-index:20}
-.region-buttons,.filters,.profile-actions,.font-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.region-buttons,.filters,.profile-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .region-buttons{margin-bottom:10px}
 button,input{font:inherit}
 button{border:1px solid #cbd5e1;background:#fff;border-radius:10px;padding:8px 10px;cursor:pointer}
-button.active{font-weight:800;box-shadow:0 0 0 2px rgba(15,118,110,.12)}
-.search{min-width:220px;padding:8px 10px;border:1px solid #cbd5e1;border-radius:10px}
-.small{font-size:.9em;color:var(--muted)}
+button.active{font-weight:800;box-shadow:0 0 0 2px rgba(15,118,110,.15)}
+.search{min-width:210px;padding:8px 10px;border:1px solid #cbd5e1;border-radius:10px}
 .multi{position:relative}
-.multi > button{min-width:110px;text-align:left}
-.menu{display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:300;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px rgba(15,23,42,.16);padding:8px;min-width:230px;max-height:320px;overflow:auto}
+.multi>button{min-width:108px;text-align:left}
+.menu{display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:300;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px rgba(15,23,42,.18);padding:8px;min-width:240px;max-height:320px;overflow:auto}
 .menu.open{display:block}
-.menu label{display:flex;gap:8px;align-items:flex-start;padding:7px;border-radius:8px;cursor:pointer}
+.menu label{display:flex;gap:8px;align-items:flex-start;padding:7px;border-radius:8px;cursor:pointer;white-space:normal}
 .menu label:hover{background:#f8fafc}
 .section{position:relative;margin:18px 0 26px}
-.sticky-group{position:sticky;top:var(--section-top);z-index:40;background:var(--bg)}
+.sticky-group{position:sticky;top:var(--sticky-top);z-index:40;background:var(--bg)}
 .section h2{margin:0;padding:10px 12px;border-radius:12px 12px 0 0;font-size:20px}
-.count{font-size:.75em;font-weight:700;opacity:.7}
+.count{font-size:.75em;opacity:.72}
 .head-wrap{overflow:hidden;border:1px solid var(--line);border-top:0;background:#f8fafc}
-.track{width:1120px;will-change:transform}
+.head-track{width:1100px;will-change:transform}
 .body-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-top:0;border-radius:0 0 14px 14px;background:#fff}
-table{border-collapse:collapse;table-layout:fixed;width:1120px;min-width:1120px}
-col.c1{width:44px} col.c2{width:48px} col.c3{width:145px} col.c4{width:220px}
-col.c5{width:52px} col.c6{width:95px} col.c7{width:90px} col.c8{width:120px}
-col.c9{width:105px} col.c10{width:201px}
-th,td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+table{border-collapse:collapse;table-layout:fixed;width:1100px;min-width:1100px}
+col.c1{width:44px} col.c2{width:48px} col.c3{width:130px} col.c4{width:210px}
+col.c5{width:52px} col.c6{width:92px} col.c7{width:88px} col.c8{width:115px}
+col.c9{width:100px} col.c10{width:221px}
+th,td{padding:8px 7px;border-bottom:1px solid var(--line);vertical-align:middle}
 th{background:#f8fafc;text-align:left;font-weight:800;white-space:nowrap}
-td:nth-child(3),td:nth-child(4){white-space:normal;overflow-wrap:anywhere;word-break:break-word;line-height:1.35}
+.center{text-align:center}
+.wrap3{white-space:normal;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow-wrap:anywhere;word-break:break-word;line-height:1.35}
 .name{font-weight:800} .zh{display:block;color:#0f766e;font-weight:700;margin-top:2px}
-.center{text-align:center} .note{font-size:.92em;color:#475569}
-.tier{font-weight:900} .Splus{color:#b91c1c} .S{color:#b45309} .A{color:#047857} .B{color:#475569}
-.google{color:#0369a1;text-decoration:none;font-weight:700;white-space:nowrap} .none{color:#9f1239;font-weight:800;white-space:nowrap}
-.chosen td{background:#d1fae5 !important}
+.note{font-size:.92em;color:#475569}
+.tier{font-weight:900} .tier-Splus{color:#b91c1c} .tier-S{color:#b45309} .tier-A{color:#047857} .tier-B{color:#475569}
+.google{color:#0369a1;text-decoration:none;font-weight:700;white-space:nowrap}
+.no-rating{color:#9f1239;font-weight:800;white-space:nowrap}
+.food-row.chosen td{background:#d1fae5 !important}
+.food-row.hidden{display:none}
+.section.hidden{display:none}
 .section.north h2{background:#dbeafe;color:#1d4ed8}
 .section.northwest h2{background:#dcfce7;color:#15803d}
 .section.central h2{background:#fef3c7;color:#a16207}
@@ -59,31 +59,27 @@ td:nth-child(3),td:nth-child(4){white-space:normal;overflow-wrap:anywhere;word-b
 .section.east h2{background:#ede0d4;color:#7c2d12}
 .section.south h2{background:#ede9fe;color:#7e22ce}
 .section.north tbody tr:nth-child(odd) td{background:#eaf2ff}
-.section.north tbody tr:nth-child(even) td{background:#fff}
 .section.northwest tbody tr:nth-child(odd) td{background:#edf8f0}
-.section.northwest tbody tr:nth-child(even) td{background:#fff}
 .section.central tbody tr:nth-child(odd) td{background:#fff8dc}
-.section.central tbody tr:nth-child(even) td{background:#fff}
 .section.midsouth tbody tr:nth-child(odd) td{background:#fff1e5}
-.section.midsouth tbody tr:nth-child(even) td{background:#fff}
 .section.east tbody tr:nth-child(odd) td{background:#f7efe7}
-.section.east tbody tr:nth-child(even) td{background:#fff}
 .section.south tbody tr:nth-child(odd) td{background:#f2ecff}
-.section.south tbody tr:nth-child(even) td{background:#fff}
+#myList .sticky-group{position:relative;top:auto}
 #backTop{position:fixed;right:16px;bottom:16px;width:48px;height:48px;border-radius:50%;background:#0f766e;color:#fff;font-size:22px;display:none;align-items:center;justify-content:center;z-index:999}
 #backTop.show{display:flex}
-#myList .sticky-group{position:relative;top:auto}
 @media(max-width:720px){
-  :root{--font:12px;--section-top:calc(env(safe-area-inset-top,0px) + 4px)}
+  :root{--font:12px;--sticky-top:calc(env(safe-area-inset-top,0px) + 4px)}
   .wrap{padding:8px}
   .header h1{font-size:20px}
   .toolbar{padding:10px}
-  .menu{position:fixed;left:12px;right:12px;top:auto;bottom:12px;min-width:0;max-height:58vh}
-  .search{min-width:160px;flex:1}
+  .search{min-width:150px;flex:1}
   .section h2{font-size:17px}
-  .track,table{width:1040px;min-width:1040px}
-  col.c3{width:130px} col.c4{width:200px} col.c10{width:156px}
+  .head-track,table{width:980px;min-width:980px}
+  col.c1{width:42px} col.c2{width:44px} col.c3{width:115px} col.c4{width:185px}
+  col.c5{width:48px} col.c6{width:84px} col.c7{width:82px} col.c8{width:106px}
+  col.c9{width:92px} col.c10{width:182px}
   th,td{padding:7px 6px}
+  .menu{position:fixed;left:12px;right:12px;top:auto;bottom:12px;min-width:0;max-height:58vh}
 }
 </style>
 </head>
@@ -98,137 +94,2103 @@ td:nth-child(3),td:nth-child(4){white-space:normal;overflow-wrap:anywhere;word-b
     <h2>📌 我的清單</h2>
     <div class="profile-actions">
       <input id="profile" class="search" placeholder="例如：爸爸、媽媽">
-      <button id="saveMine">儲存我的清單</button><button id="loadMine">讀取此使用者</button>
-      <button id="copyMine">複製我的清單</button><button id="clearMine">清空目前勾選</button>
+      <button id="saveMine">儲存我的清單</button>
+      <button id="loadMine">讀取此使用者</button>
+      <button id="copyMine">複製我的清單</button>
+      <button id="clearMine">清空目前勾選</button>
     </div>
-    <div id="myList"></div>
+    <div id="myList"><p class="small">尚未勾選店家。</p></div>
   </div>
 
   <div class="toolbar">
-    <div class="region-buttons" id="regionButtons"></div>
+    <div class="region-buttons" id="regionButtons">
+      <button class="active" data-region-filter="全部">全部</button>
+      <button data-region-filter="北島">北島</button>
+      <button data-region-filter="西北">西北／Ông Lang 翁朗</button>
+      <button data-region-filter="中島">中島／Dương Đông 楊東</button>
+      <button data-region-filter="中南">中南／Long Beach 長灘</button>
+      <button data-region-filter="東島">東島／Hàm Ninh 咸寧</button>
+      <button data-region-filter="南島">南島／An Thới 安泰</button>
+    </div>
     <div class="filters">
-      <div class="multi"><button data-menu="typeMenu">類型：全部</button><div class="menu" id="typeMenu"></div></div>
-      <div class="multi"><button data-menu="tierMenu">必吃：全部</button><div class="menu" id="tierMenu"></div></div>
-      <div class="multi"><button data-menu="ratingMenu">Google：全部</button><div class="menu" id="ratingMenu"></div></div>
+      <div class="multi"><button type="button" data-menu="typeMenu">類型：全部</button><div class="menu" id="typeMenu"><label><input type="checkbox" value="中式料理"> 中式料理</label>
+<label><input type="checkbox" value="中式料理／粵菜"> 中式料理／粵菜</label>
+<label><input type="checkbox" value="亞洲融合／越南料理"> 亞洲融合／越南料理</label>
+<label><input type="checkbox" value="冰品／甜點"> 冰品／甜點</label>
+<label><input type="checkbox" value="冰品／甜點／咖啡"> 冰品／甜點／咖啡</label>
+<label><input type="checkbox" value="印度料理"> 印度料理</label>
+<label><input type="checkbox" value="印度料理／素食"> 印度料理／素食</label>
+<label><input type="checkbox" value="咖啡／早午餐"> 咖啡／早午餐</label>
+<label><input type="checkbox" value="咖啡／早午餐／甜點"> 咖啡／早午餐／甜點</label>
+<label><input type="checkbox" value="咖啡／景觀／酒吧"> 咖啡／景觀／酒吧</label>
+<label><input type="checkbox" value="咖啡／特色飲品"> 咖啡／特色飲品</label>
+<label><input type="checkbox" value="咖啡／甜點"> 咖啡／甜點</label>
+<label><input type="checkbox" value="咖啡／甜點／輕食"> 咖啡／甜點／輕食</label>
+<label><input type="checkbox" value="咖啡／甜點／酒廊"> 咖啡／甜點／酒廊</label>
+<label><input type="checkbox" value="咖啡／甜點／餐酒館"> 咖啡／甜點／餐酒館</label>
+<label><input type="checkbox" value="咖啡／飲料"> 咖啡／飲料</label>
+<label><input type="checkbox" value="咖啡／餐廳"> 咖啡／餐廳</label>
+<label><input type="checkbox" value="國際料理／餐酒館"> 國際料理／餐酒館</label>
+<label><input type="checkbox" value="夜市／小吃／海鮮／甜點"> 夜市／小吃／海鮮／甜點</label>
+<label><input type="checkbox" value="夜市／小吃／甜點／海鮮"> 夜市／小吃／甜點／海鮮</label>
+<label><input type="checkbox" value="富國島特色／湯粉"> 富國島特色／湯粉</label>
+<label><input type="checkbox" value="富國島特色／米粉"> 富國島特色／米粉</label>
+<label><input type="checkbox" value="小吃／綜合"> 小吃／綜合</label>
+<label><input type="checkbox" value="希臘料理／景觀餐廳"> 希臘料理／景觀餐廳</label>
+<label><input type="checkbox" value="德式／歐式料理／餐酒館"> 德式／歐式料理／餐酒館</label>
+<label><input type="checkbox" value="披薩／牛排／西式料理"> 披薩／牛排／西式料理</label>
+<label><input type="checkbox" value="披薩／西式"> 披薩／西式</label>
+<label><input type="checkbox" value="披薩／西式料理"> 披薩／西式料理</label>
+<label><input type="checkbox" value="日式料理"> 日式料理</label>
+<label><input type="checkbox" value="日式料理／壽司"> 日式料理／壽司</label>
+<label><input type="checkbox" value="日式料理／壽司／居酒屋"> 日式料理／壽司／居酒屋</label>
+<label><input type="checkbox" value="早餐／貝果／咖啡"> 早餐／貝果／咖啡</label>
+<label><input type="checkbox" value="景觀餐廳／亞洲料理"> 景觀餐廳／亞洲料理</label>
+<label><input type="checkbox" value="景觀餐廳／咖啡"> 景觀餐廳／咖啡</label>
+<label><input type="checkbox" value="景觀餐廳／海鮮"> 景觀餐廳／海鮮</label>
+<label><input type="checkbox" value="景觀餐廳／綜合料理"> 景觀餐廳／綜合料理</label>
+<label><input type="checkbox" value="景觀餐廳／西式料理"> 景觀餐廳／西式料理</label>
+<label><input type="checkbox" value="景觀餐廳／越南・西式"> 景觀餐廳／越南・西式</label>
+<label><input type="checkbox" value="泰式料理"> 泰式料理</label>
+<label><input type="checkbox" value="海鮮"> 海鮮</label>
+<label><input type="checkbox" value="海鮮料理"> 海鮮料理</label>
+<label><input type="checkbox" value="海鮮／小吃"> 海鮮／小吃</label>
+<label><input type="checkbox" value="海鮮／景觀"> 海鮮／景觀</label>
+<label><input type="checkbox" value="海鮮／景觀餐廳"> 海鮮／景觀餐廳</label>
+<label><input type="checkbox" value="海鮮／燒烤"> 海鮮／燒烤</label>
+<label><input type="checkbox" value="海鮮／燒烤／夜市"> 海鮮／燒烤／夜市</label>
+<label><input type="checkbox" value="海鮮／螃蟹"> 海鮮／螃蟹</label>
+<label><input type="checkbox" value="海鮮／越南料理"> 海鮮／越南料理</label>
+<label><input type="checkbox" value="漢堡／美式料理"> 漢堡／美式料理</label>
+<label><input type="checkbox" value="漢堡／西式料理"> 漢堡／西式料理</label>
+<label><input type="checkbox" value="火鍋／越南料理"> 火鍋／越南料理</label>
+<label><input type="checkbox" value="燒烤／火鍋／海鮮"> 燒烤／火鍋／海鮮</label>
+<label><input type="checkbox" value="牛肉／燒烤"> 牛肉／燒烤</label>
+<label><input type="checkbox" value="牛肉／燒烤／越南料理"> 牛肉／燒烤／越南料理</label>
+<label><input type="checkbox" value="甜點／蛋糕"> 甜點／蛋糕</label>
+<label><input type="checkbox" value="異國料理"> 異國料理</label>
+<label><input type="checkbox" value="自助餐／國際料理"> 自助餐／國際料理</label>
+<label><input type="checkbox" value="西式料理／酒吧"> 西式料理／酒吧</label>
+<label><input type="checkbox" value="越南小吃／煎餅"> 越南小吃／煎餅</label>
+<label><input type="checkbox" value="越南料理"> 越南料理</label>
+<label><input type="checkbox" value="越南料理／亞洲料理"> 越南料理／亞洲料理</label>
+<label><input type="checkbox" value="越南料理／家常菜"> 越南料理／家常菜</label>
+<label><input type="checkbox" value="越南料理／河粉"> 越南料理／河粉</label>
+<label><input type="checkbox" value="越南料理／海鮮"> 越南料理／海鮮</label>
+<label><input type="checkbox" value="越南料理／海鮮／酒吧"> 越南料理／海鮮／酒吧</label>
+<label><input type="checkbox" value="越南料理／炒飯"> 越南料理／炒飯</label>
+<label><input type="checkbox" value="越南料理／砂鍋飯"> 越南料理／砂鍋飯</label>
+<label><input type="checkbox" value="越南料理／米線"> 越南料理／米線</label>
+<label><input type="checkbox" value="越南料理／西式料理"> 越南料理／西式料理</label>
+<label><input type="checkbox" value="越南料理／越式煎餅"> 越南料理／越式煎餅</label>
+<label><input type="checkbox" value="酒吧／景觀／小吃"> 酒吧／景觀／小吃</label>
+<label><input type="checkbox" value="韓式料理"> 韓式料理</label>
+<label><input type="checkbox" value="韓式料理／燒肉"> 韓式料理／燒肉</label>
+<label><input type="checkbox" value="韓式料理／韓式燒肉"> 韓式料理／韓式燒肉</label>
+<label><input type="checkbox" value="麵包／甜點／蛋糕"> 麵包／甜點／蛋糕</label>
+<label><input type="checkbox" value="麵包／越式法國麵包"> 麵包／越式法國麵包</label></div></div>
+      <div class="multi"><button type="button" data-menu="tierMenu">必吃：全部</button><div class="menu" id="tierMenu"><label><input type="checkbox" value="S+"> S+</label>
+<label><input type="checkbox" value="S"> S</label>
+<label><input type="checkbox" value="A"> A</label>
+<label><input type="checkbox" value="B"> B</label></div></div>
+      <div class="multi"><button type="button" data-menu="ratingMenu">Google：全部</button><div class="menu" id="ratingMenu">
+<label><input type="checkbox" value="4.8"> 4.8★以上</label>
+<label><input type="checkbox" value="4.7"> 4.7★以上</label>
+<label><input type="checkbox" value="4.5"> 4.5★以上</label>
+<label><input type="checkbox" value="有評分"> 已有評分</label>
+<label><input type="checkbox" value="查無評論"> 查無評論</label>
+</div></div>
       <input id="search" class="search" placeholder="搜尋店名、中文名、料理、區域…">
       <button id="reset">重設篩選</button>
     </div>
-    <div class="small" style="margin-top:10px">必吃等級：S+＝一定要去吃　S＝優先鎖定　A＝很值得　B＝備選。可複選類型／必吃／Google。</div>
+    <div class="small" style="margin-top:10px">可同時複選「類型／必吃／Google」。區域與店家欄已縮窄，文字最多顯示 3 行。</div>
   </div>
 
-  <main id="main"></main>
-  <div class="small" style="text-align:center;padding:16px">研究版 2.2｜更新日期 2026-09-05</div>
+  <main id="main">
+    <section class="section north" data-section-region="北島">
+<div class="sticky-group">
+<h2>北島｜Grand World 富國大世界・Gành Dầu 甘油角 <span class="count">43 家</span></h2>
+<div class="head-wrap"><div class="head-track"><table><colgroup>
+<col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5">
+<col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10">
+</colgroup>
+<thead><tr>
+<th>勾選</th><th>項次</th><th>區域</th><th>店家（原文＋中文）</th><th>必吃</th>
+<th>Google</th><th>查看介紹</th><th>美食種類</th><th>適合時間</th><th>備註</th>
+</tr></thead></table></div></div>
+</div>
+<div class="body-wrap"><table><colgroup>
+<col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5">
+<col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10">
+</colgroup><tbody>
+<tr class="food-row" data-id="1" data-region="北島" data-type="越南料理／亞洲料理" data-tier="B" data-rating="3.6" data-search="bách restaurant phú quốc 百味餐廳 grand world 富國大世界・th2 越南料理／亞洲料理 午餐／晚餐 目前 google 評分偏低；適合想吃中式料理時再考慮。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="1"></td>
+<td class="center">1</td>
+<td><div class="wrap3">Grand World 富國大世界・TH2</div></td>
+<td><div class="wrap3"><span class="name">Bách Restaurant Phú Quốc</span><span class="zh">百味餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>3.6★</b>・148則</td>
+<td><a class="google" href="https://www.google.com/search?q=B%C3%A1ch%20Restaurant%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／亞洲料理</td>
+<td>午餐／晚餐</td>
+<td class="note">目前 Google 評分偏低；適合想吃中式料理時再考慮。</td>
+</tr>
+<tr class="food-row" data-id="2" data-region="北島" data-type="越南料理" data-tier="A" data-rating="4.8" data-search="dino restaurant grand world phú quốc dino 恐龍餐廳 grand world 富國大世界・th2 越南料理 早餐／午餐／晚餐 家庭用餐方便。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="2"></td>
+<td class="center">2</td>
+<td><div class="wrap3">Grand World 富國大世界・TH2</div></td>
+<td><div class="wrap3"><span class="name">DINO Restaurant Grand World Phú Quốc</span><span class="zh">DINO 恐龍餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b></td>
+<td><a class="google" href="https://www.google.com/search?q=DINO%20Restaurant%20Grand%20World%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理</td>
+<td>早餐／午餐／晚餐</td>
+<td class="note">家庭用餐方便。</td>
+</tr>
+<tr class="food-row" data-id="3" data-region="北島" data-type="越南料理" data-tier="A" data-rating="4.7" data-search="madam thảo grand world phú quốc 草夫人越南餐廳 grand world 富國大世界・上海街 越南料理 早餐／午餐／晚餐 北島人氣越南料理。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="3"></td>
+<td class="center">3</td>
+<td><div class="wrap3">Grand World 富國大世界・上海街</div></td>
+<td><div class="wrap3"><span class="name">Madam Thảo Grand World Phú Quốc</span><span class="zh">草夫人越南餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.7★</b>・2118則</td>
+<td><a class="google" href="https://www.google.com/search?q=Madam%20Th%E1%BA%A3o%20Grand%20World%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理</td>
+<td>早餐／午餐／晚餐</td>
+<td class="note">北島人氣越南料理。</td>
+</tr>
+<tr class="food-row" data-id="4" data-region="北島" data-type="日式料理／壽司" data-tier="B" data-rating="" data-search="ikusachi sushi 伊久幸壽司 grand world 富國大世界・th2 日式料理／壽司 午餐／晚餐 異國料理備選。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="4"></td>
+<td class="center">4</td>
+<td><div class="wrap3">Grand World 富國大世界・TH2</div></td>
+<td><div class="wrap3"><span class="name">Ikusachi Sushi</span><span class="zh">伊久幸壽司</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Ikusachi%20Sushi%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>日式料理／壽司</td>
+<td>午餐／晚餐</td>
+<td class="note">異國料理備選。</td>
+</tr>
+<tr class="food-row" data-id="5" data-region="北島" data-type="海鮮" data-tier="A" data-rating="" data-search="cuong kua seafood restaurant 強哥螃蟹海鮮餐廳 grand world 富國大世界・上海街 海鮮 午餐／晚餐 海鮮秤重前先確認單價、重量與料理費。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="5"></td>
+<td class="center">5</td>
+<td><div class="wrap3">Grand World 富國大世界・上海街</div></td>
+<td><div class="wrap3"><span class="name">Cuong Kua Seafood Restaurant</span><span class="zh">強哥螃蟹海鮮餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Cuong%20Kua%20Seafood%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮</td>
+<td>午餐／晚餐</td>
+<td class="note">海鮮秤重前先確認單價、重量與料理費。</td>
+</tr>
+<tr class="food-row" data-id="6" data-region="北島" data-type="咖啡／飲料" data-tier="B" data-rating="" data-search="i am coffee 我是咖啡 grand world 富國大世界・上海街 咖啡／飲料 早餐後／下午 住宿周邊咖啡備選。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="6"></td>
+<td class="center">6</td>
+<td><div class="wrap3">Grand World 富國大世界・上海街</div></td>
+<td><div class="wrap3"><span class="name">I Am Coffee</span><span class="zh">我是咖啡</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=I%20Am%20Coffee%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／飲料</td>
+<td>早餐後／下午</td>
+<td class="note">住宿周邊咖啡備選。</td>
+</tr>
+<tr class="food-row" data-id="7" data-region="北島" data-type="咖啡／飲料" data-tier="A" data-rating="" data-search="highlands coffee 高原咖啡 grand world 富國大世界 咖啡／飲料 早餐後／下午 越南大型連鎖咖啡品牌。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="7"></td>
+<td class="center">7</td>
+<td><div class="wrap3">Grand World 富國大世界</div></td>
+<td><div class="wrap3"><span class="name">Highlands Coffee</span><span class="zh">高原咖啡</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Highlands%20Coffee%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／飲料</td>
+<td>早餐後／下午</td>
+<td class="note">越南大型連鎖咖啡品牌。</td>
+</tr>
+<tr class="food-row" data-id="8" data-region="北島" data-type="富國島特色／米粉" data-tier="S" data-rating="4.2" data-search="bún quậy kiến xây kiến xây 富國島攪拌米粉 grand world 富國大世界・上海街 富國島特色／米粉 午餐／晚餐 富國島代表性料理；即使星等不是最高仍屬必吃候選。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="8"></td>
+<td class="center">8</td>
+<td><div class="wrap3">Grand World 富國大世界・上海街</div></td>
+<td><div class="wrap3"><span class="name">Bún Quậy Kiến Xây</span><span class="zh">Kiến Xây 富國島攪拌米粉</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><b>4.2★</b>・6389則</td>
+<td><a class="google" href="https://www.google.com/search?q=B%C3%BAn%20Qu%E1%BA%ADy%20Ki%E1%BA%BFn%20X%C3%A2y%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>富國島特色／米粉</td>
+<td>午餐／晚餐</td>
+<td class="note">富國島代表性料理；即使星等不是最高仍屬必吃候選。</td>
+</tr>
+<tr class="food-row" data-id="9" data-region="北島" data-type="海鮮／越南料理" data-tier="S" data-rating="4.8" data-search="mai hương restaurant - grand world phú quốc 梅香餐廳・富國大世界店 grand world 富國大世界・th1 海鮮／越南料理 下午／晚餐 北島高人氣海鮮；海鮮秤重先確認價格。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="9"></td>
+<td class="center">9</td>
+<td><div class="wrap3">Grand World 富國大世界・TH1</div></td>
+<td><div class="wrap3"><span class="name">Mai Hương Restaurant - Grand World Phú Quốc</span><span class="zh">梅香餐廳・富國大世界店</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><b>4.8★</b>・3421則</td>
+<td><a class="google" href="https://www.google.com/search?q=Mai%20H%C6%B0%C6%A1ng%20Restaurant%20-%20Grand%20World%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／越南料理</td>
+<td>下午／晚餐</td>
+<td class="note">北島高人氣海鮮；海鮮秤重先確認價格。</td>
+</tr>
+<tr class="food-row" data-id="10" data-region="北島" data-type="越南料理／砂鍋飯" data-tier="A" data-rating="" data-search="cơm niêu việt 越式砂鍋飯 grand world 富國大世界 越南料理／砂鍋飯 午餐／晚餐 適合多人共享。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="10"></td>
+<td class="center">10</td>
+<td><div class="wrap3">Grand World 富國大世界</div></td>
+<td><div class="wrap3"><span class="name">Cơm Niêu Việt</span><span class="zh">越式砂鍋飯</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=C%C6%A1m%20Ni%C3%AAu%20Vi%E1%BB%87t%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／砂鍋飯</td>
+<td>午餐／晚餐</td>
+<td class="note">適合多人共享。</td>
+</tr>
+<tr class="food-row" data-id="11" data-region="北島" data-type="牛肉／燒烤" data-tier="A" data-rating="" data-search="bò tơ 68 68 嫩牛肉 grand world 富國大世界 牛肉／燒烤 晚餐 牛肉與燒烤類。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="11"></td>
+<td class="center">11</td>
+<td><div class="wrap3">Grand World 富國大世界</div></td>
+<td><div class="wrap3"><span class="name">Bò Tơ 68</span><span class="zh">68 嫩牛肉</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=B%C3%B2%20T%C6%A1%2068%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>牛肉／燒烤</td>
+<td>晚餐</td>
+<td class="note">牛肉與燒烤類。</td>
+</tr>
+<tr class="food-row" data-id="12" data-region="北島" data-type="海鮮／越南料理" data-tier="B" data-rating="" data-search="madam khánh phú quốc 慶夫人餐廳 grand world 富國大世界 海鮮／越南料理 午餐／晚餐 家庭正餐備選。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="12"></td>
+<td class="center">12</td>
+<td><div class="wrap3">Grand World 富國大世界</div></td>
+<td><div class="wrap3"><span class="name">Madam Khánh Phú Quốc</span><span class="zh">慶夫人餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Madam%20Kh%C3%A1nh%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／越南料理</td>
+<td>午餐／晚餐</td>
+<td class="note">家庭正餐備選。</td>
+</tr>
+<tr class="food-row" data-id="13" data-region="北島" data-type="異國料理" data-tier="B" data-rating="" data-search="piola uzbek turkish cuisine piola 烏茲別克・土耳其料理 grand world 富國大世界 異國料理 午餐／晚餐 非富國島特色，作為換口味備選。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="13"></td>
+<td class="center">13</td>
+<td><div class="wrap3">Grand World 富國大世界</div></td>
+<td><div class="wrap3"><span class="name">Piola Uzbek Turkish Cuisine</span><span class="zh">Piola 烏茲別克・土耳其料理</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Piola%20Uzbek%20Turkish%20Cuisine%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>異國料理</td>
+<td>午餐／晚餐</td>
+<td class="note">非富國島特色，作為換口味備選。</td>
+</tr>
+<tr class="food-row" data-id="14" data-region="北島" data-type="小吃／綜合" data-tier="A" data-rating="4.9" data-search="grand world food court 富國大世界美食廣場 grand world 富國大世界・beachfront 海濱區 小吃／綜合 午餐／晚餐 多人各自選餐方便；攤位可能變動。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="14"></td>
+<td class="center">14</td>
+<td><div class="wrap3">Grand World 富國大世界・Beachfront 海濱區</div></td>
+<td><div class="wrap3"><span class="name">Grand World Food Court</span><span class="zh">富國大世界美食廣場</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.9★</b>・1695則</td>
+<td><a class="google" href="https://www.google.com/search?q=Grand%20World%20Food%20Court%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>小吃／綜合</td>
+<td>午餐／晚餐</td>
+<td class="note">多人各自選餐方便；攤位可能變動。</td>
+</tr>
+<tr class="food-row" data-id="15" data-region="北島" data-type="海鮮／景觀餐廳" data-tier="S" data-rating="4.9" data-search="mai hương beachfront 梅香海濱餐廳 grand world 富國大世界・beachfront 海濱區 海鮮／景觀餐廳 午餐／傍晚／晚餐 高評價海景海鮮餐廳。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="15"></td>
+<td class="center">15</td>
+<td><div class="wrap3">Grand World 富國大世界・Beachfront 海濱區</div></td>
+<td><div class="wrap3"><span class="name">Mai Hương Beachfront</span><span class="zh">梅香海濱餐廳</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><b>4.9★</b>・3101則</td>
+<td><a class="google" href="https://www.google.com/search?q=Mai%20H%C6%B0%C6%A1ng%20Beachfront%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／景觀餐廳</td>
+<td>午餐／傍晚／晚餐</td>
+<td class="note">高評價海景海鮮餐廳。</td>
+</tr>
+<tr class="food-row" data-id="16" data-region="北島" data-type="越南料理" data-tier="A" data-rating="4.5" data-search="bếp nhà restaurant - grand world phú quốc 家廚越南餐廳 grand world 富國大世界・威尼斯河 越南料理 午餐／晚餐 越式家常菜。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="16"></td>
+<td class="center">16</td>
+<td><div class="wrap3">Grand World 富國大世界・威尼斯河</div></td>
+<td><div class="wrap3"><span class="name">Bếp Nhà Restaurant - Grand World Phú Quốc</span><span class="zh">家廚越南餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.5★</b>・807則</td>
+<td><a class="google" href="https://www.google.com/search?q=B%E1%BA%BFp%20Nh%C3%A0%20Restaurant%20-%20Grand%20World%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理</td>
+<td>午餐／晚餐</td>
+<td class="note">越式家常菜。</td>
+</tr>
+<tr class="food-row" data-id="17" data-region="北島" data-type="咖啡／飲料" data-tier="A" data-rating="4.8" data-search="hana coffee hana 哈娜咖啡 grand world 富國大世界・威尼斯河 咖啡／飲料 上午／下午／晚上 評論量高的咖啡選擇。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="17"></td>
+<td class="center">17</td>
+<td><div class="wrap3">Grand World 富國大世界・威尼斯河</div></td>
+<td><div class="wrap3"><span class="name">HANA Coffee</span><span class="zh">HANA 哈娜咖啡</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・1097則</td>
+<td><a class="google" href="https://www.google.com/search?q=HANA%20Coffee%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／飲料</td>
+<td>上午／下午／晚上</td>
+<td class="note">評論量高的咖啡選擇。</td>
+</tr>
+<tr class="food-row" data-id="18" data-region="北島" data-type="咖啡／飲料" data-tier="B" data-rating="4.3" data-search="the riverside coffee grand world phú quốc 河畔咖啡 grand world 富國大世界・威尼斯河 咖啡／飲料 上午／下午／晚上 威尼斯河景觀咖啡。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="18"></td>
+<td class="center">18</td>
+<td><div class="wrap3">Grand World 富國大世界・威尼斯河</div></td>
+<td><div class="wrap3"><span class="name">The Riverside Coffee Grand World Phú Quốc</span><span class="zh">河畔咖啡</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.3★</b>・573則</td>
+<td><a class="google" href="https://www.google.com/search?q=The%20Riverside%20Coffee%20Grand%20World%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／飲料</td>
+<td>上午／下午／晚上</td>
+<td class="note">威尼斯河景觀咖啡。</td>
+</tr>
+<tr class="food-row" data-id="19" data-region="北島" data-type="越南料理／西式料理" data-tier="B" data-rating="4.4" data-search="saigon domain - phu quoc 西貢領域餐廳 grand world 富國大世界・中央湖 越南料理／西式料理 晚餐 景觀與正餐備選。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="19"></td>
+<td class="center">19</td>
+<td><div class="wrap3">Grand World 富國大世界・中央湖</div></td>
+<td><div class="wrap3"><span class="name">Saigon Domain - Phu Quoc</span><span class="zh">西貢領域餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.4★</b></td>
+<td><a class="google" href="https://www.google.com/search?q=Saigon%20Domain%20-%20Phu%20Quoc%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／西式料理</td>
+<td>晚餐</td>
+<td class="note">景觀與正餐備選。</td>
+</tr>
+<tr class="food-row" data-id="20" data-region="北島" data-type="景觀餐廳／西式料理" data-tier="A" data-rating="4.9" data-search="sunset bistro &amp; bar - grand world 日落海濱餐酒館 grand world 富國大世界・beachfront 海濱區 景觀餐廳／西式料理 傍晚／晚餐 適合傍晚景觀。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="20"></td>
+<td class="center">20</td>
+<td><div class="wrap3">Grand World 富國大世界・Beachfront 海濱區</div></td>
+<td><div class="wrap3"><span class="name">Sunset Bistro &amp; Bar - Grand World</span><span class="zh">日落海濱餐酒館</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.9★</b></td>
+<td><a class="google" href="https://www.google.com/search?q=Sunset%20Bistro%20%26%20Bar%20-%20Grand%20World%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>景觀餐廳／西式料理</td>
+<td>傍晚／晚餐</td>
+<td class="note">適合傍晚景觀。</td>
+</tr>
+<tr class="food-row" data-id="21" data-region="北島" data-type="越南料理／家常菜" data-tier="A" data-rating="" data-search="cơm bắc 1983 1983 北越家常菜 grand world 富國大世界・上海街 越南料理／家常菜 早餐／午餐／晚餐 北越家常菜，多人共享。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="21"></td>
+<td class="center">21</td>
+<td><div class="wrap3">Grand World 富國大世界・上海街</div></td>
+<td><div class="wrap3"><span class="name">Cơm Bắc 1983</span><span class="zh">1983 北越家常菜</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=C%C6%A1m%20B%E1%BA%AFc%201983%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／家常菜</td>
+<td>早餐／午餐／晚餐</td>
+<td class="note">北越家常菜，多人共享。</td>
+</tr>
+<tr class="food-row" data-id="22" data-region="北島" data-type="越南料理／砂鍋飯" data-tier="A" data-rating="" data-search="cơm niêu cái bếp garden cái bếp garden 越式砂鍋飯 grand world 富國大世界・indochine 印度支那區 越南料理／砂鍋飯 午餐／晚餐 官方旅遊資訊收錄；砂鍋飯、鯡魚沙拉與家常菜。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="22"></td>
+<td class="center">22</td>
+<td><div class="wrap3">Grand World 富國大世界・Indochine 印度支那區</div></td>
+<td><div class="wrap3"><span class="name">Cơm Niêu Cái Bếp Garden</span><span class="zh">Cái Bếp Garden 越式砂鍋飯</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=C%C6%A1m%20Ni%C3%AAu%20C%C3%A1i%20B%E1%BA%BFp%20Garden%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／砂鍋飯</td>
+<td>午餐／晚餐</td>
+<td class="note">官方旅遊資訊收錄；砂鍋飯、鯡魚沙拉與家常菜。</td>
+</tr>
+<tr class="food-row" data-id="23" data-region="北島" data-type="越南料理" data-tier="B" data-rating="" data-search="sông hằng restaurant 恆河越南餐廳 grand world 富國大世界・上海街 越南料理 午餐／晚餐 家庭餐廳備選。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="23"></td>
+<td class="center">23</td>
+<td><div class="wrap3">Grand World 富國大世界・上海街</div></td>
+<td><div class="wrap3"><span class="name">Sông Hằng Restaurant</span><span class="zh">恆河越南餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=S%C3%B4ng%20H%E1%BA%B1ng%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理</td>
+<td>午餐／晚餐</td>
+<td class="note">家庭餐廳備選。</td>
+</tr>
+<tr class="food-row" data-id="24" data-region="北島" data-type="越南料理" data-tier="B" data-rating="" data-search="the mekong connect 湄公河餐廳 grand world 富國大世界・上海街 越南料理 午餐／晚餐 越南料理候選。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="24"></td>
+<td class="center">24</td>
+<td><div class="wrap3">Grand World 富國大世界・上海街</div></td>
+<td><div class="wrap3"><span class="name">The Mekong Connect</span><span class="zh">湄公河餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=The%20Mekong%20Connect%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理</td>
+<td>午餐／晚餐</td>
+<td class="note">越南料理候選。</td>
+</tr>
+<tr class="food-row" data-id="25" data-region="北島" data-type="越南料理／河粉" data-tier="A" data-rating="" data-search="phở lý quốc sư 李國師河粉 grand world 富國大世界・上海街 越南料理／河粉 早餐／午餐／晚餐 河內風格牛肉河粉。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="25"></td>
+<td class="center">25</td>
+<td><div class="wrap3">Grand World 富國大世界・上海街</div></td>
+<td><div class="wrap3"><span class="name">Phở Lý Quốc Sư</span><span class="zh">李國師河粉</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Ph%E1%BB%9F%20L%C3%BD%20Qu%E1%BB%91c%20S%C6%B0%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／河粉</td>
+<td>早餐／午餐／晚餐</td>
+<td class="note">河內風格牛肉河粉。</td>
+</tr>
+<tr class="food-row" data-id="26" data-region="北島" data-type="越南料理／炒飯" data-tier="B" data-rating="" data-search="cơm chiên nguyễn ký phú quốc nguyễn ký 富國島炒飯 grand world 富國大世界・indochine 印度支那區 越南料理／炒飯 午餐／晚餐 簡單正餐備選。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="26"></td>
+<td class="center">26</td>
+<td><div class="wrap3">Grand World 富國大世界・Indochine 印度支那區</div></td>
+<td><div class="wrap3"><span class="name">Cơm Chiên Nguyễn Ký Phú Quốc</span><span class="zh">Nguyễn Ký 富國島炒飯</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=C%C6%A1m%20Chi%C3%AAn%20Nguy%E1%BB%85n%20K%C3%BD%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／炒飯</td>
+<td>午餐／晚餐</td>
+<td class="note">簡單正餐備選。</td>
+</tr>
+<tr class="food-row" data-id="27" data-region="北島" data-type="海鮮" data-tier="B" data-rating="4.2" data-search="thế giới hải sản hàm ninh grand world phú quốc 咸寧海鮮世界・富國大世界店 grand world 富國大世界・indochine 印度支那區 海鮮 晚餐／宵夜 海鮮秤重前確認重量與料理費。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="27"></td>
+<td class="center">27</td>
+<td><div class="wrap3">Grand World 富國大世界・Indochine 印度支那區</div></td>
+<td><div class="wrap3"><span class="name">Thế Giới Hải Sản Hàm Ninh Grand World Phú Quốc</span><span class="zh">咸寧海鮮世界・富國大世界店</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.2★</b>・71則</td>
+<td><a class="google" href="https://www.google.com/search?q=Th%E1%BA%BF%20Gi%E1%BB%9Bi%20H%E1%BA%A3i%20S%E1%BA%A3n%20H%C3%A0m%20Ninh%20Grand%20World%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮</td>
+<td>晚餐／宵夜</td>
+<td class="note">海鮮秤重前確認重量與料理費。</td>
+</tr>
+<tr class="food-row" data-id="28" data-region="北島" data-type="海鮮" data-tier="A" data-rating="4.8" data-search="nhà hàng vua hải sản 海鮮王餐廳 grand world 富國大世界・中央湖 海鮮 下午／晚餐 評論數高但價位偏高；先確認海鮮單價。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="28"></td>
+<td class="center">28</td>
+<td><div class="wrap3">Grand World 富國大世界・中央湖</div></td>
+<td><div class="wrap3"><span class="name">Nhà hàng Vua Hải Sản</span><span class="zh">海鮮王餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・2089則</td>
+<td><a class="google" href="https://www.google.com/search?q=Nh%C3%A0%20h%C3%A0ng%20Vua%20H%E1%BA%A3i%20S%E1%BA%A3n%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮</td>
+<td>下午／晚餐</td>
+<td class="note">評論數高但價位偏高；先確認海鮮單價。</td>
+</tr>
+<tr class="food-row" data-id="29" data-region="北島" data-type="印度料理" data-tier="B" data-rating="4.8" data-search="curry kingdom grand world phu quoc 咖哩王國印度餐廳 grand world 富國大世界・南京街 印度料理 午餐／晚餐／宵夜 換口味備選。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="29"></td>
+<td class="center">29</td>
+<td><div class="wrap3">Grand World 富國大世界・南京街</div></td>
+<td><div class="wrap3"><span class="name">Curry Kingdom Grand World Phu Quoc</span><span class="zh">咖哩王國印度餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.8★</b>・129則</td>
+<td><a class="google" href="https://www.google.com/search?q=Curry%20Kingdom%20Grand%20World%20Phu%20Quoc%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>印度料理</td>
+<td>午餐／晚餐／宵夜</td>
+<td class="note">換口味備選。</td>
+</tr>
+<tr class="food-row" data-id="30" data-region="北島" data-type="印度料理" data-tier="A" data-rating="4.8" data-search="lake masala 湖畔瑪莎拉印度餐廳 grand world 富國大世界・南京街 印度料理 午餐／晚餐／宵夜 異國料理中評論量很高。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="30"></td>
+<td class="center">30</td>
+<td><div class="wrap3">Grand World 富國大世界・南京街</div></td>
+<td><div class="wrap3"><span class="name">Lake Masala</span><span class="zh">湖畔瑪莎拉印度餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・1729則</td>
+<td><a class="google" href="https://www.google.com/search?q=Lake%20Masala%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>印度料理</td>
+<td>午餐／晚餐／宵夜</td>
+<td class="note">異國料理中評論量很高。</td>
+</tr>
+<tr class="food-row" data-id="31" data-region="北島" data-type="韓式料理" data-tier="B" data-rating="4.6" data-search="nhà hàng phu zim - grand world phú quốc phu zim 韓式餐廳 grand world 富國大世界・th1 韓式料理 午餐／晚餐 非富國島特色，適合換口味。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="31"></td>
+<td class="center">31</td>
+<td><div class="wrap3">Grand World 富國大世界・TH1</div></td>
+<td><div class="wrap3"><span class="name">Nhà hàng Phu Zim - Grand World Phú Quốc</span><span class="zh">Phu Zim 韓式餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.6★</b>・647則</td>
+<td><a class="google" href="https://www.google.com/search?q=Nh%C3%A0%20h%C3%A0ng%20Phu%20Zim%20-%20Grand%20World%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>韓式料理</td>
+<td>午餐／晚餐</td>
+<td class="note">非富國島特色，適合換口味。</td>
+</tr>
+<tr class="food-row" data-id="32" data-region="北島" data-type="韓式料理／燒肉" data-tier="A" data-rating="4.9" data-search="쌈 ssam 한식당 ssam 韓式餐廳 grand world 富國大世界・th1 韓式料理／燒肉 午餐／晚餐 韓式料理中高評價高評論數。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="32"></td>
+<td class="center">32</td>
+<td><div class="wrap3">Grand World 富國大世界・TH1</div></td>
+<td><div class="wrap3"><span class="name">쌈 Ssam 한식당</span><span class="zh">Ssam 韓式餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.9★</b>・1685則</td>
+<td><a class="google" href="https://www.google.com/search?q=%EC%8C%88%20Ssam%20%ED%95%9C%EC%8B%9D%EB%8B%B9%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>韓式料理／燒肉</td>
+<td>午餐／晚餐</td>
+<td class="note">韓式料理中高評價高評論數。</td>
+</tr>
+<tr class="food-row" data-id="33" data-region="北島" data-type="韓式料理" data-tier="B" data-rating="" data-search="고향식당 - korean restaurant 故鄉韓式餐廳 grand world 富國大世界・th1 韓式料理 午餐／晚餐 韓式備選。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="33"></td>
+<td class="center">33</td>
+<td><div class="wrap3">Grand World 富國大世界・TH1</div></td>
+<td><div class="wrap3"><span class="name">고향식당 - Korean Restaurant</span><span class="zh">故鄉韓式餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=%EA%B3%A0%ED%96%A5%EC%8B%9D%EB%8B%B9%20-%20Korean%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>韓式料理</td>
+<td>午餐／晚餐</td>
+<td class="note">韓式備選。</td>
+</tr>
+<tr class="food-row" data-id="34" data-region="北島" data-type="印度料理" data-tier="A" data-rating="4.8" data-search="namaste india - indian restaurant &amp; luxury stay namaste india 印度餐廳 grand world 富國大世界・威尼斯河 印度料理 午餐／晚餐 威尼斯河區異國料理。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="34"></td>
+<td class="center">34</td>
+<td><div class="wrap3">Grand World 富國大世界・威尼斯河</div></td>
+<td><div class="wrap3"><span class="name">Namaste India - Indian Restaurant &amp; Luxury Stay</span><span class="zh">Namaste India 印度餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・507則</td>
+<td><a class="google" href="https://www.google.com/search?q=Namaste%20India%20-%20Indian%20Restaurant%20%26%20Luxury%20Stay%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>印度料理</td>
+<td>午餐／晚餐</td>
+<td class="note">威尼斯河區異國料理。</td>
+</tr>
+<tr class="food-row" data-id="35" data-region="北島" data-type="越南料理" data-tier="B" data-rating="4.3" data-search="quán ăn the scent (tiệm ăn cô hằng) - grand world phú quốc the scent 越式小館 grand world 富國大世界・商業街 越南料理 午餐／晚餐 家常小館型。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="35"></td>
+<td class="center">35</td>
+<td><div class="wrap3">Grand World 富國大世界・商業街</div></td>
+<td><div class="wrap3"><span class="name">Quán ăn The Scent (Tiệm ăn cô Hằng) - Grand World Phú Quốc</span><span class="zh">The Scent 越式小館</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.3★</b>・120則</td>
+<td><a class="google" href="https://www.google.com/search?q=Qu%C3%A1n%20%C4%83n%20The%20Scent%20%28Ti%E1%BB%87m%20%C4%83n%20c%C3%B4%20H%E1%BA%B1ng%29%20-%20Grand%20World%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理</td>
+<td>午餐／晚餐</td>
+<td class="note">家常小館型。</td>
+</tr>
+<tr class="food-row" data-id="36" data-region="北島" data-type="海鮮／燒烤" data-tier="B" data-rating="4.5" data-search="bôngbbq grand world bông bbq 燒烤海鮮 grand world 富國大世界・夜市周邊 海鮮／燒烤 晚餐／宵夜 偏晚餐、宵夜。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="36"></td>
+<td class="center">36</td>
+<td><div class="wrap3">Grand World 富國大世界・夜市周邊</div></td>
+<td><div class="wrap3"><span class="name">BôngBBQ Grand World</span><span class="zh">Bông BBQ 燒烤海鮮</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.5★</b>・42則</td>
+<td><a class="google" href="https://www.google.com/search?q=B%C3%B4ngBBQ%20Grand%20World%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／燒烤</td>
+<td>晚餐／宵夜</td>
+<td class="note">偏晚餐、宵夜。</td>
+</tr>
+<tr class="food-row" data-id="37" data-region="北島" data-type="咖啡／飲料" data-tier="B" data-rating="4.7" data-search="tao coffee phu quoc tao 咖啡 grand world 富國大世界 咖啡／飲料 早餐後／下午 白天咖啡候選。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="37"></td>
+<td class="center">37</td>
+<td><div class="wrap3">Grand World 富國大世界</div></td>
+<td><div class="wrap3"><span class="name">TAO Coffee Phu Quoc</span><span class="zh">TAO 咖啡</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.7★</b>・88則</td>
+<td><a class="google" href="https://www.google.com/search?q=TAO%20Coffee%20Phu%20Quoc%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／飲料</td>
+<td>早餐後／下午</td>
+<td class="note">白天咖啡候選。</td>
+</tr>
+<tr class="food-row" data-id="38" data-region="北島" data-type="咖啡／飲料" data-tier="B" data-rating="4.0" data-search="trung nguyên legend grand world phú quốc 中原傳奇咖啡・富國大世界店 grand world 富國大世界・威尼斯河 咖啡／飲料 早餐後／下午／晚上 越南代表性咖啡品牌。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="38"></td>
+<td class="center">38</td>
+<td><div class="wrap3">Grand World 富國大世界・威尼斯河</div></td>
+<td><div class="wrap3"><span class="name">TRUNG NGUYÊN LEGEND GRAND WORLD PHÚ QUỐC</span><span class="zh">中原傳奇咖啡・富國大世界店</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.0★</b>・29則</td>
+<td><a class="google" href="https://www.google.com/search?q=TRUNG%20NGUY%C3%8AN%20LEGEND%20GRAND%20WORLD%20PH%C3%9A%20QU%E1%BB%90C%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／飲料</td>
+<td>早餐後／下午／晚上</td>
+<td class="note">越南代表性咖啡品牌。</td>
+</tr>
+<tr class="food-row" data-id="39" data-region="北島" data-type="咖啡／飲料" data-tier="B" data-rating="4.4" data-search="trung nguyên e-coffee grand world phú quốc 中原 e-coffee・富國大世界店 grand world 富國大世界 咖啡／飲料 早餐／上午／下午 適合白天。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="39"></td>
+<td class="center">39</td>
+<td><div class="wrap3">Grand World 富國大世界</div></td>
+<td><div class="wrap3"><span class="name">Trung Nguyên E-Coffee Grand World Phú Quốc</span><span class="zh">中原 E-Coffee・富國大世界店</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.4★</b>・31則</td>
+<td><a class="google" href="https://www.google.com/search?q=Trung%20Nguy%C3%AAn%20E-Coffee%20Grand%20World%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／飲料</td>
+<td>早餐／上午／下午</td>
+<td class="note">適合白天。</td>
+</tr>
+<tr class="food-row" data-id="40" data-region="北島" data-type="越南料理／砂鍋飯" data-tier="A" data-rating="4.5" data-search="cơm niêu ba miền 三地越式砂鍋飯 grand world 富國大世界・hội hè街 越南料理／砂鍋飯 午餐／晚餐 適合家庭多人共享。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="40"></td>
+<td class="center">40</td>
+<td><div class="wrap3">Grand World 富國大世界・Hội Hè街</div></td>
+<td><div class="wrap3"><span class="name">Cơm Niêu Ba Miền</span><span class="zh">三地越式砂鍋飯</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.5★</b>・480則</td>
+<td><a class="google" href="https://www.google.com/search?q=C%C6%A1m%20Ni%C3%AAu%20Ba%20Mi%E1%BB%81n%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／砂鍋飯</td>
+<td>午餐／晚餐</td>
+<td class="note">適合家庭多人共享。</td>
+</tr>
+<tr class="food-row" data-id="103" data-region="北島" data-type="中式料理" data-tier="A" data-rating="4.7" data-search="bách giai restaurant 百佳中餐廳 bãi dài 長灘北區 中式料理 午餐／晚餐 corona food center 一帶的中式料理；適合想換口味。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="103"></td>
+<td class="center">103</td>
+<td><div class="wrap3">Bãi Dài 長灘北區</div></td>
+<td><div class="wrap3"><span class="name">Bách Giai Restaurant</span><span class="zh">百佳中餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.7★</b>・446則</td>
+<td><a class="google" href="https://www.google.com/search?q=B%C3%A1ch%20Giai%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>中式料理</td>
+<td>午餐／晚餐</td>
+<td class="note">Corona Food Center 一帶的中式料理；適合想換口味。</td>
+</tr>
+<tr class="food-row" data-id="125" data-region="北島" data-type="韓式料理" data-tier="S" data-rating="4.7" data-search="#jmt korea restaurant grand world phú quốc jmt 韓國餐廳・富國大世界店 grand world 富國大世界・shanghai 上海街 韓式料理 午餐／晚餐 grand world 內高評論量韓式餐廳，適合主題樂園／大世界行程搭配。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="125"></td>
+<td class="center">125</td>
+<td><div class="wrap3">Grand World 富國大世界・Shanghai 上海街</div></td>
+<td><div class="wrap3"><span class="name">#JMT Korea Restaurant Grand World Phú Quốc</span><span class="zh">JMT 韓國餐廳・富國大世界店</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><b>4.7★</b>・2066則</td>
+<td><a class="google" href="https://www.google.com/search?q=%23JMT%20Korea%20Restaurant%20Grand%20World%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>韓式料理</td>
+<td>午餐／晚餐</td>
+<td class="note">Grand World 內高評論量韓式餐廳，適合主題樂園／大世界行程搭配。</td>
+</tr>
+<tr class="food-row" data-id="126" data-region="北島" data-type="自助餐／國際料理" data-tier="S" data-rating="4.9" data-search="nautilus restaurant nautilus 鸚鵡螺自助餐廳 bãi dài 長灘北區 自助餐／國際料理 早餐／午餐／晚餐 高分且評論量破千；北島國際料理與自助餐候選。 北島">
+<td class="center"><input type="checkbox" class="pick" data-id="126"></td>
+<td class="center">126</td>
+<td><div class="wrap3">Bãi Dài 長灘北區</div></td>
+<td><div class="wrap3"><span class="name">Nautilus Restaurant</span><span class="zh">Nautilus 鸚鵡螺自助餐廳</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><b>4.9★</b>・1149則</td>
+<td><a class="google" href="https://www.google.com/search?q=Nautilus%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>自助餐／國際料理</td>
+<td>早餐／午餐／晚餐</td>
+<td class="note">高分且評論量破千；北島國際料理與自助餐候選。</td>
+</tr>
+</tbody></table></div>
+</section><section class="section northwest" data-section-region="西北">
+<div class="sticky-group">
+<h2>西北｜Ông Lang 翁朗・Cửa Cạn <span class="count">10 家</span></h2>
+<div class="head-wrap"><div class="head-track"><table><colgroup>
+<col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5">
+<col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10">
+</colgroup>
+<thead><tr>
+<th>勾選</th><th>項次</th><th>區域</th><th>店家（原文＋中文）</th><th>必吃</th>
+<th>Google</th><th>查看介紹</th><th>美食種類</th><th>適合時間</th><th>備註</th>
+</tr></thead></table></div></div>
+</div>
+<div class="body-wrap"><table><colgroup>
+<col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5">
+<col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10">
+</colgroup><tbody>
+<tr class="food-row" data-id="41" data-region="西北" data-type="景觀餐廳／越南・西式" data-tier="S" data-rating="4.8" data-search="camia restaurant camia 海濱餐廳 ông lang 翁朗 景觀餐廳／越南・西式 傍晚／晚餐 夕陽與海景兼具，適合安排一餐。 西北">
+<td class="center"><input type="checkbox" class="pick" data-id="41"></td>
+<td class="center">41</td>
+<td><div class="wrap3">Ông Lang 翁朗</div></td>
+<td><div class="wrap3"><span class="name">Camia Restaurant</span><span class="zh">Camia 海濱餐廳</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><b>4.8★</b>・2571則</td>
+<td><a class="google" href="https://www.google.com/search?q=Camia%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>景觀餐廳／越南・西式</td>
+<td>傍晚／晚餐</td>
+<td class="note">夕陽與海景兼具，適合安排一餐。</td>
+</tr>
+<tr class="food-row" data-id="42" data-region="西北" data-type="景觀餐廳／綜合料理" data-tier="A" data-rating="4.5" data-search="eco beach restaurant eco 海灘餐廳 ông lang 翁朗 景觀餐廳／綜合料理 午餐／晚餐 翁朗海灘周邊備選。 西北">
+<td class="center"><input type="checkbox" class="pick" data-id="42"></td>
+<td class="center">42</td>
+<td><div class="wrap3">Ông Lang 翁朗</div></td>
+<td><div class="wrap3"><span class="name">Eco Beach Restaurant</span><span class="zh">Eco 海灘餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.5★</b>・104則</td>
+<td><a class="google" href="https://www.google.com/search?q=Eco%20Beach%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>景觀餐廳／綜合料理</td>
+<td>午餐／晚餐</td>
+<td class="note">翁朗海灘周邊備選。</td>
+</tr>
+<tr class="food-row" data-id="43" data-region="西北" data-type="咖啡／餐廳" data-tier="A" data-rating="4.7" data-search="the old forest restaurant and café 老森林餐廳咖啡館 ông lang 翁朗 咖啡／餐廳 早餐／午餐／下午／晚餐 兼具咖啡與正餐。 西北">
+<td class="center"><input type="checkbox" class="pick" data-id="43"></td>
+<td class="center">43</td>
+<td><div class="wrap3">Ông Lang 翁朗</div></td>
+<td><div class="wrap3"><span class="name">THE OLD FOREST RESTAURANT AND CAFÉ</span><span class="zh">老森林餐廳咖啡館</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.7★</b>・84則</td>
+<td><a class="google" href="https://www.google.com/search?q=THE%20OLD%20FOREST%20RESTAURANT%20AND%20CAF%C3%89%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／餐廳</td>
+<td>早餐／午餐／下午／晚餐</td>
+<td class="note">兼具咖啡與正餐。</td>
+</tr>
+<tr class="food-row" data-id="44" data-region="西北" data-type="景觀餐廳／越南・西式" data-tier="A" data-rating="" data-search="mango bay restaurant 芒果灣餐廳 ông lang 翁朗 景觀餐廳／越南・西式 傍晚／晚餐 度假型海邊餐飲代表候選。 西北">
+<td class="center"><input type="checkbox" class="pick" data-id="44"></td>
+<td class="center">44</td>
+<td><div class="wrap3">Ông Lang 翁朗</div></td>
+<td><div class="wrap3"><span class="name">Mango Bay Restaurant</span><span class="zh">芒果灣餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Mango%20Bay%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>景觀餐廳／越南・西式</td>
+<td>傍晚／晚餐</td>
+<td class="note">度假型海邊餐飲代表候選。</td>
+</tr>
+<tr class="food-row" data-id="45" data-region="西北" data-type="景觀餐廳／海鮮" data-tier="A" data-rating="" data-search="on the rocks restaurant 岩石海濱餐廳 ông lang 翁朗 景觀餐廳／海鮮 傍晚／晚餐 海邊夕陽景觀型。 西北">
+<td class="center"><input type="checkbox" class="pick" data-id="45"></td>
+<td class="center">45</td>
+<td><div class="wrap3">Ông Lang 翁朗</div></td>
+<td><div class="wrap3"><span class="name">On The Rocks Restaurant</span><span class="zh">岩石海濱餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=On%20The%20Rocks%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>景觀餐廳／海鮮</td>
+<td>傍晚／晚餐</td>
+<td class="note">海邊夕陽景觀型。</td>
+</tr>
+<tr class="food-row" data-id="46" data-region="西北" data-type="越南料理" data-tier="A" data-rating="" data-search="mai jo refined restaurant mai jo 精緻越南餐廳 ông lang 翁朗 越南料理 晚餐 偏精緻越式料理。 西北">
+<td class="center"><input type="checkbox" class="pick" data-id="46"></td>
+<td class="center">46</td>
+<td><div class="wrap3">Ông Lang 翁朗</div></td>
+<td><div class="wrap3"><span class="name">Mai Jo Refined Restaurant</span><span class="zh">Mai Jo 精緻越南餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Mai%20Jo%20Refined%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理</td>
+<td>晚餐</td>
+<td class="note">偏精緻越式料理。</td>
+</tr>
+<tr class="food-row" data-id="47" data-region="西北" data-type="越南料理／海鮮" data-tier="B" data-rating="" data-search="nha hang yen son phu quoc yên sơn 越南餐廳 ông lang 翁朗 越南料理／海鮮 午餐／晚餐 翁朗在地餐飲候選。 西北">
+<td class="center"><input type="checkbox" class="pick" data-id="47"></td>
+<td class="center">47</td>
+<td><div class="wrap3">Ông Lang 翁朗</div></td>
+<td><div class="wrap3"><span class="name">Nha Hang Yen Son Phu Quoc</span><span class="zh">Yên Sơn 越南餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Nha%20Hang%20Yen%20Son%20Phu%20Quoc%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／海鮮</td>
+<td>午餐／晚餐</td>
+<td class="note">翁朗在地餐飲候選。</td>
+</tr>
+<tr class="food-row" data-id="48" data-region="西北" data-type="披薩／西式" data-tier="B" data-rating="" data-search="tin tin pizza tin tin 披薩 ông lang 翁朗 披薩／西式 午餐／晚餐 家庭換口味備選。 西北">
+<td class="center"><input type="checkbox" class="pick" data-id="48"></td>
+<td class="center">48</td>
+<td><div class="wrap3">Ông Lang 翁朗</div></td>
+<td><div class="wrap3"><span class="name">Tin Tin Pizza</span><span class="zh">Tin Tin 披薩</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Tin%20Tin%20Pizza%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>披薩／西式</td>
+<td>午餐／晚餐</td>
+<td class="note">家庭換口味備選。</td>
+</tr>
+<tr class="food-row" data-id="49" data-region="西北" data-type="西式料理／酒吧" data-tier="B" data-rating="" data-search="bittersweet bistro 苦甜小酒館 ông lang 翁朗 西式料理／酒吧 晚餐／宵夜 偏大人晚間餐飲。 西北">
+<td class="center"><input type="checkbox" class="pick" data-id="49"></td>
+<td class="center">49</td>
+<td><div class="wrap3">Ông Lang 翁朗</div></td>
+<td><div class="wrap3"><span class="name">Bittersweet Bistro</span><span class="zh">苦甜小酒館</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Bittersweet%20Bistro%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>西式料理／酒吧</td>
+<td>晚餐／宵夜</td>
+<td class="note">偏大人晚間餐飲。</td>
+</tr>
+<tr class="food-row" data-id="50" data-region="西北" data-type="越南料理／海鮮" data-tier="B" data-rating="" data-search="coco palm restaurant 椰林餐廳 ông lang 翁朗 越南料理／海鮮 午餐／晚餐 翁朗區備選。 西北">
+<td class="center"><input type="checkbox" class="pick" data-id="50"></td>
+<td class="center">50</td>
+<td><div class="wrap3">Ông Lang 翁朗</div></td>
+<td><div class="wrap3"><span class="name">Coco Palm Restaurant</span><span class="zh">椰林餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Coco%20Palm%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／海鮮</td>
+<td>午餐／晚餐</td>
+<td class="note">翁朗區備選。</td>
+</tr>
+</tbody></table></div>
+</section><section class="section central" data-section-region="中島">
+<div class="sticky-group">
+<h2>中島｜Dương Đông 楊東・市區／夜市 <span class="count">32 家</span></h2>
+<div class="head-wrap"><div class="head-track"><table><colgroup>
+<col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5">
+<col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10">
+</colgroup>
+<thead><tr>
+<th>勾選</th><th>項次</th><th>區域</th><th>店家（原文＋中文）</th><th>必吃</th>
+<th>Google</th><th>查看介紹</th><th>美食種類</th><th>適合時間</th><th>備註</th>
+</tr></thead></table></div></div>
+</div>
+<div class="body-wrap"><table><colgroup>
+<col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5">
+<col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10">
+</colgroup><tbody>
+<tr class="food-row" data-id="51" data-region="中島" data-type="海鮮" data-tier="S+" data-rating="4.8" data-search="hải sản động tôm hùm - lobster cave seafood 龍蝦洞海鮮餐廳 dương đông 楊東 海鮮 午餐／晚餐 高分且8千則評論，強力必吃候選。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="51"></td>
+<td class="center">51</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Hải sản Động Tôm Hùm - Lobster Cave seafood</span><span class="zh">龍蝦洞海鮮餐廳</span></div></td>
+<td class="center tier tier-Splus">S+</td>
+<td><b>4.8★</b>・8020則</td>
+<td><a class="google" href="https://www.google.com/search?q=H%E1%BA%A3i%20s%E1%BA%A3n%20%C4%90%E1%BB%99ng%20T%C3%B4m%20H%C3%B9m%20-%20Lobster%20Cave%20seafood%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮</td>
+<td>午餐／晚餐</td>
+<td class="note">高分且8千則評論，強力必吃候選。</td>
+</tr>
+<tr class="food-row" data-id="52" data-region="中島" data-type="富國島特色／米粉" data-tier="S+" data-rating="4.2" data-search="bún quậy kiến - xây kiến xây 富國島攪拌米粉 dương đông 楊東 富國島特色／米粉 早餐／午餐／晚餐 富國島代表性料理。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="52"></td>
+<td class="center">52</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Bún quậy KIẾN - XÂY</span><span class="zh">Kiến Xây 富國島攪拌米粉</span></div></td>
+<td class="center tier tier-Splus">S+</td>
+<td><b>4.2★</b>・6389則</td>
+<td><a class="google" href="https://www.google.com/search?q=B%C3%BAn%20qu%E1%BA%ADy%20KI%E1%BA%BEN%20-%20X%C3%82Y%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>富國島特色／米粉</td>
+<td>早餐／午餐／晚餐</td>
+<td class="note">富國島代表性料理。</td>
+</tr>
+<tr class="food-row" data-id="53" data-region="中島" data-type="海鮮／景觀餐廳" data-tier="B" data-rating="4.2" data-search="xin chao seafood restaurant xin chao 欣潮海鮮餐廳 dương đông 楊東 海鮮／景觀餐廳 傍晚／晚餐 高知名度、評論量大、適合夕陽時段。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="53"></td>
+<td class="center">53</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Xin Chao seafood restaurant</span><span class="zh">Xin Chao 欣潮海鮮餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.2★</b>・5116則</td>
+<td><a class="google" href="https://www.google.com/search?q=Xin%20Chao%20seafood%20restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／景觀餐廳</td>
+<td>傍晚／晚餐</td>
+<td class="note">高知名度、評論量大、適合夕陽時段。</td>
+</tr>
+<tr class="food-row" data-id="54" data-region="中島" data-type="富國島特色／米粉" data-tier="S+" data-rating="4.3" data-search="bún kèn út lượm út lượm 富國島魚咖哩米粉 dương đông 楊東 富國島特色／米粉 早餐／午餐 地方特色非常強，即使星等不頂尖仍值得保留。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="54"></td>
+<td class="center">54</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Bún Kèn Út Lượm</span><span class="zh">Út Lượm 富國島魚咖哩米粉</span></div></td>
+<td class="center tier tier-Splus">S+</td>
+<td><b>4.3★</b>・894則</td>
+<td><a class="google" href="https://www.google.com/search?q=B%C3%BAn%20K%C3%A8n%20%C3%9At%20L%C6%B0%E1%BB%A3m%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>富國島特色／米粉</td>
+<td>早餐／午餐</td>
+<td class="note">地方特色非常強，即使星等不頂尖仍值得保留。</td>
+</tr>
+<tr class="food-row" data-id="55" data-region="中島" data-type="富國島特色／湯粉" data-tier="A" data-rating="" data-search="bánh canh ghẹ huỳnh như huỳnh như 螃蟹湯粉 dương đông 楊東 富國島特色／湯粉 早餐／午餐 富國島官方旅遊資訊收錄的小吃。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="55"></td>
+<td class="center">55</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Bánh Canh Ghẹ Huỳnh Như</span><span class="zh">Huỳnh Như 螃蟹湯粉</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=B%C3%A1nh%20Canh%20Gh%E1%BA%B9%20Hu%E1%BB%B3nh%20Nh%C6%B0%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>富國島特色／湯粉</td>
+<td>早餐／午餐</td>
+<td class="note">富國島官方旅遊資訊收錄的小吃。</td>
+</tr>
+<tr class="food-row" data-id="56" data-region="中島" data-type="越南料理" data-tier="A" data-rating="4.9" data-search="sen river restaurant 蓮河越南餐廳 dương đông 楊東 越南料理 早餐／午餐／晚餐 高分但評論數仍屬中等，作為潛力店。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="56"></td>
+<td class="center">56</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Sen River Restaurant</span><span class="zh">蓮河越南餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.9★</b>・179則</td>
+<td><a class="google" href="https://www.google.com/search?q=Sen%20River%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理</td>
+<td>早餐／午餐／晚餐</td>
+<td class="note">高分但評論數仍屬中等，作為潛力店。</td>
+</tr>
+<tr class="food-row" data-id="57" data-region="中島" data-type="海鮮／螃蟹" data-tier="A" data-rating="" data-search="crab house restaurant 螃蟹屋餐廳 dương đông 楊東 海鮮／螃蟹 午餐／晚餐 長期旅遊平台熱門海鮮店。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="57"></td>
+<td class="center">57</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Crab House Restaurant</span><span class="zh">螃蟹屋餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Crab%20House%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／螃蟹</td>
+<td>午餐／晚餐</td>
+<td class="note">長期旅遊平台熱門海鮮店。</td>
+</tr>
+<tr class="food-row" data-id="58" data-region="中島" data-type="景觀餐廳／咖啡" data-tier="B" data-rating="4.3" data-search="chuồn chuồn bistro &amp; bar 蜻蜓山景餐酒館 dương đông 楊東 景觀餐廳／咖啡 早餐／下午／傍晚／晚餐 評論量非常大；重點是山景與夕陽。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="58"></td>
+<td class="center">58</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Chuồn Chuồn Bistro &amp; Bar</span><span class="zh">蜻蜓山景餐酒館</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.3★</b>・6134則</td>
+<td><a class="google" href="https://www.google.com/search?q=Chu%E1%BB%93n%20Chu%E1%BB%93n%20Bistro%20%26%20Bar%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>景觀餐廳／咖啡</td>
+<td>早餐／下午／傍晚／晚餐</td>
+<td class="note">評論量非常大；重點是山景與夕陽。</td>
+</tr>
+<tr class="food-row" data-id="59" data-region="中島" data-type="咖啡／飲料" data-tier="A" data-rating="4.6" data-search="anba coffee anba 咖啡 dương đông 楊東 咖啡／飲料 早餐／下午 評論量大的咖啡店。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="59"></td>
+<td class="center">59</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">ANBA COFFEE</span><span class="zh">ANBA 咖啡</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.6★</b>・1364則</td>
+<td><a class="google" href="https://www.google.com/search?q=ANBA%20COFFEE%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／飲料</td>
+<td>早餐／下午</td>
+<td class="note">評論量大的咖啡店。</td>
+</tr>
+<tr class="food-row" data-id="60" data-region="中島" data-type="咖啡／飲料" data-tier="B" data-rating="4.4" data-search="zyzu kafé zyzu 咖啡館 dương đông 楊東 咖啡／飲料 上午／下午／晚上 市中心咖啡備選。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="60"></td>
+<td class="center">60</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Zyzu Kafé</span><span class="zh">Zyzu 咖啡館</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.4★</b>・344則</td>
+<td><a class="google" href="https://www.google.com/search?q=Zyzu%20Kaf%C3%A9%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／飲料</td>
+<td>上午／下午／晚上</td>
+<td class="note">市中心咖啡備選。</td>
+</tr>
+<tr class="food-row" data-id="61" data-region="中島" data-type="甜點／蛋糕" data-tier="A" data-rating="4.9" data-search="the cake corner 蛋糕角落 dương đông 楊東 甜點／蛋糕 下午 高分甜點店，評論數較少。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="61"></td>
+<td class="center">61</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">The Cake Corner</span><span class="zh">蛋糕角落</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.9★</b>・68則</td>
+<td><a class="google" href="https://www.google.com/search?q=The%20Cake%20Corner%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>甜點／蛋糕</td>
+<td>下午</td>
+<td class="note">高分甜點店，評論數較少。</td>
+</tr>
+<tr class="food-row" data-id="62" data-region="中島" data-type="麵包／甜點／蛋糕" data-tier="B" data-rating="4.9" data-search="tiệm bánh kem phú quốc - pp bakery pp 富國島蛋糕烘焙坊 dương đông 楊東 麵包／甜點／蛋糕 上午／下午 高分但樣本較小。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="62"></td>
+<td class="center">62</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Tiệm Bánh Kem Phú Quốc - PP Bakery</span><span class="zh">PP 富國島蛋糕烘焙坊</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.9★</b>・37則</td>
+<td><a class="google" href="https://www.google.com/search?q=Ti%E1%BB%87m%20B%C3%A1nh%20Kem%20Ph%C3%BA%20Qu%E1%BB%91c%20-%20PP%20Bakery%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>麵包／甜點／蛋糕</td>
+<td>上午／下午</td>
+<td class="note">高分但樣本較小。</td>
+</tr>
+<tr class="food-row" data-id="63" data-region="中島" data-type="冰品／甜點" data-tier="B" data-rating="4.9" data-search="ig island gelato ig 島嶼義式冰淇淋 dương đông 楊東 冰品／甜點 下午／晚上 甜點冰品備選。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="63"></td>
+<td class="center">63</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">IG Island Gelato</span><span class="zh">IG 島嶼義式冰淇淋</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.9★</b>・39則</td>
+<td><a class="google" href="https://www.google.com/search?q=IG%20Island%20Gelato%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>冰品／甜點</td>
+<td>下午／晚上</td>
+<td class="note">甜點冰品備選。</td>
+</tr>
+<tr class="food-row" data-id="64" data-region="中島" data-type="冰品／甜點" data-tier="B" data-rating="4.7" data-search="coconut ice cream 椰子冰淇淋 dương đông 楊東 冰品／甜點 下午／晚上 適合夜市前後甜點。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="64"></td>
+<td class="center">64</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Coconut ice cream</span><span class="zh">椰子冰淇淋</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.7★</b>・105則</td>
+<td><a class="google" href="https://www.google.com/search?q=Coconut%20ice%20cream%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>冰品／甜點</td>
+<td>下午／晚上</td>
+<td class="note">適合夜市前後甜點。</td>
+</tr>
+<tr class="food-row" data-id="65" data-region="中島" data-type="夜市／小吃／海鮮／甜點" data-tier="S" data-rating="" data-search="phu quoc night market 富國島夜市 dương đông 楊東 夜市 夜市／小吃／海鮮／甜點 晚餐／宵夜 官方資料指出超過100個攤位；適合一次蒐集多種小吃。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="65"></td>
+<td class="center">65</td>
+<td><div class="wrap3">Dương Đông 楊東 夜市</div></td>
+<td><div class="wrap3"><span class="name">Phu Quoc Night Market</span><span class="zh">富國島夜市</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Phu%20Quoc%20Night%20Market%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>夜市／小吃／海鮮／甜點</td>
+<td>晚餐／宵夜</td>
+<td class="note">官方資料指出超過100個攤位；適合一次蒐集多種小吃。</td>
+</tr>
+<tr class="food-row" data-id="66" data-region="中島" data-type="海鮮／螃蟹" data-tier="A" data-rating="" data-search="nhà ghẹ phú quốc 富國島螃蟹之家 dương đông 楊東 海鮮／螃蟹 午餐／晚餐 螃蟹與海鮮類候選。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="66"></td>
+<td class="center">66</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Nhà Ghẹ Phú Quốc</span><span class="zh">富國島螃蟹之家</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Nh%C3%A0%20Gh%E1%BA%B9%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／螃蟹</td>
+<td>午餐／晚餐</td>
+<td class="note">螃蟹與海鮮類候選。</td>
+</tr>
+<tr class="food-row" data-id="67" data-region="中島" data-type="麵包／越式法國麵包" data-tier="A" data-rating="" data-search="bánh mì lam lam 越式法國麵包 dương đông 楊東 麵包／越式法國麵包 早餐／點心 補足 bánh mì 類型。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="67"></td>
+<td class="center">67</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Bánh Mì Lam</span><span class="zh">Lam 越式法國麵包</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=B%C3%A1nh%20M%C3%AC%20Lam%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>麵包／越式法國麵包</td>
+<td>早餐／點心</td>
+<td class="note">補足 Bánh mì 類型。</td>
+</tr>
+<tr class="food-row" data-id="68" data-region="中島" data-type="越南料理／河粉" data-tier="B" data-rating="" data-search="phở sài gòn 西貢河粉 dương đông 楊東 越南料理／河粉 早餐／午餐 傳統早餐、午餐候選。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="68"></td>
+<td class="center">68</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Phở Sài Gòn</span><span class="zh">西貢河粉</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Ph%E1%BB%9F%20S%C3%A0i%20G%C3%B2n%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／河粉</td>
+<td>早餐／午餐</td>
+<td class="note">傳統早餐、午餐候選。</td>
+</tr>
+<tr class="food-row" data-id="69" data-region="中島" data-type="越南料理／米線" data-tier="A" data-rating="" data-search="bún chả hà nội - phú quốc 富國島河內烤肉米線 dương đông 楊東 越南料理／米線 午餐／晚餐 平價越南料理候選。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="69"></td>
+<td class="center">69</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Bún Chả Hà Nội - Phú Quốc</span><span class="zh">富國島河內烤肉米線</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=B%C3%BAn%20Ch%E1%BA%A3%20H%C3%A0%20N%E1%BB%99i%20-%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／米線</td>
+<td>午餐／晚餐</td>
+<td class="note">平價越南料理候選。</td>
+</tr>
+<tr class="food-row" data-id="70" data-region="中島" data-type="富國島特色／湯粉" data-tier="S+" data-rating="" data-search="phụng bánh canh chả cá phụng 魚餅湯粉 dương đông 楊東 富國島特色／湯粉 早餐／午餐 富國島傳統湯粉代表候選。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="70"></td>
+<td class="center">70</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Phụng Bánh Canh Chả Cá</span><span class="zh">Phụng 魚餅湯粉</span></div></td>
+<td class="center tier tier-Splus">S+</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Ph%E1%BB%A5ng%20B%C3%A1nh%20Canh%20Ch%E1%BA%A3%20C%C3%A1%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>富國島特色／湯粉</td>
+<td>早餐／午餐</td>
+<td class="note">富國島傳統湯粉代表候選。</td>
+</tr>
+<tr class="food-row" data-id="104" data-region="中島" data-type="日式料理" data-tier="A" data-rating="4.7" data-search="bababa japanese phú quốc bababa 富國島日式餐廳 dương đông 楊東 日式料理 晚餐 日式料理高評論候選。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="104"></td>
+<td class="center">104</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Bababa Japanese Phú Quốc</span><span class="zh">Bababa 富國島日式餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.7★</b>・755則</td>
+<td><a class="google" href="https://www.google.com/search?q=Bababa%20Japanese%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>日式料理</td>
+<td>晚餐</td>
+<td class="note">日式料理高評論候選。</td>
+</tr>
+<tr class="food-row" data-id="105" data-region="中島" data-type="印度料理／素食" data-tier="A" data-rating="4.8" data-search="rasoi indian pure vegetarian restaurant rasoi 印度純素餐廳 dương đông 楊東 印度料理／素食 午餐／晚餐 印度料理評論量高，適合素食與換口味。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="105"></td>
+<td class="center">105</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">RASOI INDIAN PURE VEGETARIAN RESTAURANT</span><span class="zh">RASOI 印度純素餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・1335則</td>
+<td><a class="google" href="https://www.google.com/search?q=RASOI%20INDIAN%20PURE%20VEGETARIAN%20RESTAURANT%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>印度料理／素食</td>
+<td>午餐／晚餐</td>
+<td class="note">印度料理評論量高，適合素食與換口味。</td>
+</tr>
+<tr class="food-row" data-id="106" data-region="中島" data-type="漢堡／美式料理" data-tier="A" data-rating="5.0" data-search="handcraft smash burger phú quốc | ruby&#x27;s kitchen 81 ruby&#x27;s kitchen 81 手打壓烤漢堡 dương đông 楊東 漢堡／美式料理 午餐／晚餐 5.0 高分但評論樣本仍較中型；漢堡類強力候選。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="106"></td>
+<td class="center">106</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Handcraft Smash Burger Phú Quốc | Ruby&#x27;s Kitchen 81</span><span class="zh">Ruby&#x27;s Kitchen 81 手打壓烤漢堡</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>5.0★</b>・147則</td>
+<td><a class="google" href="https://www.google.com/search?q=Handcraft%20Smash%20Burger%20Ph%C3%BA%20Qu%E1%BB%91c%20%7C%20Ruby%27s%20Kitchen%2081%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>漢堡／美式料理</td>
+<td>午餐／晚餐</td>
+<td class="note">5.0 高分但評論樣本仍較中型；漢堡類強力候選。</td>
+</tr>
+<tr class="food-row" data-id="107" data-region="中島" data-type="泰式料理" data-tier="A" data-rating="4.7" data-search="pad thai pad thai 泰式餐廳 dương đông 楊東 泰式料理 晚餐 泰式料理評論量充足。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="107"></td>
+<td class="center">107</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Pad Thai</span><span class="zh">Pad Thai 泰式餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.7★</b>・715則</td>
+<td><a class="google" href="https://www.google.com/search?q=Pad%20Thai%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>泰式料理</td>
+<td>晚餐</td>
+<td class="note">泰式料理評論量充足。</td>
+</tr>
+<tr class="food-row" data-id="108" data-region="中島" data-type="咖啡／早午餐" data-tier="A" data-rating="4.8" data-search="ann cafe &amp; brunch phu quoc ann 富國島咖啡早午餐 dương đông 楊東 咖啡／早午餐 早餐／早午餐 靠近楊東夜市；適合早餐與早午餐。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="108"></td>
+<td class="center">108</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Ann Cafe &amp; Brunch Phu Quoc</span><span class="zh">Ann 富國島咖啡早午餐</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・551則</td>
+<td><a class="google" href="https://www.google.com/search?q=Ann%20Cafe%20%26%20Brunch%20Phu%20Quoc%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／早午餐</td>
+<td>早餐／早午餐</td>
+<td class="note">靠近楊東夜市；適合早餐與早午餐。</td>
+</tr>
+<tr class="food-row" data-id="109" data-region="中島" data-type="麵包／甜點／蛋糕" data-tier="A" data-rating="4.7" data-search="sugar fusion bakery sugar fusion 烘焙坊 dương đông 楊東 麵包／甜點／蛋糕 上午／下午／晚上 烘焙甜點類候選。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="109"></td>
+<td class="center">109</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Sugar Fusion Bakery</span><span class="zh">Sugar Fusion 烘焙坊</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.7★</b>・274則</td>
+<td><a class="google" href="https://www.google.com/search?q=Sugar%20Fusion%20Bakery%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>麵包／甜點／蛋糕</td>
+<td>上午／下午／晚上</td>
+<td class="note">烘焙甜點類候選。</td>
+</tr>
+<tr class="food-row" data-id="110" data-region="中島" data-type="咖啡／甜點" data-tier="S" data-rating="4.9" data-search="kingkong coffee 金剛咖啡 dương đông 楊東 咖啡／甜點 早餐後／下午／晚上 google 高分且評論量非常大，咖啡類強力候選。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="110"></td>
+<td class="center">110</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">KingKong Coffee</span><span class="zh">金剛咖啡</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><b>4.9★</b>・2300則</td>
+<td><a class="google" href="https://www.google.com/search?q=KingKong%20Coffee%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／甜點</td>
+<td>早餐後／下午／晚上</td>
+<td class="note">Google 高分且評論量非常大，咖啡類強力候選。</td>
+</tr>
+<tr class="food-row" data-id="111" data-region="中島" data-type="咖啡／甜點／餐酒館" data-tier="A" data-rating="4.9" data-search="aroma cafe bistro bar phu quoc aroma 富國島咖啡餐酒館 dương đông 楊東 咖啡／甜點／餐酒館 上午／下午／晚上 咖啡、甜點與餐酒館複合型。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="111"></td>
+<td class="center">111</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">AROMA Cafe Bistro Bar Phu Quoc</span><span class="zh">AROMA 富國島咖啡餐酒館</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.9★</b>・474則</td>
+<td><a class="google" href="https://www.google.com/search?q=AROMA%20Cafe%20Bistro%20Bar%20Phu%20Quoc%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／甜點／餐酒館</td>
+<td>上午／下午／晚上</td>
+<td class="note">咖啡、甜點與餐酒館複合型。</td>
+</tr>
+<tr class="food-row" data-id="127" data-region="中島" data-type="越南料理" data-tier="A" data-rating="4.9" data-search="ninh kitchen - vietnamese cuisine ninh kitchen 越南料理 dương đông 楊東 越南料理 午餐／晚餐 高分越南料理，適合想吃較完整越式正餐。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="127"></td>
+<td class="center">127</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">NINH KITCHEN - VIETNAMESE CUISINE</span><span class="zh">NINH KITCHEN 越南料理</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.9★</b>・325則</td>
+<td><a class="google" href="https://www.google.com/search?q=NINH%20KITCHEN%20-%20VIETNAMESE%20CUISINE%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理</td>
+<td>午餐／晚餐</td>
+<td class="note">高分越南料理，適合想吃較完整越式正餐。</td>
+</tr>
+<tr class="food-row" data-id="128" data-region="中島" data-type="海鮮料理" data-tier="A" data-rating="4.7" data-search="blue seafood restaurant (블루씨푸드) blue 藍海鮮餐廳 dương đông 楊東 海鮮料理 午餐／晚餐 評論量破千的海鮮餐廳。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="128"></td>
+<td class="center">128</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Blue seafood restaurant (블루씨푸드)</span><span class="zh">Blue 藍海鮮餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.7★</b>・1135則</td>
+<td><a class="google" href="https://www.google.com/search?q=Blue%20seafood%20restaurant%20%28%EB%B8%94%EB%A3%A8%EC%94%A8%ED%91%B8%EB%93%9C%29%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮料理</td>
+<td>午餐／晚餐</td>
+<td class="note">評論量破千的海鮮餐廳。</td>
+</tr>
+<tr class="food-row" data-id="129" data-region="中島" data-type="披薩／西式料理" data-tier="A" data-rating="4.9" data-search="papa bear pizza papa bear 熊爸爸披薩 dương đông 楊東 披薩／西式料理 晚餐／宵夜 披薩類高分候選。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="129"></td>
+<td class="center">129</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Papa Bear Pizza</span><span class="zh">Papa Bear 熊爸爸披薩</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.9★</b>・228則</td>
+<td><a class="google" href="https://www.google.com/search?q=Papa%20Bear%20Pizza%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>披薩／西式料理</td>
+<td>晚餐／宵夜</td>
+<td class="note">披薩類高分候選。</td>
+</tr>
+<tr class="food-row" data-id="130" data-region="中島" data-type="印度料理" data-tier="A" data-rating="4.7" data-search="rajwadi zaikah indian restaurant rajwadi zaikah 印度餐廳 dương đông 楊東 印度料理 午餐／晚餐 市中心印度料理候選。 中島">
+<td class="center"><input type="checkbox" class="pick" data-id="130"></td>
+<td class="center">130</td>
+<td><div class="wrap3">Dương Đông 楊東</div></td>
+<td><div class="wrap3"><span class="name">Rajwadi Zaikah Indian Restaurant</span><span class="zh">Rajwadi Zaikah 印度餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.7★</b>・294則</td>
+<td><a class="google" href="https://www.google.com/search?q=Rajwadi%20Zaikah%20Indian%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>印度料理</td>
+<td>午餐／晚餐</td>
+<td class="note">市中心印度料理候選。</td>
+</tr>
+</tbody></table></div>
+</section><section class="section midsouth" data-section-region="中南">
+<div class="sticky-group">
+<h2>中南｜Long Beach 長灘・Trần Hưng Đạo 陳興道・Cửa Lấp 庫阿拉普 <span class="count">31 家</span></h2>
+<div class="head-wrap"><div class="head-track"><table><colgroup>
+<col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5">
+<col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10">
+</colgroup>
+<thead><tr>
+<th>勾選</th><th>項次</th><th>區域</th><th>店家（原文＋中文）</th><th>必吃</th>
+<th>Google</th><th>查看介紹</th><th>美食種類</th><th>適合時間</th><th>備註</th>
+</tr></thead></table></div></div>
+</div>
+<div class="body-wrap"><table><colgroup>
+<col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5">
+<col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10">
+</colgroup><tbody>
+<tr class="food-row" data-id="71" data-region="中南" data-type="越南料理" data-tier="S+" data-rating="4.8" data-search="meo kitchen meo 越南廚房 long beach 長灘／cửa lấp 庫阿拉普 越南料理 午餐／晚餐 高分且評論數極高。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="71"></td>
+<td class="center">71</td>
+<td><div class="wrap3">Long Beach 長灘／Cửa Lấp 庫阿拉普</div></td>
+<td><div class="wrap3"><span class="name">MEO Kitchen</span><span class="zh">MEO 越南廚房</span></div></td>
+<td class="center tier tier-Splus">S+</td>
+<td><b>4.8★</b>・8265則</td>
+<td><a class="google" href="https://www.google.com/search?q=MEO%20Kitchen%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理</td>
+<td>午餐／晚餐</td>
+<td class="note">高分且評論數極高。</td>
+</tr>
+<tr class="food-row" data-id="72" data-region="中南" data-type="越南料理／越式煎餅" data-tier="S" data-rating="4.8" data-search="banh xeo cuội restaurant (branch 3) cuội 越式煎餅餐廳（三店） cửa lấp 庫阿拉普 越南料理／越式煎餅 午餐／晚餐 高分＋大量評論。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="72"></td>
+<td class="center">72</td>
+<td><div class="wrap3">Cửa Lấp 庫阿拉普</div></td>
+<td><div class="wrap3"><span class="name">Banh Xeo CUỘI restaurant (Branch 3)</span><span class="zh">Cuội 越式煎餅餐廳（三店）</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><b>4.8★</b>・6346則</td>
+<td><a class="google" href="https://www.google.com/search?q=Banh%20Xeo%20CU%E1%BB%98I%20restaurant%20%28Branch%203%29%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／越式煎餅</td>
+<td>午餐／晚餐</td>
+<td class="note">高分＋大量評論。</td>
+</tr>
+<tr class="food-row" data-id="73" data-region="中南" data-type="越南料理" data-tier="A" data-rating="4.7" data-search="bếp an restaurant 安廚房越南餐廳 long beach 長灘 越南料理 午餐／晚餐 家庭正餐候選。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="73"></td>
+<td class="center">73</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">Bếp An Restaurant</span><span class="zh">安廚房越南餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.7★</b>・2283則</td>
+<td><a class="google" href="https://www.google.com/search?q=B%E1%BA%BFp%20An%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理</td>
+<td>午餐／晚餐</td>
+<td class="note">家庭正餐候選。</td>
+</tr>
+<tr class="food-row" data-id="74" data-region="中南" data-type="景觀餐廳／亞洲料理" data-tier="A" data-rating="" data-search="sunset beach bar &amp; restaurant 日落海灘餐酒館 long beach 長灘 景觀餐廳／亞洲料理 傍晚／晚餐 旅遊平台長期高人氣；重點是夕陽與海灘。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="74"></td>
+<td class="center">74</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">Sunset Beach Bar &amp; Restaurant</span><span class="zh">日落海灘餐酒館</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Sunset%20Beach%20Bar%20%26%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>景觀餐廳／亞洲料理</td>
+<td>傍晚／晚餐</td>
+<td class="note">旅遊平台長期高人氣；重點是夕陽與海灘。</td>
+</tr>
+<tr class="food-row" data-id="75" data-region="中南" data-type="披薩／西式料理" data-tier="A" data-rating="" data-search="the home pizza - tran hung dao the home pizza・陳興道路店 long beach 長灘 披薩／西式料理 午餐／晚餐 家庭換口味熱門備選。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="75"></td>
+<td class="center">75</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">The Home Pizza - Tran Hung Dao</span><span class="zh">The Home Pizza・陳興道路店</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=The%20Home%20Pizza%20-%20Tran%20Hung%20Dao%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>披薩／西式料理</td>
+<td>午餐／晚餐</td>
+<td class="note">家庭換口味熱門備選。</td>
+</tr>
+<tr class="food-row" data-id="76" data-region="中南" data-type="越南料理／海鮮" data-tier="A" data-rating="" data-search="the spice house at cassia cottage cassia cottage 香料屋餐廳 long beach 長灘 越南料理／海鮮 午餐／晚餐 長期旅遊平台知名餐廳。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="76"></td>
+<td class="center">76</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">The Spice House at Cassia Cottage</span><span class="zh">Cassia Cottage 香料屋餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=The%20Spice%20House%20at%20Cassia%20Cottage%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／海鮮</td>
+<td>午餐／晚餐</td>
+<td class="note">長期旅遊平台知名餐廳。</td>
+</tr>
+<tr class="food-row" data-id="77" data-region="中南" data-type="咖啡／早午餐／甜點" data-tier="A" data-rating="" data-search="nora’s cafe nora 咖啡館 long beach 長灘 咖啡／早午餐／甜點 早餐／早午餐／下午 咖啡、早午餐類的重要候選。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="77"></td>
+<td class="center">77</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">Nora’s Cafe</span><span class="zh">Nora 咖啡館</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Nora%E2%80%99s%20Cafe%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／早午餐／甜點</td>
+<td>早餐／早午餐／下午</td>
+<td class="note">咖啡、早午餐類的重要候選。</td>
+</tr>
+<tr class="food-row" data-id="78" data-region="中南" data-type="咖啡／餐廳" data-tier="B" data-rating="4.5" data-search="long life coffee &amp; dine long life 咖啡餐館 long beach 長灘 咖啡／餐廳 早餐／午餐／下午 long beach center 周邊。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="78"></td>
+<td class="center">78</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">Long Life Coffee &amp; Dine</span><span class="zh">Long Life 咖啡餐館</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.5★</b>・90則</td>
+<td><a class="google" href="https://www.google.com/search?q=Long%20Life%20Coffee%20%26%20Dine%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／餐廳</td>
+<td>早餐／午餐／下午</td>
+<td class="note">Long Beach Center 周邊。</td>
+</tr>
+<tr class="food-row" data-id="79" data-region="中南" data-type="希臘料理／景觀餐廳" data-tier="B" data-rating="4.8" data-search="the greek restaurant phu quoc 富國島希臘餐廳 long beach 長灘 希臘料理／景觀餐廳 午餐／晚餐 海景、夕陽與異國料理。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="79"></td>
+<td class="center">79</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">The Greek Restaurant Phu Quoc</span><span class="zh">富國島希臘餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.8★</b>・68則</td>
+<td><a class="google" href="https://www.google.com/search?q=The%20Greek%20Restaurant%20Phu%20Quoc%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>希臘料理／景觀餐廳</td>
+<td>午餐／晚餐</td>
+<td class="note">海景、夕陽與異國料理。</td>
+</tr>
+<tr class="food-row" data-id="80" data-region="中南" data-type="酒吧／景觀／小吃" data-tier="B" data-rating="" data-search="ocsen beach bar &amp; club ocsen 海灘酒吧 long beach 長灘 酒吧／景觀／小吃 傍晚／晚間 偏大人晚間行程，家庭使用需視情況。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="80"></td>
+<td class="center">80</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">Ocsen Beach Bar &amp; Club</span><span class="zh">Ocsen 海灘酒吧</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Ocsen%20Beach%20Bar%20%26%20Club%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>酒吧／景觀／小吃</td>
+<td>傍晚／晚間</td>
+<td class="note">偏大人晚間行程，家庭使用需視情況。</td>
+</tr>
+<tr class="food-row" data-id="81" data-region="中南" data-type="漢堡／西式料理" data-tier="B" data-rating="" data-search="winston&#x27;s burgers &amp; beer winston 漢堡啤酒餐廳 long beach 長灘 漢堡／西式料理 午餐／晚餐 長期人氣異國料理。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="81"></td>
+<td class="center">81</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">Winston&#x27;s Burgers &amp; Beer</span><span class="zh">Winston 漢堡啤酒餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Winston%27s%20Burgers%20%26%20Beer%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>漢堡／西式料理</td>
+<td>午餐／晚餐</td>
+<td class="note">長期人氣異國料理。</td>
+</tr>
+<tr class="food-row" data-id="82" data-region="中南" data-type="海鮮" data-tier="A" data-rating="4.9" data-search="myla seafood myla 海鮮餐廳 long beach 長灘 海鮮 午餐／晚餐 高分且接近千則評論。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="82"></td>
+<td class="center">82</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">MYLA SEAFOOD</span><span class="zh">MYLA 海鮮餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.9★</b>・894則</td>
+<td><a class="google" href="https://www.google.com/search?q=MYLA%20SEAFOOD%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮</td>
+<td>午餐／晚餐</td>
+<td class="note">高分且接近千則評論。</td>
+</tr>
+<tr class="food-row" data-id="83" data-region="中南" data-type="越南料理／海鮮" data-tier="A" data-rating="4.7" data-search="huong bien restaurant - vietnamese cuisine &amp; seafood 香海越南海鮮餐廳 long beach 長灘 越南料理／海鮮 午餐／晚餐 越式正餐與海鮮。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="83"></td>
+<td class="center">83</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">Huong Bien Restaurant - Vietnamese Cuisine &amp; Seafood</span><span class="zh">香海越南海鮮餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.7★</b>・793則</td>
+<td><a class="google" href="https://www.google.com/search?q=Huong%20Bien%20Restaurant%20-%20Vietnamese%20Cuisine%20%26%20Seafood%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／海鮮</td>
+<td>午餐／晚餐</td>
+<td class="note">越式正餐與海鮮。</td>
+</tr>
+<tr class="food-row" data-id="84" data-region="中南" data-type="越南料理" data-tier="A" data-rating="4.7" data-search="tween&#x27;s kitchen - main street branch tween&#x27;s kitchen 主街店 long beach 長灘 越南料理 午餐／晚餐 高評價家庭餐廳候選。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="84"></td>
+<td class="center">84</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">Tween&#x27;s Kitchen - Main Street Branch</span><span class="zh">Tween&#x27;s Kitchen 主街店</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.7★</b>・755則</td>
+<td><a class="google" href="https://www.google.com/search?q=Tween%27s%20Kitchen%20-%20Main%20Street%20Branch%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理</td>
+<td>午餐／晚餐</td>
+<td class="note">高評價家庭餐廳候選。</td>
+</tr>
+<tr class="food-row" data-id="85" data-region="中南" data-type="越南小吃／煎餅" data-tier="A" data-rating="4.8" data-search="bánh xèo cuội 2 cuội 越式煎餅二店 long beach 長灘 越南小吃／煎餅 午餐／晚餐 越式煎餅與在地小吃。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="85"></td>
+<td class="center">85</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">Bánh Xèo Cuội 2</span><span class="zh">Cuội 越式煎餅二店</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・659則</td>
+<td><a class="google" href="https://www.google.com/search?q=B%C3%A1nh%20X%C3%A8o%20Cu%E1%BB%99i%202%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南小吃／煎餅</td>
+<td>午餐／晚餐</td>
+<td class="note">越式煎餅與在地小吃。</td>
+</tr>
+<tr class="food-row" data-id="112" data-region="中南" data-type="燒烤／火鍋／海鮮" data-tier="B" data-rating="4.1" data-search="sun việt restaurant - bbq buffet &amp; hot pot sun việt 燒烤火鍋自助餐廳 long beach 長灘／cửa lấp 庫阿拉普 燒烤／火鍋／海鮮 晚餐 燒烤火鍋類熱門，但 google 評分偏低，因此列 b 備選。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="112"></td>
+<td class="center">112</td>
+<td><div class="wrap3">Long Beach 長灘／Cửa Lấp 庫阿拉普</div></td>
+<td><div class="wrap3"><span class="name">Sun Việt Restaurant - BBQ buffet &amp; hot pot</span><span class="zh">Sun Việt 燒烤火鍋自助餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.1★</b>・573則</td>
+<td><a class="google" href="https://www.google.com/search?q=Sun%20Vi%E1%BB%87t%20Restaurant%20-%20BBQ%20buffet%20%26%20hot%20pot%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>燒烤／火鍋／海鮮</td>
+<td>晚餐</td>
+<td class="note">燒烤火鍋類熱門，但 Google 評分偏低，因此列 B 備選。</td>
+</tr>
+<tr class="food-row" data-id="113" data-region="中南" data-type="海鮮／燒烤" data-tier="A" data-rating="4.6" data-search="bôngbbq seafood bông bbq 海鮮燒烤 đường bào 堂堡區 海鮮／燒烤 晚餐／宵夜 sonasea 一帶燒烤海鮮，高評論候選。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="113"></td>
+<td class="center">113</td>
+<td><div class="wrap3">Đường Bào 堂堡區</div></td>
+<td><div class="wrap3"><span class="name">BôngBBQ Seafood</span><span class="zh">Bông BBQ 海鮮燒烤</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.6★</b>・874則</td>
+<td><a class="google" href="https://www.google.com/search?q=B%C3%B4ngBBQ%20Seafood%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／燒烤</td>
+<td>晚餐／宵夜</td>
+<td class="note">Sonasea 一帶燒烤海鮮，高評論候選。</td>
+</tr>
+<tr class="food-row" data-id="114" data-region="中南" data-type="牛肉／燒烤／越南料理" data-tier="S" data-rating="4.7" data-search="bò tơ quán đảo phú quốc 富國島嫩牛燒烤餐廳 dương tơ 楊絲區 牛肉／燒烤／越南料理 午餐／晚餐 嫩牛燒烤評論量非常高，燒烤類重點候選。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="114"></td>
+<td class="center">114</td>
+<td><div class="wrap3">Dương Tơ 楊絲區</div></td>
+<td><div class="wrap3"><span class="name">Bò Tơ Quán Đảo Phú Quốc</span><span class="zh">富國島嫩牛燒烤餐廳</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><b>4.7★</b>・2500則</td>
+<td><a class="google" href="https://www.google.com/search?q=B%C3%B2%20T%C6%A1%20Qu%C3%A1n%20%C4%90%E1%BA%A3o%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>牛肉／燒烤／越南料理</td>
+<td>午餐／晚餐</td>
+<td class="note">嫩牛燒烤評論量非常高，燒烤類重點候選。</td>
+</tr>
+<tr class="food-row" data-id="115" data-region="中南" data-type="咖啡／早午餐" data-tier="A" data-rating="4.8" data-search="là-men coffee &amp; brunch phu quoc là-men 富國島咖啡早午餐 long beach 長灘 咖啡／早午餐 早餐／早午餐／下午 早午餐與咖啡類。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="115"></td>
+<td class="center">115</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">Là-Men Coffee &amp; Brunch Phu Quoc</span><span class="zh">Là-Men 富國島咖啡早午餐</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・353則</td>
+<td><a class="google" href="https://www.google.com/search?q=L%C3%A0-Men%20Coffee%20%26%20Brunch%20Phu%20Quoc%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／早午餐</td>
+<td>早餐／早午餐／下午</td>
+<td class="note">早午餐與咖啡類。</td>
+</tr>
+<tr class="food-row" data-id="116" data-region="中南" data-type="印度料理／素食" data-tier="A" data-rating="4.7" data-search="maharaja lounge - authentic indian 100% veg restaurant maharaja 印度純素餐廳 long beach 長灘 印度料理／素食 午餐／晚餐 評論量非常高的印度料理。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="116"></td>
+<td class="center">116</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">Maharaja Lounge - Authentic Indian 100% Veg Restaurant</span><span class="zh">Maharaja 印度純素餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.7★</b>・2717則</td>
+<td><a class="google" href="https://www.google.com/search?q=Maharaja%20Lounge%20-%20Authentic%20Indian%20100%25%20Veg%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>印度料理／素食</td>
+<td>午餐／晚餐</td>
+<td class="note">評論量非常高的印度料理。</td>
+</tr>
+<tr class="food-row" data-id="131" data-region="中南" data-type="亞洲融合／越南料理" data-tier="S" data-rating="4.6" data-search="saigonese eatery saigonese 西貢風味餐館 long beach 長灘／trần hưng đạo 陳興道 亞洲融合／越南料理 早餐／午餐／晚餐 2026 旅遊美食榜仍有推薦；評論量超過兩千。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="131"></td>
+<td class="center">131</td>
+<td><div class="wrap3">Long Beach 長灘／Trần Hưng Đạo 陳興道</div></td>
+<td><div class="wrap3"><span class="name">Saigonese Eatery</span><span class="zh">Saigonese 西貢風味餐館</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><b>4.6★</b>・2146則</td>
+<td><a class="google" href="https://www.google.com/search?q=Saigonese%20Eatery%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>亞洲融合／越南料理</td>
+<td>早餐／午餐／晚餐</td>
+<td class="note">2026 旅遊美食榜仍有推薦；評論量超過兩千。</td>
+</tr>
+<tr class="food-row" data-id="132" data-region="中南" data-type="早餐／貝果／咖啡" data-tier="A" data-rating="4.8" data-search="bagels &#x27;n eggs bagels &#x27;n eggs 貝果蛋早餐店 long beach 長灘／trần hưng đạo 陳興道 早餐／貝果／咖啡 早餐／早午餐 早餐類高分且評論量充足。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="132"></td>
+<td class="center">132</td>
+<td><div class="wrap3">Long Beach 長灘／Trần Hưng Đạo 陳興道</div></td>
+<td><div class="wrap3"><span class="name">Bagels &#x27;n Eggs</span><span class="zh">Bagels &#x27;n Eggs 貝果蛋早餐店</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・659則</td>
+<td><a class="google" href="https://www.google.com/search?q=Bagels%20%27n%20Eggs%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>早餐／貝果／咖啡</td>
+<td>早餐／早午餐</td>
+<td class="note">早餐類高分且評論量充足。</td>
+</tr>
+<tr class="food-row" data-id="133" data-region="中南" data-type="韓式料理／韓式燒肉" data-tier="S+" data-rating="4.8" data-search="sik gaek - korean restaurant sik gaek 食客韓式燒肉 đường bào 堂堡區／sonasea 索納西 韓式料理／韓式燒肉 午餐／晚餐 韓式燒肉類極強：4.8★、3,000+評論；值得專程安排。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="133"></td>
+<td class="center">133</td>
+<td><div class="wrap3">Đường Bào 堂堡區／Sonasea 索納西</div></td>
+<td><div class="wrap3"><span class="name">Sik Gaek - Korean Restaurant</span><span class="zh">Sik Gaek 食客韓式燒肉</span></div></td>
+<td class="center tier tier-Splus">S+</td>
+<td><b>4.8★</b>・3292則</td>
+<td><a class="google" href="https://www.google.com/search?q=Sik%20Gaek%20-%20Korean%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>韓式料理／韓式燒肉</td>
+<td>午餐／晚餐</td>
+<td class="note">韓式燒肉類極強：4.8★、3,000+評論；值得專程安排。</td>
+</tr>
+<tr class="food-row" data-id="134" data-region="中南" data-type="國際料理／餐酒館" data-tier="S" data-rating="4.7" data-search="okei bistro 1 - sonasea okei bistro 索納西餐館 đường bào 堂堡區／sonasea 索納西 國際料理／餐酒館 早餐／午餐／晚餐 sonasea 高評論量綜合餐館。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="134"></td>
+<td class="center">134</td>
+<td><div class="wrap3">Đường Bào 堂堡區／Sonasea 索納西</div></td>
+<td><div class="wrap3"><span class="name">Okei Bistro 1 - Sonasea</span><span class="zh">Okei Bistro 索納西餐館</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><b>4.7★</b>・1207則</td>
+<td><a class="google" href="https://www.google.com/search?q=Okei%20Bistro%201%20-%20Sonasea%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>國際料理／餐酒館</td>
+<td>早餐／午餐／晚餐</td>
+<td class="note">Sonasea 高評論量綜合餐館。</td>
+</tr>
+<tr class="food-row" data-id="135" data-region="中南" data-type="韓式料理／燒肉" data-tier="A" data-rating="4.8" data-search="gyeongbokgung korean restaurant 景福宮韓式餐廳 đường bào 堂堡區／sonasea 索納西 韓式料理／燒肉 午餐／晚餐 sonasea 韓式料理高分候選。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="135"></td>
+<td class="center">135</td>
+<td><div class="wrap3">Đường Bào 堂堡區／Sonasea 索納西</div></td>
+<td><div class="wrap3"><span class="name">Gyeongbokgung Korean Restaurant</span><span class="zh">景福宮韓式餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・438則</td>
+<td><a class="google" href="https://www.google.com/search?q=Gyeongbokgung%20Korean%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>韓式料理／燒肉</td>
+<td>午餐／晚餐</td>
+<td class="note">Sonasea 韓式料理高分候選。</td>
+</tr>
+<tr class="food-row" data-id="136" data-region="中南" data-type="日式料理／壽司／居酒屋" data-tier="A" data-rating="4.7" data-search="brother tuna izakaya brother tuna 鮪魚居酒屋 đường bào 堂堡區／sonasea 索納西 日式料理／壽司／居酒屋 午餐／晚餐 日式壽司與居酒屋類候選。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="136"></td>
+<td class="center">136</td>
+<td><div class="wrap3">Đường Bào 堂堡區／Sonasea 索納西</div></td>
+<td><div class="wrap3"><span class="name">BROTHER TUNA IZAKAYA</span><span class="zh">Brother Tuna 鮪魚居酒屋</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.7★</b>・140則</td>
+<td><a class="google" href="https://www.google.com/search?q=BROTHER%20TUNA%20IZAKAYA%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>日式料理／壽司／居酒屋</td>
+<td>午餐／晚餐</td>
+<td class="note">日式壽司與居酒屋類候選。</td>
+</tr>
+<tr class="food-row" data-id="137" data-region="中南" data-type="韓式料理／燒肉" data-tier="A" data-rating="4.7" data-search="kum dae ji phú quốc 金豬熟成韓式燒肉・富國島店 long beach 長灘／trần hưng đạo 陳興道 韓式料理／燒肉 午餐／晚餐／宵夜 熟成韓式燒肉；分數佳但評論樣本較小。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="137"></td>
+<td class="center">137</td>
+<td><div class="wrap3">Long Beach 長灘／Trần Hưng Đạo 陳興道</div></td>
+<td><div class="wrap3"><span class="name">Kum Dae Ji Phú Quốc</span><span class="zh">金豬熟成韓式燒肉・富國島店</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.7★</b>・74則</td>
+<td><a class="google" href="https://www.google.com/search?q=Kum%20Dae%20Ji%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>韓式料理／燒肉</td>
+<td>午餐／晚餐／宵夜</td>
+<td class="note">熟成韓式燒肉；分數佳但評論樣本較小。</td>
+</tr>
+<tr class="food-row" data-id="138" data-region="中南" data-type="海鮮料理" data-tier="A" data-rating="4.5" data-search="phuong hoang seafood restaurant 鳳凰海鮮餐廳 long beach 長灘／trần hưng đạo 陳興道 海鮮料理 午餐／晚餐 評論量大，星等達 a 級門檻。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="138"></td>
+<td class="center">138</td>
+<td><div class="wrap3">Long Beach 長灘／Trần Hưng Đạo 陳興道</div></td>
+<td><div class="wrap3"><span class="name">Phuong Hoang Seafood Restaurant</span><span class="zh">鳳凰海鮮餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.5★</b>・1889則</td>
+<td><a class="google" href="https://www.google.com/search?q=Phuong%20Hoang%20Seafood%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮料理</td>
+<td>午餐／晚餐</td>
+<td class="note">評論量大，星等達 A 級門檻。</td>
+</tr>
+<tr class="food-row" data-id="139" data-region="中南" data-type="披薩／西式料理" data-tier="S+" data-rating="4.8" data-search="the home pizza phu quoc the home pizza 富國島店 long beach 長灘／trần hưng đạo 陳興道 披薩／西式料理 午餐／晚餐 4.8★、8,000+評論，異國料理中具壓倒性評論量，列入一定要吃候選。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="139"></td>
+<td class="center">139</td>
+<td><div class="wrap3">Long Beach 長灘／Trần Hưng Đạo 陳興道</div></td>
+<td><div class="wrap3"><span class="name">The Home Pizza Phu Quoc</span><span class="zh">The Home Pizza 富國島店</span></div></td>
+<td class="center tier tier-Splus">S+</td>
+<td><b>4.8★</b>・8015則</td>
+<td><a class="google" href="https://www.google.com/search?q=The%20Home%20Pizza%20Phu%20Quoc%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>披薩／西式料理</td>
+<td>午餐／晚餐</td>
+<td class="note">4.8★、8,000+評論，異國料理中具壓倒性評論量，列入一定要吃候選。</td>
+</tr>
+<tr class="food-row" data-id="140" data-region="中南" data-type="印度料理" data-tier="A" data-rating="4.6" data-search="pakka indian restaurant pakka 印度餐廳 long beach 長灘 印度料理 晚餐 較高價位印度料理候選。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="140"></td>
+<td class="center">140</td>
+<td><div class="wrap3">Long Beach 長灘</div></td>
+<td><div class="wrap3"><span class="name">Pakka Indian Restaurant</span><span class="zh">Pakka 印度餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.6★</b>・209則</td>
+<td><a class="google" href="https://www.google.com/search?q=Pakka%20Indian%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>印度料理</td>
+<td>晚餐</td>
+<td class="note">較高價位印度料理候選。</td>
+</tr>
+<tr class="food-row" data-id="141" data-region="中南" data-type="海鮮料理" data-tier="S" data-rating="4.7" data-search="đảo hải sản 島嶼海鮮餐廳 trần phú 陳富路 海鮮料理 晚餐 4.7★且評論破千，海鮮類強力候選。 中南">
+<td class="center"><input type="checkbox" class="pick" data-id="141"></td>
+<td class="center">141</td>
+<td><div class="wrap3">Trần Phú 陳富路</div></td>
+<td><div class="wrap3"><span class="name">Đảo Hải Sản</span><span class="zh">島嶼海鮮餐廳</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><b>4.7★</b>・1383則</td>
+<td><a class="google" href="https://www.google.com/search?q=%C4%90%E1%BA%A3o%20H%E1%BA%A3i%20S%E1%BA%A3n%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮料理</td>
+<td>晚餐</td>
+<td class="note">4.7★且評論破千，海鮮類強力候選。</td>
+</tr>
+</tbody></table></div>
+</section><section class="section east" data-section-region="東島">
+<div class="sticky-group">
+<h2>東島｜Hàm Ninh 咸寧 <span class="count">6 家</span></h2>
+<div class="head-wrap"><div class="head-track"><table><colgroup>
+<col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5">
+<col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10">
+</colgroup>
+<thead><tr>
+<th>勾選</th><th>項次</th><th>區域</th><th>店家（原文＋中文）</th><th>必吃</th>
+<th>Google</th><th>查看介紹</th><th>美食種類</th><th>適合時間</th><th>備註</th>
+</tr></thead></table></div></div>
+</div>
+<div class="body-wrap"><table><colgroup>
+<col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5">
+<col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10">
+</colgroup><tbody>
+<tr class="food-row" data-id="86" data-region="東島" data-type="海鮮／螃蟹" data-tier="A" data-rating="" data-search="nhà hàng biển xanh hàm ninh 咸寧碧海海鮮餐廳 hàm ninh 咸寧 海鮮／螃蟹 午餐／晚餐 咸寧以海鮮、螃蟹為核心；秤重先確認價格。 東島">
+<td class="center"><input type="checkbox" class="pick" data-id="86"></td>
+<td class="center">86</td>
+<td><div class="wrap3">Hàm Ninh 咸寧</div></td>
+<td><div class="wrap3"><span class="name">Nhà hàng Biển Xanh Hàm Ninh</span><span class="zh">咸寧碧海海鮮餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Nh%C3%A0%20h%C3%A0ng%20Bi%E1%BB%83n%20Xanh%20H%C3%A0m%20Ninh%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／螃蟹</td>
+<td>午餐／晚餐</td>
+<td class="note">咸寧以海鮮、螃蟹為核心；秤重先確認價格。</td>
+</tr>
+<tr class="food-row" data-id="87" data-region="東島" data-type="海鮮／螃蟹" data-tier="A" data-rating="" data-search="nhà bè bé ghẹ hàm ninh 咸寧小螃蟹海上餐廳 hàm ninh 咸寧 海鮮／螃蟹 午餐／晚餐 海上餐廳型，重點是螃蟹與現撈海鮮。 東島">
+<td class="center"><input type="checkbox" class="pick" data-id="87"></td>
+<td class="center">87</td>
+<td><div class="wrap3">Hàm Ninh 咸寧</div></td>
+<td><div class="wrap3"><span class="name">Nhà Bè Bé Ghẹ Hàm Ninh</span><span class="zh">咸寧小螃蟹海上餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Nh%C3%A0%20B%C3%A8%20B%C3%A9%20Gh%E1%BA%B9%20H%C3%A0m%20Ninh%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／螃蟹</td>
+<td>午餐／晚餐</td>
+<td class="note">海上餐廳型，重點是螃蟹與現撈海鮮。</td>
+</tr>
+<tr class="food-row" data-id="88" data-region="東島" data-type="海鮮" data-tier="A" data-rating="" data-search="nhà hàng hạnh nhung hàm ninh 咸寧 hạnh nhung 海鮮餐廳 hàm ninh 咸寧 海鮮 午餐／晚餐 咸寧海鮮候選。 東島">
+<td class="center"><input type="checkbox" class="pick" data-id="88"></td>
+<td class="center">88</td>
+<td><div class="wrap3">Hàm Ninh 咸寧</div></td>
+<td><div class="wrap3"><span class="name">Nhà hàng Hạnh Nhung Hàm Ninh</span><span class="zh">咸寧 Hạnh Nhung 海鮮餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Nh%C3%A0%20h%C3%A0ng%20H%E1%BA%A1nh%20Nhung%20H%C3%A0m%20Ninh%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮</td>
+<td>午餐／晚餐</td>
+<td class="note">咸寧海鮮候選。</td>
+</tr>
+<tr class="food-row" data-id="89" data-region="東島" data-type="海鮮" data-tier="B" data-rating="" data-search="nhà hàng song lê hàm ninh 咸寧 song lê 海鮮餐廳 hàm ninh 咸寧 海鮮 午餐／晚餐 東岸海鮮備選。 東島">
+<td class="center"><input type="checkbox" class="pick" data-id="89"></td>
+<td class="center">89</td>
+<td><div class="wrap3">Hàm Ninh 咸寧</div></td>
+<td><div class="wrap3"><span class="name">Nhà hàng Song Lê Hàm Ninh</span><span class="zh">咸寧 Song Lê 海鮮餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Nh%C3%A0%20h%C3%A0ng%20Song%20L%C3%AA%20H%C3%A0m%20Ninh%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮</td>
+<td>午餐／晚餐</td>
+<td class="note">東岸海鮮備選。</td>
+</tr>
+<tr class="food-row" data-id="90" data-region="東島" data-type="海鮮／景觀" data-tier="B" data-rating="" data-search="nhà bè tình biển hàm ninh 咸寧情海海上餐廳 hàm ninh 咸寧 海鮮／景觀 午餐／晚餐 海景與海鮮為主。 東島">
+<td class="center"><input type="checkbox" class="pick" data-id="90"></td>
+<td class="center">90</td>
+<td><div class="wrap3">Hàm Ninh 咸寧</div></td>
+<td><div class="wrap3"><span class="name">Nhà Bè Tình Biển Hàm Ninh</span><span class="zh">咸寧情海海上餐廳</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Nh%C3%A0%20B%C3%A8%20T%C3%ACnh%20Bi%E1%BB%83n%20H%C3%A0m%20Ninh%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／景觀</td>
+<td>午餐／晚餐</td>
+<td class="note">海景與海鮮為主。</td>
+</tr>
+<tr class="food-row" data-id="91" data-region="東島" data-type="海鮮／小吃" data-tier="A" data-rating="" data-search="hàm ninh fishing village seafood 咸寧漁村海鮮 hàm ninh 咸寧 海鮮／小吃 午餐／晚餐 以漁村現場店家與攤位為一個區域型候選；實際店家需現場比較價格。 東島">
+<td class="center"><input type="checkbox" class="pick" data-id="91"></td>
+<td class="center">91</td>
+<td><div class="wrap3">Hàm Ninh 咸寧</div></td>
+<td><div class="wrap3"><span class="name">Hàm Ninh Fishing Village Seafood</span><span class="zh">咸寧漁村海鮮</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=H%C3%A0m%20Ninh%20Fishing%20Village%20Seafood%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／小吃</td>
+<td>午餐／晚餐</td>
+<td class="note">以漁村現場店家與攤位為一個區域型候選；實際店家需現場比較價格。</td>
+</tr>
+</tbody></table></div>
+</section><section class="section south" data-section-region="南島">
+<div class="sticky-group">
+<h2>南島｜An Thới 安泰・Sunset Town 日落小鎮 <span class="count">24 家</span></h2>
+<div class="head-wrap"><div class="head-track"><table><colgroup>
+<col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5">
+<col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10">
+</colgroup>
+<thead><tr>
+<th>勾選</th><th>項次</th><th>區域</th><th>店家（原文＋中文）</th><th>必吃</th>
+<th>Google</th><th>查看介紹</th><th>美食種類</th><th>適合時間</th><th>備註</th>
+</tr></thead></table></div></div>
+</div>
+<div class="body-wrap"><table><colgroup>
+<col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5">
+<col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10">
+</colgroup><tbody>
+<tr class="food-row" data-id="92" data-region="南島" data-type="越南料理" data-tier="S" data-rating="4.7" data-search="cái mâm bistro cái mâm 越式餐館 sunset town 日落小鎮 越南料理 午餐／晚餐 南島高人氣越南料理候選。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="92"></td>
+<td class="center">92</td>
+<td><div class="wrap3">Sunset Town 日落小鎮</div></td>
+<td><div class="wrap3"><span class="name">CÁI MÂM BISTRO</span><span class="zh">Cái Mâm 越式餐館</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><b>4.7★</b>・1263則</td>
+<td><a class="google" href="https://www.google.com/search?q=C%C3%81I%20M%C3%82M%20BISTRO%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理</td>
+<td>午餐／晚餐</td>
+<td class="note">南島高人氣越南料理候選。</td>
+</tr>
+<tr class="food-row" data-id="93" data-region="南島" data-type="越南料理" data-tier="S" data-rating="4.8" data-search="nambo kitchen nambo 南部越南廚房 sunset town 日落小鎮 越南料理 午餐／晚餐 南島高分、評論量具參考性。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="93"></td>
+<td class="center">93</td>
+<td><div class="wrap3">Sunset Town 日落小鎮</div></td>
+<td><div class="wrap3"><span class="name">NamBo Kitchen</span><span class="zh">NamBo 南部越南廚房</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><b>4.8★</b>・743則</td>
+<td><a class="google" href="https://www.google.com/search?q=NamBo%20Kitchen%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理</td>
+<td>午餐／晚餐</td>
+<td class="note">南島高分、評論量具參考性。</td>
+</tr>
+<tr class="food-row" data-id="94" data-region="南島" data-type="印度料理／素食" data-tier="B" data-rating="4.9" data-search="maharaja lounge - 100% pure veg authentic indian restaurant sunset town maharaja 印度素食餐廳・日落小鎮店 sunset town 日落小鎮 印度料理／素食 午餐／晚餐 高分異國料理，非富國島特色。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="94"></td>
+<td class="center">94</td>
+<td><div class="wrap3">Sunset Town 日落小鎮</div></td>
+<td><div class="wrap3"><span class="name">Maharaja Lounge - 100% Pure Veg Authentic Indian Restaurant Sunset Town</span><span class="zh">Maharaja 印度素食餐廳・日落小鎮店</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>4.9★</b>・182則</td>
+<td><a class="google" href="https://www.google.com/search?q=Maharaja%20Lounge%20-%20100%25%20Pure%20Veg%20Authentic%20Indian%20Restaurant%20Sunset%20Town%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>印度料理／素食</td>
+<td>午餐／晚餐</td>
+<td class="note">高分異國料理，非富國島特色。</td>
+</tr>
+<tr class="food-row" data-id="95" data-region="南島" data-type="咖啡／景觀／酒吧" data-tier="B" data-rating="5.0" data-search="wave cafe&amp;pub 3f - sunset town wave 三樓景觀咖啡酒館 sunset town 日落小鎮 咖啡／景觀／酒吧 下午／傍晚／晚上 分數極高但樣本很小，先列潛力店。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="95"></td>
+<td class="center">95</td>
+<td><div class="wrap3">Sunset Town 日落小鎮</div></td>
+<td><div class="wrap3"><span class="name">WAVE CAFE&amp;PUB 3F - SUNSET TOWN</span><span class="zh">WAVE 三樓景觀咖啡酒館</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><b>5.0★</b>・21則</td>
+<td><a class="google" href="https://www.google.com/search?q=WAVE%20CAFE%26PUB%203F%20-%20SUNSET%20TOWN%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／景觀／酒吧</td>
+<td>下午／傍晚／晚上</td>
+<td class="note">分數極高但樣本很小，先列潛力店。</td>
+</tr>
+<tr class="food-row" data-id="96" data-region="南島" data-type="咖啡／飲料" data-tier="B" data-rating="" data-search="starbucks sunset town 星巴克・日落小鎮店 sunset town 日落小鎮 咖啡／飲料 上午／下午／晚上 位置方便，非在地特色。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="96"></td>
+<td class="center">96</td>
+<td><div class="wrap3">Sunset Town 日落小鎮</div></td>
+<td><div class="wrap3"><span class="name">Starbucks Sunset Town</span><span class="zh">星巴克・日落小鎮店</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Starbucks%20Sunset%20Town%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／飲料</td>
+<td>上午／下午／晚上</td>
+<td class="note">位置方便，非在地特色。</td>
+</tr>
+<tr class="food-row" data-id="97" data-region="南島" data-type="夜市／小吃／甜點／海鮮" data-tier="A" data-rating="" data-search="sunset town night market / vui-fest bazaar 日落小鎮 vui-fest 夜市 sunset town 日落小鎮 夜市／小吃／甜點／海鮮 晚餐／宵夜 適合一次蒐集多種小吃與甜點。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="97"></td>
+<td class="center">97</td>
+<td><div class="wrap3">Sunset Town 日落小鎮</div></td>
+<td><div class="wrap3"><span class="name">Sunset Town Night Market / VUI-Fest Bazaar</span><span class="zh">日落小鎮 VUI-Fest 夜市</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Sunset%20Town%20Night%20Market%20/%20VUI-Fest%20Bazaar%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>夜市／小吃／甜點／海鮮</td>
+<td>晚餐／宵夜</td>
+<td class="note">適合一次蒐集多種小吃與甜點。</td>
+</tr>
+<tr class="food-row" data-id="98" data-region="南島" data-type="越南料理／海鮮／酒吧" data-tier="B" data-rating="" data-search="draft beer phu quoc - sunset town 富國島生啤餐廳・日落小鎮店 an thới 安泰 越南料理／海鮮／酒吧 晚餐／宵夜 晚間餐飲候選。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="98"></td>
+<td class="center">98</td>
+<td><div class="wrap3">An Thới 安泰</div></td>
+<td><div class="wrap3"><span class="name">Draft Beer Phu Quoc - Sunset Town</span><span class="zh">富國島生啤餐廳・日落小鎮店</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Draft%20Beer%20Phu%20Quoc%20-%20Sunset%20Town%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／海鮮／酒吧</td>
+<td>晚餐／宵夜</td>
+<td class="note">晚間餐飲候選。</td>
+</tr>
+<tr class="food-row" data-id="99" data-region="南島" data-type="咖啡／甜點／輕食" data-tier="A" data-rating="" data-search="runam cafe sunset town runam 咖啡・日落小鎮店 sunset town 日落小鎮 咖啡／甜點／輕食 早餐／下午 越南知名咖啡品牌型候選。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="99"></td>
+<td class="center">99</td>
+<td><div class="wrap3">Sunset Town 日落小鎮</div></td>
+<td><div class="wrap3"><span class="name">Runam Cafe Sunset Town</span><span class="zh">RuNam 咖啡・日落小鎮店</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Runam%20Cafe%20Sunset%20Town%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／甜點／輕食</td>
+<td>早餐／下午</td>
+<td class="note">越南知名咖啡品牌型候選。</td>
+</tr>
+<tr class="food-row" data-id="100" data-region="南島" data-type="海鮮／景觀餐廳" data-tier="A" data-rating="" data-search="sunset seafood restaurant 日落海鮮餐廳 sunset town 日落小鎮 海鮮／景觀餐廳 傍晚／晚餐 南島景觀海鮮候選；海鮮價格先確認。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="100"></td>
+<td class="center">100</td>
+<td><div class="wrap3">Sunset Town 日落小鎮</div></td>
+<td><div class="wrap3"><span class="name">Sunset Seafood Restaurant</span><span class="zh">日落海鮮餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Sunset%20Seafood%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／景觀餐廳</td>
+<td>傍晚／晚餐</td>
+<td class="note">南島景觀海鮮候選；海鮮價格先確認。</td>
+</tr>
+<tr class="food-row" data-id="101" data-region="南島" data-type="越南料理／海鮮" data-tier="A" data-rating="" data-search="quán ăn thuận kiều 2 thuận kiều 2 安泰在地餐館 an thới 安泰 越南料理／海鮮 午餐／晚餐 南島在地餐飲候選。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="101"></td>
+<td class="center">101</td>
+<td><div class="wrap3">An Thới 安泰</div></td>
+<td><div class="wrap3"><span class="name">Quán Ăn Thuận Kiều 2</span><span class="zh">Thuận Kiều 2 安泰在地餐館</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Qu%C3%A1n%20%C4%82n%20Thu%E1%BA%ADn%20Ki%E1%BB%81u%202%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>越南料理／海鮮</td>
+<td>午餐／晚餐</td>
+<td class="note">南島在地餐飲候選。</td>
+</tr>
+<tr class="food-row" data-id="102" data-region="南島" data-type="麵包／越式法國麵包" data-tier="B" data-rating="" data-search="bánh mì an thới 安泰越式法國麵包 an thới 安泰 麵包／越式法國麵包 早餐／點心 以安泰鎮早餐型 bánh mì 類別收錄，實際店家可再擴充。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="102"></td>
+<td class="center">102</td>
+<td><div class="wrap3">An Thới 安泰</div></td>
+<td><div class="wrap3"><span class="name">Bánh Mì An Thới</span><span class="zh">安泰越式法國麵包</span></div></td>
+<td class="center tier tier-B">B</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=B%C3%A1nh%20M%C3%AC%20An%20Th%E1%BB%9Bi%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>麵包／越式法國麵包</td>
+<td>早餐／點心</td>
+<td class="note">以安泰鎮早餐型 Bánh mì 類別收錄，實際店家可再擴充。</td>
+</tr>
+<tr class="food-row" data-id="117" data-region="南島" data-type="泰式料理" data-tier="A" data-rating="4.9" data-search="thai papaya restaurant thai papaya 泰式餐廳 bãi khem 白沙灘 泰式料理 午餐／晚餐 南島泰式料理高分候選。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="117"></td>
+<td class="center">117</td>
+<td><div class="wrap3">Bãi Khem 白沙灘</div></td>
+<td><div class="wrap3"><span class="name">Thai Papaya Restaurant</span><span class="zh">Thai Papaya 泰式餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.9★</b>・381則</td>
+<td><a class="google" href="https://www.google.com/search?q=Thai%20Papaya%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>泰式料理</td>
+<td>午餐／晚餐</td>
+<td class="note">南島泰式料理高分候選。</td>
+</tr>
+<tr class="food-row" data-id="118" data-region="南島" data-type="冰品／甜點／咖啡" data-tier="A" data-rating="4.9" data-search="tiamo gelato and coffee tiamo 義式冰淇淋咖啡 sunset town 日落小鎮・venice 威尼斯區 冰品／甜點／咖啡 上午／下午／晚上 南島甜點冰品強力候選。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="118"></td>
+<td class="center">118</td>
+<td><div class="wrap3">Sunset Town 日落小鎮・Venice 威尼斯區</div></td>
+<td><div class="wrap3"><span class="name">Tiamo Gelato and Coffee</span><span class="zh">Tiamo 義式冰淇淋咖啡</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.9★</b>・480則</td>
+<td><a class="google" href="https://www.google.com/search?q=Tiamo%20Gelato%20and%20Coffee%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>冰品／甜點／咖啡</td>
+<td>上午／下午／晚上</td>
+<td class="note">南島甜點冰品強力候選。</td>
+</tr>
+<tr class="food-row" data-id="119" data-region="南島" data-type="韓式料理" data-tier="A" data-rating="4.8" data-search="sura sura 韓式餐廳 sunset town 日落小鎮 韓式料理 午餐／晚餐 南島韓式料理高分且評論量高。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="119"></td>
+<td class="center">119</td>
+<td><div class="wrap3">Sunset Town 日落小鎮</div></td>
+<td><div class="wrap3"><span class="name">SURA</span><span class="zh">SURA 韓式餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・1132則</td>
+<td><a class="google" href="https://www.google.com/search?q=SURA%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>韓式料理</td>
+<td>午餐／晚餐</td>
+<td class="note">南島韓式料理高分且評論量高。</td>
+</tr>
+<tr class="food-row" data-id="120" data-region="南島" data-type="日式料理" data-tier="A" data-rating="4.5" data-search="yushima japanese restaurant yushima 湯島日式餐廳 sunset town 日落小鎮 日式料理 午餐／晚餐 日式料理評論量高。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="120"></td>
+<td class="center">120</td>
+<td><div class="wrap3">Sunset Town 日落小鎮</div></td>
+<td><div class="wrap3"><span class="name">Yushima Japanese Restaurant</span><span class="zh">Yushima 湯島日式餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.5★</b>・980則</td>
+<td><a class="google" href="https://www.google.com/search?q=Yushima%20Japanese%20Restaurant%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>日式料理</td>
+<td>午餐／晚餐</td>
+<td class="note">日式料理評論量高。</td>
+</tr>
+<tr class="food-row" data-id="121" data-region="南島" data-type="中式料理／粵菜" data-tier="A" data-rating="4.9" data-search="seta seta 粵菜餐廳 sunset town 日落小鎮 中式料理／粵菜 晚餐 高分粵菜，評論數屬中型。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="121"></td>
+<td class="center">121</td>
+<td><div class="wrap3">Sunset Town 日落小鎮</div></td>
+<td><div class="wrap3"><span class="name">Seta</span><span class="zh">Seta 粵菜餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.9★</b>・169則</td>
+<td><a class="google" href="https://www.google.com/search?q=Seta%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>中式料理／粵菜</td>
+<td>晚餐</td>
+<td class="note">高分粵菜，評論數屬中型。</td>
+</tr>
+<tr class="food-row" data-id="122" data-region="南島" data-type="海鮮／燒烤" data-tier="A" data-rating="4.8" data-search="grill station seafood &amp; bbq phú quốc grill station 富國島海鮮燒烤 bãi khem 白沙灘 海鮮／燒烤 晚餐／宵夜 南島海鮮 bbq 高分候選。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="122"></td>
+<td class="center">122</td>
+<td><div class="wrap3">Bãi Khem 白沙灘</div></td>
+<td><div class="wrap3"><span class="name">Grill Station Seafood &amp; BBQ Phú Quốc</span><span class="zh">Grill Station 富國島海鮮燒烤</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・139則</td>
+<td><a class="google" href="https://www.google.com/search?q=Grill%20Station%20Seafood%20%26%20BBQ%20Ph%C3%BA%20Qu%E1%BB%91c%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／燒烤</td>
+<td>晚餐／宵夜</td>
+<td class="note">南島海鮮 BBQ 高分候選。</td>
+</tr>
+<tr class="food-row" data-id="123" data-region="南島" data-type="火鍋／越南料理" data-tier="A" data-rating="4.8" data-search="hai bột hotpot &amp; homestay hai bột 火鍋餐廳 sunset town 日落小鎮・positano 波西塔諾區 火鍋／越南料理 午餐／晚餐 南島火鍋類候選。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="123"></td>
+<td class="center">123</td>
+<td><div class="wrap3">Sunset Town 日落小鎮・Positano 波西塔諾區</div></td>
+<td><div class="wrap3"><span class="name">Hai Bột HotPot &amp; Homestay</span><span class="zh">Hai Bột 火鍋餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・300則</td>
+<td><a class="google" href="https://www.google.com/search?q=Hai%20B%E1%BB%99t%20HotPot%20%26%20Homestay%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>火鍋／越南料理</td>
+<td>午餐／晚餐</td>
+<td class="note">南島火鍋類候選。</td>
+</tr>
+<tr class="food-row" data-id="124" data-region="南島" data-type="披薩／牛排／西式料理" data-tier="A" data-rating="4.8" data-search="hnb pizza&amp;steak hnb 披薩牛排餐廳 sunset town 日落小鎮 披薩／牛排／西式料理 午餐／晚餐 披薩與牛排類高分候選。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="124"></td>
+<td class="center">124</td>
+<td><div class="wrap3">Sunset Town 日落小鎮</div></td>
+<td><div class="wrap3"><span class="name">HnB Pizza&amp;Steak</span><span class="zh">HnB 披薩牛排餐廳</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・134則</td>
+<td><a class="google" href="https://www.google.com/search?q=HnB%20Pizza%26Steak%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>披薩／牛排／西式料理</td>
+<td>午餐／晚餐</td>
+<td class="note">披薩與牛排類高分候選。</td>
+</tr>
+<tr class="food-row" data-id="142" data-region="南島" data-type="咖啡／甜點" data-tier="S+" data-rating="4.9" data-search="the juliet coffee &amp; dessert - ama71 juliet 茱麗葉咖啡甜點 sunset town 日落小鎮・amalfi 阿瑪菲區 咖啡／甜點 早餐／下午茶／晚上 4.9★、近3,000評論，南島咖啡甜點類非常突出；與行程高度順路。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="142"></td>
+<td class="center">142</td>
+<td><div class="wrap3">Sunset Town 日落小鎮・Amalfi 阿瑪菲區</div></td>
+<td><div class="wrap3"><span class="name">The Juliet Coffee &amp; Dessert - AMA71</span><span class="zh">Juliet 茱麗葉咖啡甜點</span></div></td>
+<td class="center tier tier-Splus">S+</td>
+<td><b>4.9★</b>・2914則</td>
+<td><a class="google" href="https://www.google.com/search?q=The%20Juliet%20Coffee%20%26%20Dessert%20-%20AMA71%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／甜點</td>
+<td>早餐／下午茶／晚上</td>
+<td class="note">4.9★、近3,000評論，南島咖啡甜點類非常突出；與行程高度順路。</td>
+</tr>
+<tr class="food-row" data-id="143" data-region="南島" data-type="咖啡／甜點／酒廊" data-tier="A" data-rating="4.8" data-search="the ivy café &amp; lounge phu quoc the ivy 富國島咖啡酒廊 sunset town 日落小鎮・amalfi 阿瑪菲區 咖啡／甜點／酒廊 早餐／下午／晚上 日落小鎮高分咖啡酒廊。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="143"></td>
+<td class="center">143</td>
+<td><div class="wrap3">Sunset Town 日落小鎮・Amalfi 阿瑪菲區</div></td>
+<td><div class="wrap3"><span class="name">The Ivy Café &amp; Lounge Phu Quoc</span><span class="zh">The Ivy 富國島咖啡酒廊</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・380則</td>
+<td><a class="google" href="https://www.google.com/search?q=The%20Ivy%20Caf%C3%A9%20%26%20Lounge%20Phu%20Quoc%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／甜點／酒廊</td>
+<td>早餐／下午／晚上</td>
+<td class="note">日落小鎮高分咖啡酒廊。</td>
+</tr>
+<tr class="food-row" data-id="144" data-region="南島" data-type="德式／歐式料理／餐酒館" data-tier="S" data-rating="" data-search="sun bavaria gastropub sun bavaria 巴伐利亞美食酒館 sunset town 日落小鎮 德式／歐式料理／餐酒館 午餐／晚餐 2026 富國島官方旅遊網站列為日落小鎮值得體驗餐廳；適合搭配晚間秀與海景。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="144"></td>
+<td class="center">144</td>
+<td><div class="wrap3">Sunset Town 日落小鎮</div></td>
+<td><div class="wrap3"><span class="name">Sun Bavaria GastroPub</span><span class="zh">Sun Bavaria 巴伐利亞美食酒館</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Sun%20Bavaria%20GastroPub%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>德式／歐式料理／餐酒館</td>
+<td>午餐／晚餐</td>
+<td class="note">2026 富國島官方旅遊網站列為日落小鎮值得體驗餐廳；適合搭配晚間秀與海景。</td>
+</tr>
+<tr class="food-row" data-id="145" data-region="南島" data-type="咖啡／特色飲品" data-tier="S" data-rating="" data-search="apollo cafe apollo 阿波羅咖啡 sunset town 日落小鎮・apollo 阿波羅廣場 咖啡／特色飲品 上午／下午／日落 2026 富國島官方旅遊網站重點介紹；主打創意 coffee mixology 與日落景觀。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="145"></td>
+<td class="center">145</td>
+<td><div class="wrap3">Sunset Town 日落小鎮・Apollo 阿波羅廣場</div></td>
+<td><div class="wrap3"><span class="name">Apollo Cafe</span><span class="zh">Apollo 阿波羅咖啡</span></div></td>
+<td class="center tier tier-S">S</td>
+<td><span class="no-rating">查無評論</span></td>
+<td><a class="google" href="https://www.google.com/search?q=Apollo%20Cafe%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>咖啡／特色飲品</td>
+<td>上午／下午／日落</td>
+<td class="note">2026 富國島官方旅遊網站重點介紹；主打創意 coffee mixology 與日落景觀。</td>
+</tr>
+<tr class="food-row" data-id="146" data-region="南島" data-type="海鮮／燒烤／夜市" data-tier="A" data-rating="4.8" data-search="quốc mạnh bbq quốc mạnh 國孟海鮮燒烤 sunset town 日落小鎮夜市 海鮮／燒烤／夜市 晚餐／宵夜 夜市海鮮 bbq 高分候選。 南島">
+<td class="center"><input type="checkbox" class="pick" data-id="146"></td>
+<td class="center">146</td>
+<td><div class="wrap3">Sunset Town 日落小鎮夜市</div></td>
+<td><div class="wrap3"><span class="name">Quốc Mạnh BBQ</span><span class="zh">Quốc Mạnh 國孟海鮮燒烤</span></div></td>
+<td class="center tier tier-A">A</td>
+<td><b>4.8★</b>・157則</td>
+<td><a class="google" href="https://www.google.com/search?q=Qu%E1%BB%91c%20M%E1%BA%A1nh%20BBQ%20%E5%AF%8C%E5%9C%8B%E5%B3%B6" target="_blank" rel="noopener">Google 搜尋</a></td>
+<td>海鮮／燒烤／夜市</td>
+<td>晚餐／宵夜</td>
+<td class="note">夜市海鮮 BBQ 高分候選。</td>
+</tr>
+</tbody></table></div>
+</section>
+  </main>
+
+  <div class="small" style="text-align:center;padding:16px">研究版 2.3｜V23｜更新日期 2026-09-05</div>
 </div>
 <button id="backTop" title="回到最上面">↑</button>
 
 <script>
-const DATA = [{"id": 1, "region": "北島", "area": "Grand World 富國大世界・TH2", "name": "Bách Restaurant Phú Quốc", "zh": "百味餐廳", "type": "越南料理／亞洲料理", "time": "午餐／晚餐", "tier": "B", "rating": 3.6, "reviews": 148, "note": "目前 Google 評分偏低；適合想吃中式料理時再考慮。"}, {"id": 2, "region": "北島", "area": "Grand World 富國大世界・TH2", "name": "DINO Restaurant Grand World Phú Quốc", "zh": "DINO 恐龍餐廳", "type": "越南料理", "time": "早餐／午餐／晚餐", "tier": "A", "rating": 4.8, "reviews": null, "note": "家庭用餐方便。"}, {"id": 3, "region": "北島", "area": "Grand World 富國大世界・上海街", "name": "Madam Thảo Grand World Phú Quốc", "zh": "草夫人越南餐廳", "type": "越南料理", "time": "早餐／午餐／晚餐", "tier": "A", "rating": 4.7, "reviews": 2118, "note": "北島人氣越南料理。"}, {"id": 4, "region": "北島", "area": "Grand World 富國大世界・TH2", "name": "Ikusachi Sushi", "zh": "伊久幸壽司", "type": "日式料理／壽司", "time": "午餐／晚餐", "tier": "B", "rating": null, "reviews": null, "note": "異國料理備選。"}, {"id": 5, "region": "北島", "area": "Grand World 富國大世界・上海街", "name": "Cuong Kua Seafood Restaurant", "zh": "強哥螃蟹海鮮餐廳", "type": "海鮮", "time": "午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "海鮮秤重前先確認單價、重量與料理費。"}, {"id": 6, "region": "北島", "area": "Grand World 富國大世界・上海街", "name": "I Am Coffee", "zh": "我是咖啡", "type": "咖啡／飲料", "time": "早餐後／下午", "tier": "B", "rating": null, "reviews": null, "note": "住宿周邊咖啡備選。"}, {"id": 7, "region": "北島", "area": "Grand World 富國大世界", "name": "Highlands Coffee", "zh": "高原咖啡", "type": "咖啡／飲料", "time": "早餐後／下午", "tier": "A", "rating": null, "reviews": null, "note": "越南大型連鎖咖啡品牌。"}, {"id": 8, "region": "北島", "area": "Grand World 富國大世界・上海街", "name": "Bún Quậy Kiến Xây", "zh": "Kiến Xây 富國島攪拌米粉", "type": "富國島特色／米粉", "time": "午餐／晚餐", "tier": "S", "rating": 4.2, "reviews": 6389, "note": "富國島代表性料理；即使星等不是最高仍屬必吃候選。"}, {"id": 9, "region": "北島", "area": "Grand World 富國大世界・TH1", "name": "Mai Hương Restaurant - Grand World Phú Quốc", "zh": "梅香餐廳・富國大世界店", "type": "海鮮／越南料理", "time": "下午／晚餐", "tier": "S", "rating": 4.8, "reviews": 3421, "note": "北島高人氣海鮮；海鮮秤重先確認價格。"}, {"id": 10, "region": "北島", "area": "Grand World 富國大世界", "name": "Cơm Niêu Việt", "zh": "越式砂鍋飯", "type": "越南料理／砂鍋飯", "time": "午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "適合多人共享。"}, {"id": 11, "region": "北島", "area": "Grand World 富國大世界", "name": "Bò Tơ 68", "zh": "68 嫩牛肉", "type": "牛肉／燒烤", "time": "晚餐", "tier": "A", "rating": null, "reviews": null, "note": "牛肉與燒烤類。"}, {"id": 12, "region": "北島", "area": "Grand World 富國大世界", "name": "Madam Khánh Phú Quốc", "zh": "慶夫人餐廳", "type": "海鮮／越南料理", "time": "午餐／晚餐", "tier": "B", "rating": null, "reviews": null, "note": "家庭正餐備選。"}, {"id": 13, "region": "北島", "area": "Grand World 富國大世界", "name": "Piola Uzbek Turkish Cuisine", "zh": "Piola 烏茲別克・土耳其料理", "type": "異國料理", "time": "午餐／晚餐", "tier": "B", "rating": null, "reviews": null, "note": "非富國島特色，作為換口味備選。"}, {"id": 14, "region": "北島", "area": "Grand World 富國大世界・Beachfront 海濱區", "name": "Grand World Food Court", "zh": "富國大世界美食廣場", "type": "小吃／綜合", "time": "午餐／晚餐", "tier": "A", "rating": 4.9, "reviews": 1695, "note": "多人各自選餐方便；攤位可能變動。"}, {"id": 15, "region": "北島", "area": "Grand World 富國大世界・Beachfront 海濱區", "name": "Mai Hương Beachfront", "zh": "梅香海濱餐廳", "type": "海鮮／景觀餐廳", "time": "午餐／傍晚／晚餐", "tier": "S", "rating": 4.9, "reviews": 3101, "note": "高評價海景海鮮餐廳。"}, {"id": 16, "region": "北島", "area": "Grand World 富國大世界・威尼斯河", "name": "Bếp Nhà Restaurant - Grand World Phú Quốc", "zh": "家廚越南餐廳", "type": "越南料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.5, "reviews": 807, "note": "越式家常菜。"}, {"id": 17, "region": "北島", "area": "Grand World 富國大世界・威尼斯河", "name": "HANA Coffee", "zh": "HANA 哈娜咖啡", "type": "咖啡／飲料", "time": "上午／下午／晚上", "tier": "A", "rating": 4.8, "reviews": 1097, "note": "評論量高的咖啡選擇。"}, {"id": 18, "region": "北島", "area": "Grand World 富國大世界・威尼斯河", "name": "The Riverside Coffee Grand World Phú Quốc", "zh": "河畔咖啡", "type": "咖啡／飲料", "time": "上午／下午／晚上", "tier": "B", "rating": 4.3, "reviews": 573, "note": "威尼斯河景觀咖啡。"}, {"id": 19, "region": "北島", "area": "Grand World 富國大世界・中央湖", "name": "Saigon Domain - Phu Quoc", "zh": "西貢領域餐廳", "type": "越南料理／西式料理", "time": "晚餐", "tier": "B", "rating": 4.4, "reviews": null, "note": "景觀與正餐備選。"}, {"id": 20, "region": "北島", "area": "Grand World 富國大世界・Beachfront 海濱區", "name": "Sunset Bistro & Bar - Grand World", "zh": "日落海濱餐酒館", "type": "景觀餐廳／西式料理", "time": "傍晚／晚餐", "tier": "A", "rating": 4.9, "reviews": null, "note": "適合傍晚景觀。"}, {"id": 21, "region": "北島", "area": "Grand World 富國大世界・上海街", "name": "Cơm Bắc 1983", "zh": "1983 北越家常菜", "type": "越南料理／家常菜", "time": "早餐／午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "北越家常菜，多人共享。"}, {"id": 22, "region": "北島", "area": "Grand World 富國大世界・Indochine 印度支那區", "name": "Cơm Niêu Cái Bếp Garden", "zh": "Cái Bếp Garden 越式砂鍋飯", "type": "越南料理／砂鍋飯", "time": "午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "官方旅遊資訊收錄；砂鍋飯、鯡魚沙拉與家常菜。"}, {"id": 23, "region": "北島", "area": "Grand World 富國大世界・上海街", "name": "Sông Hằng Restaurant", "zh": "恆河越南餐廳", "type": "越南料理", "time": "午餐／晚餐", "tier": "B", "rating": null, "reviews": null, "note": "家庭餐廳備選。"}, {"id": 24, "region": "北島", "area": "Grand World 富國大世界・上海街", "name": "The Mekong Connect", "zh": "湄公河餐廳", "type": "越南料理", "time": "午餐／晚餐", "tier": "B", "rating": null, "reviews": null, "note": "越南料理候選。"}, {"id": 25, "region": "北島", "area": "Grand World 富國大世界・上海街", "name": "Phở Lý Quốc Sư", "zh": "李國師河粉", "type": "越南料理／河粉", "time": "早餐／午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "河內風格牛肉河粉。"}, {"id": 26, "region": "北島", "area": "Grand World 富國大世界・Indochine 印度支那區", "name": "Cơm Chiên Nguyễn Ký Phú Quốc", "zh": "Nguyễn Ký 富國島炒飯", "type": "越南料理／炒飯", "time": "午餐／晚餐", "tier": "B", "rating": null, "reviews": null, "note": "簡單正餐備選。"}, {"id": 27, "region": "北島", "area": "Grand World 富國大世界・Indochine 印度支那區", "name": "Thế Giới Hải Sản Hàm Ninh Grand World Phú Quốc", "zh": "咸寧海鮮世界・富國大世界店", "type": "海鮮", "time": "晚餐／宵夜", "tier": "B", "rating": 4.2, "reviews": 71, "note": "海鮮秤重前確認重量與料理費。"}, {"id": 28, "region": "北島", "area": "Grand World 富國大世界・中央湖", "name": "Nhà hàng Vua Hải Sản", "zh": "海鮮王餐廳", "type": "海鮮", "time": "下午／晚餐", "tier": "A", "rating": 4.8, "reviews": 2089, "note": "評論數高但價位偏高；先確認海鮮單價。"}, {"id": 29, "region": "北島", "area": "Grand World 富國大世界・南京街", "name": "Curry Kingdom Grand World Phu Quoc", "zh": "咖哩王國印度餐廳", "type": "印度料理", "time": "午餐／晚餐／宵夜", "tier": "B", "rating": 4.8, "reviews": 129, "note": "換口味備選。"}, {"id": 30, "region": "北島", "area": "Grand World 富國大世界・南京街", "name": "Lake Masala", "zh": "湖畔瑪莎拉印度餐廳", "type": "印度料理", "time": "午餐／晚餐／宵夜", "tier": "A", "rating": 4.8, "reviews": 1729, "note": "異國料理中評論量很高。"}, {"id": 31, "region": "北島", "area": "Grand World 富國大世界・TH1", "name": "Nhà hàng Phu Zim - Grand World Phú Quốc", "zh": "Phu Zim 韓式餐廳", "type": "韓式料理", "time": "午餐／晚餐", "tier": "B", "rating": 4.6, "reviews": 647, "note": "非富國島特色，適合換口味。"}, {"id": 32, "region": "北島", "area": "Grand World 富國大世界・TH1", "name": "쌈 Ssam 한식당", "zh": "Ssam 韓式餐廳", "type": "韓式料理／燒肉", "time": "午餐／晚餐", "tier": "A", "rating": 4.9, "reviews": 1685, "note": "韓式料理中高評價高評論數。"}, {"id": 33, "region": "北島", "area": "Grand World 富國大世界・TH1", "name": "고향식당 - Korean Restaurant", "zh": "故鄉韓式餐廳", "type": "韓式料理", "time": "午餐／晚餐", "tier": "B", "rating": null, "reviews": null, "note": "韓式備選。"}, {"id": 34, "region": "北島", "area": "Grand World 富國大世界・威尼斯河", "name": "Namaste India - Indian Restaurant & Luxury Stay", "zh": "Namaste India 印度餐廳", "type": "印度料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.8, "reviews": 507, "note": "威尼斯河區異國料理。"}, {"id": 35, "region": "北島", "area": "Grand World 富國大世界・商業街", "name": "Quán ăn The Scent (Tiệm ăn cô Hằng) - Grand World Phú Quốc", "zh": "The Scent 越式小館", "type": "越南料理", "time": "午餐／晚餐", "tier": "B", "rating": 4.3, "reviews": 120, "note": "家常小館型。"}, {"id": 36, "region": "北島", "area": "Grand World 富國大世界・夜市周邊", "name": "BôngBBQ Grand World", "zh": "Bông BBQ 燒烤海鮮", "type": "海鮮／燒烤", "time": "晚餐／宵夜", "tier": "B", "rating": 4.5, "reviews": 42, "note": "偏晚餐、宵夜。"}, {"id": 37, "region": "北島", "area": "Grand World 富國大世界", "name": "TAO Coffee Phu Quoc", "zh": "TAO 咖啡", "type": "咖啡／飲料", "time": "早餐後／下午", "tier": "B", "rating": 4.7, "reviews": 88, "note": "白天咖啡候選。"}, {"id": 38, "region": "北島", "area": "Grand World 富國大世界・威尼斯河", "name": "TRUNG NGUYÊN LEGEND GRAND WORLD PHÚ QUỐC", "zh": "中原傳奇咖啡・富國大世界店", "type": "咖啡／飲料", "time": "早餐後／下午／晚上", "tier": "B", "rating": 4.0, "reviews": 29, "note": "越南代表性咖啡品牌。"}, {"id": 39, "region": "北島", "area": "Grand World 富國大世界", "name": "Trung Nguyên E-Coffee Grand World Phú Quốc", "zh": "中原 E-Coffee・富國大世界店", "type": "咖啡／飲料", "time": "早餐／上午／下午", "tier": "B", "rating": 4.4, "reviews": 31, "note": "適合白天。"}, {"id": 40, "region": "北島", "area": "Grand World 富國大世界・Hội Hè街", "name": "Cơm Niêu Ba Miền", "zh": "三地越式砂鍋飯", "type": "越南料理／砂鍋飯", "time": "午餐／晚餐", "tier": "A", "rating": 4.5, "reviews": 480, "note": "適合家庭多人共享。"}, {"id": 41, "region": "西北", "area": "Ông Lang 翁朗", "name": "Camia Restaurant", "zh": "Camia 海濱餐廳", "type": "景觀餐廳／越南・西式", "time": "傍晚／晚餐", "tier": "S", "rating": 4.8, "reviews": 2571, "note": "夕陽與海景兼具，適合安排一餐。"}, {"id": 42, "region": "西北", "area": "Ông Lang 翁朗", "name": "Eco Beach Restaurant", "zh": "Eco 海灘餐廳", "type": "景觀餐廳／綜合料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.5, "reviews": 104, "note": "翁朗海灘周邊備選。"}, {"id": 43, "region": "西北", "area": "Ông Lang 翁朗", "name": "THE OLD FOREST RESTAURANT AND CAFÉ", "zh": "老森林餐廳咖啡館", "type": "咖啡／餐廳", "time": "早餐／午餐／下午／晚餐", "tier": "A", "rating": 4.7, "reviews": 84, "note": "兼具咖啡與正餐。"}, {"id": 44, "region": "西北", "area": "Ông Lang 翁朗", "name": "Mango Bay Restaurant", "zh": "芒果灣餐廳", "type": "景觀餐廳／越南・西式", "time": "傍晚／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "度假型海邊餐飲代表候選。"}, {"id": 45, "region": "西北", "area": "Ông Lang 翁朗", "name": "On The Rocks Restaurant", "zh": "岩石海濱餐廳", "type": "景觀餐廳／海鮮", "time": "傍晚／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "海邊夕陽景觀型。"}, {"id": 46, "region": "西北", "area": "Ông Lang 翁朗", "name": "Mai Jo Refined Restaurant", "zh": "Mai Jo 精緻越南餐廳", "type": "越南料理", "time": "晚餐", "tier": "A", "rating": null, "reviews": null, "note": "偏精緻越式料理。"}, {"id": 47, "region": "西北", "area": "Ông Lang 翁朗", "name": "Nha Hang Yen Son Phu Quoc", "zh": "Yên Sơn 越南餐廳", "type": "越南料理／海鮮", "time": "午餐／晚餐", "tier": "B", "rating": null, "reviews": null, "note": "翁朗在地餐飲候選。"}, {"id": 48, "region": "西北", "area": "Ông Lang 翁朗", "name": "Tin Tin Pizza", "zh": "Tin Tin 披薩", "type": "披薩／西式", "time": "午餐／晚餐", "tier": "B", "rating": null, "reviews": null, "note": "家庭換口味備選。"}, {"id": 49, "region": "西北", "area": "Ông Lang 翁朗", "name": "Bittersweet Bistro", "zh": "苦甜小酒館", "type": "西式料理／酒吧", "time": "晚餐／宵夜", "tier": "B", "rating": null, "reviews": null, "note": "偏大人晚間餐飲。"}, {"id": 50, "region": "西北", "area": "Ông Lang 翁朗", "name": "Coco Palm Restaurant", "zh": "椰林餐廳", "type": "越南料理／海鮮", "time": "午餐／晚餐", "tier": "B", "rating": null, "reviews": null, "note": "翁朗區備選。"}, {"id": 51, "region": "中島", "area": "Dương Đông 楊東", "name": "Hải sản Động Tôm Hùm - Lobster Cave seafood", "zh": "龍蝦洞海鮮餐廳", "type": "海鮮", "time": "午餐／晚餐", "tier": "S+", "rating": 4.8, "reviews": 8020, "note": "高分且8千則評論，強力必吃候選。"}, {"id": 52, "region": "中島", "area": "Dương Đông 楊東", "name": "Bún quậy KIẾN - XÂY", "zh": "Kiến Xây 富國島攪拌米粉", "type": "富國島特色／米粉", "time": "早餐／午餐／晚餐", "tier": "S+", "rating": 4.2, "reviews": 6389, "note": "富國島代表性料理。"}, {"id": 53, "region": "中島", "area": "Dương Đông 楊東", "name": "Xin Chao seafood restaurant", "zh": "Xin Chao 欣潮海鮮餐廳", "type": "海鮮／景觀餐廳", "time": "傍晚／晚餐", "tier": "B", "rating": 4.2, "reviews": 5116, "note": "高知名度、評論量大、適合夕陽時段。"}, {"id": 54, "region": "中島", "area": "Dương Đông 楊東", "name": "Bún Kèn Út Lượm", "zh": "Út Lượm 富國島魚咖哩米粉", "type": "富國島特色／米粉", "time": "早餐／午餐", "tier": "S+", "rating": 4.3, "reviews": 894, "note": "地方特色非常強，即使星等不頂尖仍值得保留。"}, {"id": 55, "region": "中島", "area": "Dương Đông 楊東", "name": "Bánh Canh Ghẹ Huỳnh Như", "zh": "Huỳnh Như 螃蟹湯粉", "type": "富國島特色／湯粉", "time": "早餐／午餐", "tier": "A", "rating": null, "reviews": null, "note": "富國島官方旅遊資訊收錄的小吃。"}, {"id": 56, "region": "中島", "area": "Dương Đông 楊東", "name": "Sen River Restaurant", "zh": "蓮河越南餐廳", "type": "越南料理", "time": "早餐／午餐／晚餐", "tier": "A", "rating": 4.9, "reviews": 179, "note": "高分但評論數仍屬中等，作為潛力店。"}, {"id": 57, "region": "中島", "area": "Dương Đông 楊東", "name": "Crab House Restaurant", "zh": "螃蟹屋餐廳", "type": "海鮮／螃蟹", "time": "午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "長期旅遊平台熱門海鮮店。"}, {"id": 58, "region": "中島", "area": "Dương Đông 楊東", "name": "Chuồn Chuồn Bistro & Bar", "zh": "蜻蜓山景餐酒館", "type": "景觀餐廳／咖啡", "time": "早餐／下午／傍晚／晚餐", "tier": "B", "rating": 4.3, "reviews": 6134, "note": "評論量非常大；重點是山景與夕陽。"}, {"id": 59, "region": "中島", "area": "Dương Đông 楊東", "name": "ANBA COFFEE", "zh": "ANBA 咖啡", "type": "咖啡／飲料", "time": "早餐／下午", "tier": "A", "rating": 4.6, "reviews": 1364, "note": "評論量大的咖啡店。"}, {"id": 60, "region": "中島", "area": "Dương Đông 楊東", "name": "Zyzu Kafé", "zh": "Zyzu 咖啡館", "type": "咖啡／飲料", "time": "上午／下午／晚上", "tier": "B", "rating": 4.4, "reviews": 344, "note": "市中心咖啡備選。"}, {"id": 61, "region": "中島", "area": "Dương Đông 楊東", "name": "The Cake Corner", "zh": "蛋糕角落", "type": "甜點／蛋糕", "time": "下午", "tier": "A", "rating": 4.9, "reviews": 68, "note": "高分甜點店，評論數較少。"}, {"id": 62, "region": "中島", "area": "Dương Đông 楊東", "name": "Tiệm Bánh Kem Phú Quốc - PP Bakery", "zh": "PP 富國島蛋糕烘焙坊", "type": "麵包／甜點／蛋糕", "time": "上午／下午", "tier": "B", "rating": 4.9, "reviews": 37, "note": "高分但樣本較小。"}, {"id": 63, "region": "中島", "area": "Dương Đông 楊東", "name": "IG Island Gelato", "zh": "IG 島嶼義式冰淇淋", "type": "冰品／甜點", "time": "下午／晚上", "tier": "B", "rating": 4.9, "reviews": 39, "note": "甜點冰品備選。"}, {"id": 64, "region": "中島", "area": "Dương Đông 楊東", "name": "Coconut ice cream", "zh": "椰子冰淇淋", "type": "冰品／甜點", "time": "下午／晚上", "tier": "B", "rating": 4.7, "reviews": 105, "note": "適合夜市前後甜點。"}, {"id": 65, "region": "中島", "area": "Dương Đông 楊東 夜市", "name": "Phu Quoc Night Market", "zh": "富國島夜市", "type": "夜市／小吃／海鮮／甜點", "time": "晚餐／宵夜", "tier": "S", "rating": null, "reviews": null, "note": "官方資料指出超過100個攤位；適合一次蒐集多種小吃。"}, {"id": 66, "region": "中島", "area": "Dương Đông 楊東", "name": "Nhà Ghẹ Phú Quốc", "zh": "富國島螃蟹之家", "type": "海鮮／螃蟹", "time": "午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "螃蟹與海鮮類候選。"}, {"id": 67, "region": "中島", "area": "Dương Đông 楊東", "name": "Bánh Mì Lam", "zh": "Lam 越式法國麵包", "type": "麵包／越式法國麵包", "time": "早餐／點心", "tier": "A", "rating": null, "reviews": null, "note": "補足 Bánh mì 類型。"}, {"id": 68, "region": "中島", "area": "Dương Đông 楊東", "name": "Phở Sài Gòn", "zh": "西貢河粉", "type": "越南料理／河粉", "time": "早餐／午餐", "tier": "B", "rating": null, "reviews": null, "note": "傳統早餐、午餐候選。"}, {"id": 69, "region": "中島", "area": "Dương Đông 楊東", "name": "Bún Chả Hà Nội - Phú Quốc", "zh": "富國島河內烤肉米線", "type": "越南料理／米線", "time": "午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "平價越南料理候選。"}, {"id": 70, "region": "中島", "area": "Dương Đông 楊東", "name": "Phụng Bánh Canh Chả Cá", "zh": "Phụng 魚餅湯粉", "type": "富國島特色／湯粉", "time": "早餐／午餐", "tier": "S+", "rating": null, "reviews": null, "note": "富國島傳統湯粉代表候選。"}, {"id": 71, "region": "中南", "area": "Long Beach 長灘／Cửa Lấp 庫阿拉普", "name": "MEO Kitchen", "zh": "MEO 越南廚房", "type": "越南料理", "time": "午餐／晚餐", "tier": "S+", "rating": 4.8, "reviews": 8265, "note": "高分且評論數極高。"}, {"id": 72, "region": "中南", "area": "Cửa Lấp 庫阿拉普", "name": "Banh Xeo CUỘI restaurant (Branch 3)", "zh": "Cuội 越式煎餅餐廳（三店）", "type": "越南料理／越式煎餅", "time": "午餐／晚餐", "tier": "S", "rating": 4.8, "reviews": 6346, "note": "高分＋大量評論。"}, {"id": 73, "region": "中南", "area": "Long Beach 長灘", "name": "Bếp An Restaurant", "zh": "安廚房越南餐廳", "type": "越南料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.7, "reviews": 2283, "note": "家庭正餐候選。"}, {"id": 74, "region": "中南", "area": "Long Beach 長灘", "name": "Sunset Beach Bar & Restaurant", "zh": "日落海灘餐酒館", "type": "景觀餐廳／亞洲料理", "time": "傍晚／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "旅遊平台長期高人氣；重點是夕陽與海灘。"}, {"id": 75, "region": "中南", "area": "Long Beach 長灘", "name": "The Home Pizza - Tran Hung Dao", "zh": "The Home Pizza・陳興道路店", "type": "披薩／西式料理", "time": "午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "家庭換口味熱門備選。"}, {"id": 76, "region": "中南", "area": "Long Beach 長灘", "name": "The Spice House at Cassia Cottage", "zh": "Cassia Cottage 香料屋餐廳", "type": "越南料理／海鮮", "time": "午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "長期旅遊平台知名餐廳。"}, {"id": 77, "region": "中南", "area": "Long Beach 長灘", "name": "Nora’s Cafe", "zh": "Nora 咖啡館", "type": "咖啡／早午餐／甜點", "time": "早餐／早午餐／下午", "tier": "A", "rating": null, "reviews": null, "note": "咖啡、早午餐類的重要候選。"}, {"id": 78, "region": "中南", "area": "Long Beach 長灘", "name": "Long Life Coffee & Dine", "zh": "Long Life 咖啡餐館", "type": "咖啡／餐廳", "time": "早餐／午餐／下午", "tier": "B", "rating": 4.5, "reviews": 90, "note": "Long Beach Center 周邊。"}, {"id": 79, "region": "中南", "area": "Long Beach 長灘", "name": "The Greek Restaurant Phu Quoc", "zh": "富國島希臘餐廳", "type": "希臘料理／景觀餐廳", "time": "午餐／晚餐", "tier": "B", "rating": 4.8, "reviews": 68, "note": "海景、夕陽與異國料理。"}, {"id": 80, "region": "中南", "area": "Long Beach 長灘", "name": "Ocsen Beach Bar & Club", "zh": "Ocsen 海灘酒吧", "type": "酒吧／景觀／小吃", "time": "傍晚／晚間", "tier": "B", "rating": null, "reviews": null, "note": "偏大人晚間行程，家庭使用需視情況。"}, {"id": 81, "region": "中南", "area": "Long Beach 長灘", "name": "Winston's Burgers & Beer", "zh": "Winston 漢堡啤酒餐廳", "type": "漢堡／西式料理", "time": "午餐／晚餐", "tier": "B", "rating": null, "reviews": null, "note": "長期人氣異國料理。"}, {"id": 82, "region": "中南", "area": "Long Beach 長灘", "name": "MYLA SEAFOOD", "zh": "MYLA 海鮮餐廳", "type": "海鮮", "time": "午餐／晚餐", "tier": "A", "rating": 4.9, "reviews": 894, "note": "高分且接近千則評論。"}, {"id": 83, "region": "中南", "area": "Long Beach 長灘", "name": "Huong Bien Restaurant - Vietnamese Cuisine & Seafood", "zh": "香海越南海鮮餐廳", "type": "越南料理／海鮮", "time": "午餐／晚餐", "tier": "A", "rating": 4.7, "reviews": 793, "note": "越式正餐與海鮮。"}, {"id": 84, "region": "中南", "area": "Long Beach 長灘", "name": "Tween's Kitchen - Main Street Branch", "zh": "Tween's Kitchen 主街店", "type": "越南料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.7, "reviews": 755, "note": "高評價家庭餐廳候選。"}, {"id": 85, "region": "中南", "area": "Long Beach 長灘", "name": "Bánh Xèo Cuội 2", "zh": "Cuội 越式煎餅二店", "type": "越南小吃／煎餅", "time": "午餐／晚餐", "tier": "A", "rating": 4.8, "reviews": 659, "note": "越式煎餅與在地小吃。"}, {"id": 86, "region": "東島", "area": "Hàm Ninh 咸寧", "name": "Nhà hàng Biển Xanh Hàm Ninh", "zh": "咸寧碧海海鮮餐廳", "type": "海鮮／螃蟹", "time": "午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "咸寧以海鮮、螃蟹為核心；秤重先確認價格。"}, {"id": 87, "region": "東島", "area": "Hàm Ninh 咸寧", "name": "Nhà Bè Bé Ghẹ Hàm Ninh", "zh": "咸寧小螃蟹海上餐廳", "type": "海鮮／螃蟹", "time": "午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "海上餐廳型，重點是螃蟹與現撈海鮮。"}, {"id": 88, "region": "東島", "area": "Hàm Ninh 咸寧", "name": "Nhà hàng Hạnh Nhung Hàm Ninh", "zh": "咸寧 Hạnh Nhung 海鮮餐廳", "type": "海鮮", "time": "午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "咸寧海鮮候選。"}, {"id": 89, "region": "東島", "area": "Hàm Ninh 咸寧", "name": "Nhà hàng Song Lê Hàm Ninh", "zh": "咸寧 Song Lê 海鮮餐廳", "type": "海鮮", "time": "午餐／晚餐", "tier": "B", "rating": null, "reviews": null, "note": "東岸海鮮備選。"}, {"id": 90, "region": "東島", "area": "Hàm Ninh 咸寧", "name": "Nhà Bè Tình Biển Hàm Ninh", "zh": "咸寧情海海上餐廳", "type": "海鮮／景觀", "time": "午餐／晚餐", "tier": "B", "rating": null, "reviews": null, "note": "海景與海鮮為主。"}, {"id": 91, "region": "東島", "area": "Hàm Ninh 咸寧", "name": "Hàm Ninh Fishing Village Seafood", "zh": "咸寧漁村海鮮", "type": "海鮮／小吃", "time": "午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "以漁村現場店家與攤位為一個區域型候選；實際店家需現場比較價格。"}, {"id": 92, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "CÁI MÂM BISTRO", "zh": "Cái Mâm 越式餐館", "type": "越南料理", "time": "午餐／晚餐", "tier": "S", "rating": 4.7, "reviews": 1263, "note": "南島高人氣越南料理候選。"}, {"id": 93, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "NamBo Kitchen", "zh": "NamBo 南部越南廚房", "type": "越南料理", "time": "午餐／晚餐", "tier": "S", "rating": 4.8, "reviews": 743, "note": "南島高分、評論量具參考性。"}, {"id": 94, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "Maharaja Lounge - 100% Pure Veg Authentic Indian Restaurant Sunset Town", "zh": "Maharaja 印度素食餐廳・日落小鎮店", "type": "印度料理／素食", "time": "午餐／晚餐", "tier": "B", "rating": 4.9, "reviews": 182, "note": "高分異國料理，非富國島特色。"}, {"id": 95, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "WAVE CAFE&PUB 3F - SUNSET TOWN", "zh": "WAVE 三樓景觀咖啡酒館", "type": "咖啡／景觀／酒吧", "time": "下午／傍晚／晚上", "tier": "B", "rating": 5.0, "reviews": 21, "note": "分數極高但樣本很小，先列潛力店。"}, {"id": 96, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "Starbucks Sunset Town", "zh": "星巴克・日落小鎮店", "type": "咖啡／飲料", "time": "上午／下午／晚上", "tier": "B", "rating": null, "reviews": null, "note": "位置方便，非在地特色。"}, {"id": 97, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "Sunset Town Night Market / VUI-Fest Bazaar", "zh": "日落小鎮 VUI-Fest 夜市", "type": "夜市／小吃／甜點／海鮮", "time": "晚餐／宵夜", "tier": "A", "rating": null, "reviews": null, "note": "適合一次蒐集多種小吃與甜點。"}, {"id": 98, "region": "南島", "area": "An Thới 安泰", "name": "Draft Beer Phu Quoc - Sunset Town", "zh": "富國島生啤餐廳・日落小鎮店", "type": "越南料理／海鮮／酒吧", "time": "晚餐／宵夜", "tier": "B", "rating": null, "reviews": null, "note": "晚間餐飲候選。"}, {"id": 99, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "Runam Cafe Sunset Town", "zh": "RuNam 咖啡・日落小鎮店", "type": "咖啡／甜點／輕食", "time": "早餐／下午", "tier": "A", "rating": null, "reviews": null, "note": "越南知名咖啡品牌型候選。"}, {"id": 100, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "Sunset Seafood Restaurant", "zh": "日落海鮮餐廳", "type": "海鮮／景觀餐廳", "time": "傍晚／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "南島景觀海鮮候選；海鮮價格先確認。"}, {"id": 101, "region": "南島", "area": "An Thới 安泰", "name": "Quán Ăn Thuận Kiều 2", "zh": "Thuận Kiều 2 安泰在地餐館", "type": "越南料理／海鮮", "time": "午餐／晚餐", "tier": "A", "rating": null, "reviews": null, "note": "南島在地餐飲候選。"}, {"id": 102, "region": "南島", "area": "An Thới 安泰", "name": "Bánh Mì An Thới", "zh": "安泰越式法國麵包", "type": "麵包／越式法國麵包", "time": "早餐／點心", "tier": "B", "rating": null, "reviews": null, "note": "以安泰鎮早餐型 Bánh mì 類別收錄，實際店家可再擴充。"}, {"id": 103, "region": "北島", "area": "Bãi Dài 長灘北區", "name": "Bách Giai Restaurant", "zh": "百佳中餐廳", "type": "中式料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.7, "reviews": 446, "note": "Corona Food Center 一帶的中式料理；適合想換口味。"}, {"id": 104, "region": "中島", "area": "Dương Đông 楊東", "name": "Bababa Japanese Phú Quốc", "zh": "Bababa 富國島日式餐廳", "type": "日式料理", "time": "晚餐", "tier": "A", "rating": 4.7, "reviews": 755, "note": "日式料理高評論候選。"}, {"id": 105, "region": "中島", "area": "Dương Đông 楊東", "name": "RASOI INDIAN PURE VEGETARIAN RESTAURANT", "zh": "RASOI 印度純素餐廳", "type": "印度料理／素食", "time": "午餐／晚餐", "tier": "A", "rating": 4.8, "reviews": 1335, "note": "印度料理評論量高，適合素食與換口味。"}, {"id": 106, "region": "中島", "area": "Dương Đông 楊東", "name": "Handcraft Smash Burger Phú Quốc | Ruby's Kitchen 81", "zh": "Ruby's Kitchen 81 手打壓烤漢堡", "type": "漢堡／美式料理", "time": "午餐／晚餐", "tier": "A", "rating": 5.0, "reviews": 147, "note": "5.0 高分但評論樣本仍較中型；漢堡類強力候選。"}, {"id": 107, "region": "中島", "area": "Dương Đông 楊東", "name": "Pad Thai", "zh": "Pad Thai 泰式餐廳", "type": "泰式料理", "time": "晚餐", "tier": "A", "rating": 4.7, "reviews": 715, "note": "泰式料理評論量充足。"}, {"id": 108, "region": "中島", "area": "Dương Đông 楊東", "name": "Ann Cafe & Brunch Phu Quoc", "zh": "Ann 富國島咖啡早午餐", "type": "咖啡／早午餐", "time": "早餐／早午餐", "tier": "A", "rating": 4.8, "reviews": 551, "note": "靠近楊東夜市；適合早餐與早午餐。"}, {"id": 109, "region": "中島", "area": "Dương Đông 楊東", "name": "Sugar Fusion Bakery", "zh": "Sugar Fusion 烘焙坊", "type": "麵包／甜點／蛋糕", "time": "上午／下午／晚上", "tier": "A", "rating": 4.7, "reviews": 274, "note": "烘焙甜點類候選。"}, {"id": 110, "region": "中島", "area": "Dương Đông 楊東", "name": "KingKong Coffee", "zh": "金剛咖啡", "type": "咖啡／甜點", "time": "早餐後／下午／晚上", "tier": "S", "rating": 4.9, "reviews": 2300, "note": "Google 高分且評論量非常大，咖啡類強力候選。"}, {"id": 111, "region": "中島", "area": "Dương Đông 楊東", "name": "AROMA Cafe Bistro Bar Phu Quoc", "zh": "AROMA 富國島咖啡餐酒館", "type": "咖啡／甜點／餐酒館", "time": "上午／下午／晚上", "tier": "A", "rating": 4.9, "reviews": 474, "note": "咖啡、甜點與餐酒館複合型。"}, {"id": 112, "region": "中南", "area": "Long Beach 長灘／Cửa Lấp 庫阿拉普", "name": "Sun Việt Restaurant - BBQ buffet & hot pot", "zh": "Sun Việt 燒烤火鍋自助餐廳", "type": "燒烤／火鍋／海鮮", "time": "晚餐", "tier": "B", "rating": 4.1, "reviews": 573, "note": "燒烤火鍋類熱門，但 Google 評分偏低，因此列 B 備選。"}, {"id": 113, "region": "中南", "area": "Đường Bào 堂堡區", "name": "BôngBBQ Seafood", "zh": "Bông BBQ 海鮮燒烤", "type": "海鮮／燒烤", "time": "晚餐／宵夜", "tier": "A", "rating": 4.6, "reviews": 874, "note": "Sonasea 一帶燒烤海鮮，高評論候選。"}, {"id": 114, "region": "中南", "area": "Dương Tơ 楊絲區", "name": "Bò Tơ Quán Đảo Phú Quốc", "zh": "富國島嫩牛燒烤餐廳", "type": "牛肉／燒烤／越南料理", "time": "午餐／晚餐", "tier": "S", "rating": 4.7, "reviews": 2500, "note": "嫩牛燒烤評論量非常高，燒烤類重點候選。"}, {"id": 115, "region": "中南", "area": "Long Beach 長灘", "name": "Là-Men Coffee & Brunch Phu Quoc", "zh": "Là-Men 富國島咖啡早午餐", "type": "咖啡／早午餐", "time": "早餐／早午餐／下午", "tier": "A", "rating": 4.8, "reviews": 353, "note": "早午餐與咖啡類。"}, {"id": 116, "region": "中南", "area": "Long Beach 長灘", "name": "Maharaja Lounge - Authentic Indian 100% Veg Restaurant", "zh": "Maharaja 印度純素餐廳", "type": "印度料理／素食", "time": "午餐／晚餐", "tier": "A", "rating": 4.7, "reviews": 2717, "note": "評論量非常高的印度料理。"}, {"id": 117, "region": "南島", "area": "Bãi Khem 白沙灘", "name": "Thai Papaya Restaurant", "zh": "Thai Papaya 泰式餐廳", "type": "泰式料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.9, "reviews": 381, "note": "南島泰式料理高分候選。"}, {"id": 118, "region": "南島", "area": "Sunset Town 日落小鎮・Venice 威尼斯區", "name": "Tiamo Gelato and Coffee", "zh": "Tiamo 義式冰淇淋咖啡", "type": "冰品／甜點／咖啡", "time": "上午／下午／晚上", "tier": "A", "rating": 4.9, "reviews": 480, "note": "南島甜點冰品強力候選。"}, {"id": 119, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "SURA", "zh": "SURA 韓式餐廳", "type": "韓式料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.8, "reviews": 1132, "note": "南島韓式料理高分且評論量高。"}, {"id": 120, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "Yushima Japanese Restaurant", "zh": "Yushima 湯島日式餐廳", "type": "日式料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.5, "reviews": 980, "note": "日式料理評論量高。"}, {"id": 121, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "Seta", "zh": "Seta 粵菜餐廳", "type": "中式料理／粵菜", "time": "晚餐", "tier": "A", "rating": 4.9, "reviews": 169, "note": "高分粵菜，評論數屬中型。"}, {"id": 122, "region": "南島", "area": "Bãi Khem 白沙灘", "name": "Grill Station Seafood & BBQ Phú Quốc", "zh": "Grill Station 富國島海鮮燒烤", "type": "海鮮／燒烤", "time": "晚餐／宵夜", "tier": "A", "rating": 4.8, "reviews": 139, "note": "南島海鮮 BBQ 高分候選。"}, {"id": 123, "region": "南島", "area": "Sunset Town 日落小鎮・Positano 波西塔諾區", "name": "Hai Bột HotPot & Homestay", "zh": "Hai Bột 火鍋餐廳", "type": "火鍋／越南料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.8, "reviews": 300, "note": "南島火鍋類候選。"}, {"id": 124, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "HnB Pizza&Steak", "zh": "HnB 披薩牛排餐廳", "type": "披薩／牛排／西式料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.8, "reviews": 134, "note": "披薩與牛排類高分候選。"}, {"id": 125, "region": "北島", "area": "Grand World 富國大世界・Shanghai 上海街", "name": "#JMT Korea Restaurant Grand World Phú Quốc", "zh": "JMT 韓國餐廳・富國大世界店", "type": "韓式料理", "time": "午餐／晚餐", "tier": "S", "rating": 4.7, "reviews": 2066, "note": "Grand World 內高評論量韓式餐廳，適合主題樂園／大世界行程搭配。"}, {"id": 126, "region": "北島", "area": "Bãi Dài 長灘北區", "name": "Nautilus Restaurant", "zh": "Nautilus 鸚鵡螺自助餐廳", "type": "自助餐／國際料理", "time": "早餐／午餐／晚餐", "tier": "S", "rating": 4.9, "reviews": 1149, "note": "高分且評論量破千；北島國際料理與自助餐候選。"}, {"id": 127, "region": "中島", "area": "Dương Đông 楊東", "name": "NINH KITCHEN - VIETNAMESE CUISINE", "zh": "NINH KITCHEN 越南料理", "type": "越南料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.9, "reviews": 325, "note": "高分越南料理，適合想吃較完整越式正餐。"}, {"id": 128, "region": "中島", "area": "Dương Đông 楊東", "name": "Blue seafood restaurant (블루씨푸드)", "zh": "Blue 藍海鮮餐廳", "type": "海鮮料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.7, "reviews": 1135, "note": "評論量破千的海鮮餐廳。"}, {"id": 129, "region": "中島", "area": "Dương Đông 楊東", "name": "Papa Bear Pizza", "zh": "Papa Bear 熊爸爸披薩", "type": "披薩／西式料理", "time": "晚餐／宵夜", "tier": "A", "rating": 4.9, "reviews": 228, "note": "披薩類高分候選。"}, {"id": 130, "region": "中島", "area": "Dương Đông 楊東", "name": "Rajwadi Zaikah Indian Restaurant", "zh": "Rajwadi Zaikah 印度餐廳", "type": "印度料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.7, "reviews": 294, "note": "市中心印度料理候選。"}, {"id": 131, "region": "中南", "area": "Long Beach 長灘／Trần Hưng Đạo 陳興道", "name": "Saigonese Eatery", "zh": "Saigonese 西貢風味餐館", "type": "亞洲融合／越南料理", "time": "早餐／午餐／晚餐", "tier": "S", "rating": 4.6, "reviews": 2146, "note": "2026 旅遊美食榜仍有推薦；評論量超過兩千。"}, {"id": 132, "region": "中南", "area": "Long Beach 長灘／Trần Hưng Đạo 陳興道", "name": "Bagels 'n Eggs", "zh": "Bagels 'n Eggs 貝果蛋早餐店", "type": "早餐／貝果／咖啡", "time": "早餐／早午餐", "tier": "A", "rating": 4.8, "reviews": 659, "note": "早餐類高分且評論量充足。"}, {"id": 133, "region": "中南", "area": "Đường Bào 堂堡區／Sonasea 索納西", "name": "Sik Gaek - Korean Restaurant", "zh": "Sik Gaek 食客韓式燒肉", "type": "韓式料理／韓式燒肉", "time": "午餐／晚餐", "tier": "S+", "rating": 4.8, "reviews": 3292, "note": "韓式燒肉類極強：4.8★、3,000+評論；值得專程安排。"}, {"id": 134, "region": "中南", "area": "Đường Bào 堂堡區／Sonasea 索納西", "name": "Okei Bistro 1 - Sonasea", "zh": "Okei Bistro 索納西餐館", "type": "國際料理／餐酒館", "time": "早餐／午餐／晚餐", "tier": "S", "rating": 4.7, "reviews": 1207, "note": "Sonasea 高評論量綜合餐館。"}, {"id": 135, "region": "中南", "area": "Đường Bào 堂堡區／Sonasea 索納西", "name": "Gyeongbokgung Korean Restaurant", "zh": "景福宮韓式餐廳", "type": "韓式料理／燒肉", "time": "午餐／晚餐", "tier": "A", "rating": 4.8, "reviews": 438, "note": "Sonasea 韓式料理高分候選。"}, {"id": 136, "region": "中南", "area": "Đường Bào 堂堡區／Sonasea 索納西", "name": "BROTHER TUNA IZAKAYA", "zh": "Brother Tuna 鮪魚居酒屋", "type": "日式料理／壽司／居酒屋", "time": "午餐／晚餐", "tier": "A", "rating": 4.7, "reviews": 140, "note": "日式壽司與居酒屋類候選。"}, {"id": 137, "region": "中南", "area": "Long Beach 長灘／Trần Hưng Đạo 陳興道", "name": "Kum Dae Ji Phú Quốc", "zh": "金豬熟成韓式燒肉・富國島店", "type": "韓式料理／燒肉", "time": "午餐／晚餐／宵夜", "tier": "A", "rating": 4.7, "reviews": 74, "note": "熟成韓式燒肉；分數佳但評論樣本較小。"}, {"id": 138, "region": "中南", "area": "Long Beach 長灘／Trần Hưng Đạo 陳興道", "name": "Phuong Hoang Seafood Restaurant", "zh": "鳳凰海鮮餐廳", "type": "海鮮料理", "time": "午餐／晚餐", "tier": "A", "rating": 4.5, "reviews": 1889, "note": "評論量大，星等達 A 級門檻。"}, {"id": 139, "region": "中南", "area": "Long Beach 長灘／Trần Hưng Đạo 陳興道", "name": "The Home Pizza Phu Quoc", "zh": "The Home Pizza 富國島店", "type": "披薩／西式料理", "time": "午餐／晚餐", "tier": "S+", "rating": 4.8, "reviews": 8015, "note": "4.8★、8,000+評論，異國料理中具壓倒性評論量，列入一定要吃候選。"}, {"id": 140, "region": "中南", "area": "Long Beach 長灘", "name": "Pakka Indian Restaurant", "zh": "Pakka 印度餐廳", "type": "印度料理", "time": "晚餐", "tier": "A", "rating": 4.6, "reviews": 209, "note": "較高價位印度料理候選。"}, {"id": 141, "region": "中南", "area": "Trần Phú 陳富路", "name": "Đảo Hải Sản", "zh": "島嶼海鮮餐廳", "type": "海鮮料理", "time": "晚餐", "tier": "S", "rating": 4.7, "reviews": 1383, "note": "4.7★且評論破千，海鮮類強力候選。"}, {"id": 142, "region": "南島", "area": "Sunset Town 日落小鎮・Amalfi 阿瑪菲區", "name": "The Juliet Coffee & Dessert - AMA71", "zh": "Juliet 茱麗葉咖啡甜點", "type": "咖啡／甜點", "time": "早餐／下午茶／晚上", "tier": "S+", "rating": 4.9, "reviews": 2914, "note": "4.9★、近3,000評論，南島咖啡甜點類非常突出；與行程高度順路。"}, {"id": 143, "region": "南島", "area": "Sunset Town 日落小鎮・Amalfi 阿瑪菲區", "name": "The Ivy Café & Lounge Phu Quoc", "zh": "The Ivy 富國島咖啡酒廊", "type": "咖啡／甜點／酒廊", "time": "早餐／下午／晚上", "tier": "A", "rating": 4.8, "reviews": 380, "note": "日落小鎮高分咖啡酒廊。"}, {"id": 144, "region": "南島", "area": "Sunset Town 日落小鎮", "name": "Sun Bavaria GastroPub", "zh": "Sun Bavaria 巴伐利亞美食酒館", "type": "德式／歐式料理／餐酒館", "time": "午餐／晚餐", "tier": "S", "rating": null, "reviews": null, "note": "2026 富國島官方旅遊網站列為日落小鎮值得體驗餐廳；適合搭配晚間秀與海景。"}, {"id": 145, "region": "南島", "area": "Sunset Town 日落小鎮・Apollo 阿波羅廣場", "name": "Apollo Cafe", "zh": "Apollo 阿波羅咖啡", "type": "咖啡／特色飲品", "time": "上午／下午／日落", "tier": "S", "rating": null, "reviews": null, "note": "2026 富國島官方旅遊網站重點介紹；主打創意 coffee mixology 與日落景觀。"}, {"id": 146, "region": "南島", "area": "Sunset Town 日落小鎮夜市", "name": "Quốc Mạnh BBQ", "zh": "Quốc Mạnh 國孟海鮮燒烤", "type": "海鮮／燒烤／夜市", "time": "晚餐／宵夜", "tier": "A", "rating": 4.8, "reviews": 157, "note": "夜市海鮮 BBQ 高分候選。"}];
-const REGIONS = ["北島", "西北", "中島", "中南", "東島", "南島"];
-const REGION_LABELS = {"北島": "北島｜Grand World 富國大世界・Gành Dầu 甘油角", "西北": "西北｜Ông Lang 翁朗・Cửa Cạn", "中島": "中島｜Dương Đông 楊東・市區／夜市", "中南": "中南｜Long Beach 長灘・Trần Hưng Đạo 陳興道・Cửa Lấp 庫阿拉普", "東島": "東島｜Hàm Ninh 咸寧", "南島": "南島｜An Thới 安泰・Sunset Town 日落小鎮"};
-const REGION_CLASS = {"北島": "north", "西北": "northwest", "中島": "central", "中南": "midsouth", "東島": "east", "南島": "south"};
+(function(){
+"use strict";
+const selectedTypes=new Set(),selectedTiers=new Set(),selectedRatings=new Set(),selectedIds=new Set();
 let activeRegion="全部";
-const selectedTypes=new Set(), selectedTiers=new Set(), selectedRatings=new Set();
-const selectedIds=new Set();
-const KEY_PREFIX="phuQuocFoodListV1:";
-
+const KEY="phuQuocFoodListV1:";
+const rows=[...document.querySelectorAll(".food-row")];
+const sections=[...document.querySelectorAll("[data-section-region]")];
 const $=s=>document.querySelector(s);
-const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
-const gUrl=n=>"https://www.google.com/search?q="+encodeURIComponent(n+" 富國島");
 
-function cols(){return '<colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5"><col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10"></colgroup>'}
-function headerHtml(){return `<div class="head-wrap"><div class="track"><table>${cols()}<thead><tr><th>勾選</th><th>項次</th><th>區域</th><th>店家（原文＋中文）</th><th>必吃</th><th>Google</th><th>查看介紹</th><th>美食種類</th><th>適合時間</th><th>備註</th></tr></thead></table></div></div>`}
-function row(x){
- const r=x.rating==null?'<span class="none">查無評論</span>':`<b>${x.rating}★</b>${x.reviews?`・${x.reviews.toLocaleString()}則`:""}`;
- return `<tr class="${selectedIds.has(x.id)?"chosen":""}">
- <td class="center"><input type="checkbox" class="pick" data-id="${x.id}" ${selectedIds.has(x.id)?"checked":""}></td>
- <td class="center">${x.id}</td><td>${esc(x.area)}</td>
- <td><span class="name">${esc(x.name)}</span><span class="zh">${esc(x.zh)}</span></td>
- <td class="center tier ${x.tier==="S+"?"Splus":x.tier}">${x.tier}</td>
- <td>${r}</td><td><a class="google" href="${gUrl(x.name)}" target="_blank" rel="noopener">Google 搜尋</a></td>
- <td>${esc(x.type)}</td><td>${esc(x.time)}</td><td class="note">${esc(x.note)}</td></tr>`}
-function bodyHtml(arr){return `<div class="body-wrap"><table>${cols()}<tbody>${arr.map(row).join("")}</tbody></table></div>`}
-
-function filterData(){
- const q=$("#search").value.trim().toLowerCase();
- return DATA.filter(x=>{
-   if(activeRegion!=="全部" && x.region!==activeRegion) return false;
-   if(selectedTypes.size && !selectedTypes.has(x.type)) return false;
-   if(selectedTiers.size && !selectedTiers.has(x.tier)) return false;
-   if(selectedRatings.size){
-     let ok=false;
-     for(const r of selectedRatings){
-       if(r==="有評分" && x.rating!=null) ok=true;
-       else if(r==="查無評論" && x.rating==null) ok=true;
-       else if(!isNaN(+r) && x.rating!=null && x.rating>=+r) ok=true;
-     }
-     if(!ok) return false;
-   }
-   if(q && ![x.name,x.zh,x.type,x.area,x.region,x.note].join(" ").toLowerCase().includes(q)) return false;
-   return true;
- });
+function updateButton(id,label,set){
+  const b=document.querySelector(`[data-menu="${id}"]`);
+  if(b)b.textContent=set.size?`${label}：已選 ${set.size}`:`${label}：全部`;
 }
-
-function bindSync(){
- document.querySelectorAll(".section").forEach(sec=>{
-   const wrap=sec.querySelector(".body-wrap"), track=sec.querySelector(".track");
-   if(!wrap||!track) return;
-   const sync=()=>track.style.transform=`translateX(${-wrap.scrollLeft}px)`;
-   wrap.addEventListener("scroll",sync,{passive:true}); sync();
- });
+function applyFilters(){
+  const q=($("#search").value||"").trim().toLowerCase();
+  rows.forEach(row=>{
+    const region=row.dataset.region;
+    const type=row.dataset.type;
+    const tier=row.dataset.tier;
+    const rating=row.dataset.rating===""?null:Number(row.dataset.rating);
+    let show=activeRegion==="全部"||region===activeRegion;
+    if(show&&selectedTypes.size)show=selectedTypes.has(type);
+    if(show&&selectedTiers.size)show=selectedTiers.has(tier);
+    if(show&&selectedRatings.size){
+      show=[...selectedRatings].some(r=>
+        (r==="有評分"&&rating!==null)||
+        (r==="查無評論"&&rating===null)||
+        (!Number.isNaN(Number(r))&&rating!==null&&rating>=Number(r))
+      );
+    }
+    if(show&&q)show=(row.dataset.search||"").includes(q);
+    row.classList.toggle("hidden",!show);
+  });
+  sections.forEach(sec=>{
+    const visible=sec.querySelectorAll(".food-row:not(.hidden)").length;
+    sec.classList.toggle("hidden",visible===0);
+    const c=sec.querySelector(".count"); if(c)c.textContent=visible+" 家";
+  });
 }
-
-function render(){
- const arr=filterData();
- $("#main").innerHTML=REGIONS.map(r=>{
-   const rows=arr.filter(x=>x.region===r); if(!rows.length) return "";
-   return `<section class="section ${REGION_CLASS[r]}"><div class="sticky-group"><h2>${REGION_LABELS[r]} <span class="count">${rows.length} 家</span></h2>${headerHtml()}</div>${bodyHtml(rows)}</section>`;
- }).join("");
- document.querySelectorAll(".pick").forEach(c=>c.addEventListener("change",()=>{const id=+c.dataset.id;c.checked?selectedIds.add(id):selectedIds.delete(id);render();renderMine();}));
- bindSync(); renderMine(); renderRegionButtons();
+function syncHeaders(){
+  sections.forEach(sec=>{
+    const wrap=sec.querySelector(".body-wrap"),track=sec.querySelector(".head-track");
+    if(!wrap||!track)return;
+    const sync=()=>track.style.transform=`translateX(${-wrap.scrollLeft}px)`;
+    wrap.addEventListener("scroll",sync,{passive:true});sync();
+  });
 }
-
 function renderMine(){
- const arr=DATA.filter(x=>selectedIds.has(x.id));
- $("#myList").innerHTML=arr.length?`<section class="section"><div class="sticky-group">${headerHtml()}</div>${bodyHtml(arr)}</section>`:'<p class="small">尚未勾選店家。</p>';
- document.querySelectorAll("#myList .pick").forEach(c=>c.addEventListener("change",()=>{selectedIds.delete(+c.dataset.id);render();renderMine();}));
- bindSync();
+  const mine=rows.filter(r=>selectedIds.has(Number(r.dataset.id)));
+  if(!mine.length){$("#myList").innerHTML='<p class="small">尚未勾選店家。</p>';return;}
+  const cloned=mine.map(r=>r.outerHTML).join("");
+  $("#myList").innerHTML=`<div class="body-wrap"><table><colgroup>
+<col class="c1"><col class="c2"><col class="c3"><col class="c4"><col class="c5">
+<col class="c6"><col class="c7"><col class="c8"><col class="c9"><col class="c10">
+</colgroup><tbody>${cloned}</tbody></table></div>`;
+  $("#myList").querySelectorAll(".pick").forEach(c=>{
+    c.checked=true;
+    c.addEventListener("change",()=>{selectedIds.delete(Number(c.dataset.id));syncChecks();renderMine();});
+  });
 }
-
-function renderRegionButtons(){
- $("#regionButtons").innerHTML=['全部',...REGIONS].map(r=>`<button class="${activeRegion===r?"active":""}" data-r="${r}">${r==="全部"?"全部":r}</button>`).join("");
- $("#regionButtons").querySelectorAll("button").forEach(b=>b.onclick=()=>{activeRegion=b.dataset.r;render();});
+function syncChecks(){
+  document.querySelectorAll(".pick").forEach(c=>{
+    const on=selectedIds.has(Number(c.dataset.id));
+    c.checked=on;
+    const tr=c.closest("tr");if(tr)tr.classList.toggle("chosen",on);
+  });
 }
-
-function setupMenus(){
- const typeOpts=[...new Set(DATA.map(x=>x.type))].sort((a,b)=>a.localeCompare(b,"zh-Hant"));
- const defs=[
-   ["typeMenu",typeOpts,selectedTypes,"類型"],
-   ["tierMenu",["S+","S","A","B"],selectedTiers,"必吃"],
-   ["ratingMenu",[["4.8","4.8★以上"],["4.7","4.7★以上"],["4.5","4.5★以上"],["有評分","已有評分"],["查無評論","查無評論"]],selectedRatings,"Google"]
- ];
- defs.forEach(([id,opts,set,prefix])=>{
-   const menu=$("#"+id);
-   menu.innerHTML=opts.map(o=>{const v=Array.isArray(o)?o[0]:o,l=Array.isArray(o)?o[1]:o;return `<label><input type="checkbox" value="${esc(v)}"> ${esc(l)}</label>`}).join("");
-   menu.querySelectorAll("input").forEach(cb=>cb.onchange=()=>{cb.checked?set.add(cb.value):set.delete(cb.value);updateMenuButton(id,prefix,set);render();});
-   updateMenuButton(id,prefix,set);
- });
- document.querySelectorAll("[data-menu]").forEach(b=>b.onclick=e=>{e.stopPropagation();const m=$("#"+b.dataset.menu);document.querySelectorAll(".menu").forEach(x=>x!==m&&x.classList.remove("open"));m.classList.toggle("open")});
- document.querySelectorAll(".menu").forEach(m=>m.onclick=e=>e.stopPropagation());
- document.addEventListener("click",()=>document.querySelectorAll(".menu").forEach(m=>m.classList.remove("open")));
-}
-function updateMenuButton(id,prefix,set){document.querySelector(`[data-menu="${id}"]`).textContent=set.size?`${prefix}：已選 ${set.size}`:`${prefix}：全部`}
-
-$("#search").addEventListener("input",render);
-$("#reset").onclick=()=>{selectedTypes.clear();selectedTiers.clear();selectedRatings.clear();activeRegion="全部";$("#search").value="";setupMenus();render();};
-$("#saveMine").onclick=()=>{const p=$("#profile").value.trim();if(!p)return alert("請輸入使用者名稱");localStorage.setItem(KEY_PREFIX+p,JSON.stringify([...selectedIds]));localStorage.setItem(KEY_PREFIX+"lastProfile",p);alert("已儲存："+p)};
-$("#loadMine").onclick=()=>{const p=$("#profile").value.trim();if(!p)return alert("請輸入使用者名稱");selectedIds.clear();JSON.parse(localStorage.getItem(KEY_PREFIX+p)||"[]").forEach(id=>selectedIds.add(+id));render();};
-$("#clearMine").onclick=()=>{selectedIds.clear();render();};
-$("#copyMine").onclick=async()=>{const lines=DATA.filter(x=>selectedIds.has(x.id)).map(x=>`• ${x.name}／${x.zh}｜${x.tier}｜${x.rating??"查無評論"}`);await navigator.clipboard.writeText(lines.join("\n"));alert("已複製我的清單")};
-
-const last=localStorage.getItem(KEY_PREFIX+"lastProfile");if(last)$("#profile").value=last;
-const bt=$("#backTop");window.addEventListener("scroll",()=>bt.classList.toggle("show",scrollY>500),{passive:true});bt.onclick=()=>scrollTo({top:0,behavior:"smooth"});
-
-setupMenus();render();
+document.querySelectorAll(".pick").forEach(c=>c.addEventListener("change",()=>{
+  const id=Number(c.dataset.id);
+  c.checked?selectedIds.add(id):selectedIds.delete(id);
+  syncChecks();renderMine();
+}));
+document.querySelectorAll("[data-region-filter]").forEach(b=>b.addEventListener("click",()=>{
+  activeRegion=b.dataset.regionFilter;
+  document.querySelectorAll("[data-region-filter]").forEach(x=>x.classList.toggle("active",x===b));
+  applyFilters();
+}));
+[
+  ["typeMenu",selectedTypes,"類型"],["tierMenu",selectedTiers,"必吃"],["ratingMenu",selectedRatings,"Google"]
+].forEach(([id,set,label])=>{
+  document.querySelectorAll("#"+id+' input[type="checkbox"]').forEach(cb=>cb.addEventListener("change",()=>{
+    cb.checked?set.add(cb.value):set.delete(cb.value);
+    updateButton(id,label,set);applyFilters();
+  }));
+});
+document.querySelectorAll("[data-menu]").forEach(b=>b.addEventListener("click",e=>{
+  e.stopPropagation();const menu=$("#"+b.dataset.menu);
+  document.querySelectorAll(".menu").forEach(m=>m!==menu&&m.classList.remove("open"));
+  menu.classList.toggle("open");
+}));
+document.querySelectorAll(".menu").forEach(m=>m.addEventListener("click",e=>e.stopPropagation()));
+document.addEventListener("click",()=>document.querySelectorAll(".menu").forEach(m=>m.classList.remove("open")));
+$("#search").addEventListener("input",applyFilters);
+$("#reset").addEventListener("click",()=>{
+  activeRegion="全部";selectedTypes.clear();selectedTiers.clear();selectedRatings.clear();$("#search").value="";
+  document.querySelectorAll('.menu input[type="checkbox"]').forEach(c=>c.checked=false);
+  document.querySelectorAll("[data-region-filter]").forEach(b=>b.classList.toggle("active",b.dataset.regionFilter==="全部"));
+  updateButton("typeMenu","類型",selectedTypes);updateButton("tierMenu","必吃",selectedTiers);updateButton("ratingMenu","Google",selectedRatings);applyFilters();
+});
+$("#saveMine").addEventListener("click",()=>{
+  const p=$("#profile").value.trim();if(!p)return alert("請輸入使用者名稱");
+  localStorage.setItem(KEY+p,JSON.stringify([...selectedIds]));localStorage.setItem(KEY+"lastProfile",p);alert("已儲存："+p);
+});
+$("#loadMine").addEventListener("click",()=>{
+  const p=$("#profile").value.trim();if(!p)return alert("請輸入使用者名稱");
+  selectedIds.clear();JSON.parse(localStorage.getItem(KEY+p)||"[]").forEach(id=>selectedIds.add(Number(id)));syncChecks();renderMine();
+});
+$("#clearMine").addEventListener("click",()=>{selectedIds.clear();syncChecks();renderMine();});
+$("#copyMine").addEventListener("click",async()=>{
+  const lines=rows.filter(r=>selectedIds.has(Number(r.dataset.id))).map(r=>{
+    const id=r.dataset.id;
+    const cells=r.children;
+    return `${id}. ${cells[3].innerText.trim()}｜${cells[4].innerText.trim()}｜${cells[5].innerText.trim()}`;
+  });
+  if(!lines.length)return alert("目前沒有勾選店家");
+  try{await navigator.clipboard.writeText(lines.join("\n"));alert("已複製我的清單");}
+  catch(e){alert("瀏覽器無法自動複製，請改用手動選取。");}
+});
+const last=localStorage.getItem(KEY+"lastProfile");if(last)$("#profile").value=last;
+const bt=$("#backTop");window.addEventListener("scroll",()=>bt.classList.toggle("show",window.scrollY>500),{passive:true});bt.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+syncHeaders();applyFilters();syncChecks();renderMine();
+})();
 </script>
 </body>
 </html>
