@@ -86,6 +86,7 @@ th{background:#f8fafc;text-align:left;font-weight:800;white-space:nowrap}
 .google{color:#0369a1;text-decoration:none;font-weight:700;white-space:nowrap}
 .mapnav{display:inline-block;background:#0f766e;color:#fff;text-decoration:none;font-weight:800;border-radius:9px;padding:6px 8px;white-space:nowrap}
 .mapnav:hover{filter:brightness(.95)}
+.mapnav::before{content:"📍 ";font-size:.95em}
 .no-rating{color:#9f1239;font-weight:800;white-space:nowrap}
 .food-row.chosen td{background:#d1fae5 !important}
 .food-row.hidden{display:none}
@@ -103,34 +104,6 @@ th{background:#f8fafc;text-align:left;font-weight:800;white-space:nowrap}
 .section.east tbody tr:nth-child(odd) td{background:#f7efe7}
 .section.south tbody tr:nth-child(odd) td{background:#f2ecff}
 
-/* V26：Google Map 導航欄固定在表格右側，橫向捲動時仍可直接看到 */
-.head-wrap th:last-child,
-.body-wrap td:last-child{
-  position:sticky;
-  right:0;
-}
-.head-wrap th:last-child{
-  z-index:8;
-  background:#ccfbf1;
-  color:#115e59;
-  box-shadow:-3px 0 7px rgba(15,23,42,.10);
-}
-.body-wrap td:last-child{
-  z-index:6;
-  background:#ecfdf5 !important;
-  box-shadow:-3px 0 7px rgba(15,23,42,.10);
-  text-align:center;
-}
-.food-row.chosen td:last-child{
-  background:#a7f3d0 !important;
-}
-.mapnav{
-  min-width:72px;
-  text-align:center;
-  border:1px solid #0f766e;
-  box-shadow:0 2px 5px rgba(15,118,110,.20);
-}
-.mapnav::before{content:"📍 ";font-size:.95em}
 
 #myList .sticky-group{position:relative;top:auto}
 #backTop{position:fixed;right:16px;bottom:16px;width:48px;height:48px;border-radius:50%;background:#0f766e;color:#fff;font-size:22px;display:none;align-items:center;justify-content:center;z-index:999}
@@ -150,7 +123,6 @@ th{background:#f8fafc;text-align:left;font-weight:800;white-space:nowrap}
   .menu{position:fixed;left:12px;right:12px;top:auto;bottom:12px;min-width:0;max-height:58vh;z-index:9999}
 
   .saved-select{min-width:150px;max-width:240px}
-  .head-wrap th:last-child,.body-wrap td:last-child{right:0}
 
 }
 </style>
@@ -278,7 +250,7 @@ th{background:#f8fafc;text-align:left;font-weight:800;white-space:nowrap}
       <input id="search" class="search" placeholder="搜尋店名、中文名、料理、區域…">
       <button id="reset">重設篩選</button>
     </div>
-    <div class="small" style="margin-top:10px">可同時複選「類型／必吃／Google」。Google Map 導航固定在表格最右側，左右滑動時也會保持可見。</div>
+    <div class="small" style="margin-top:10px">可同時複選「類型／必吃／Google」。Google Map導航位於「備註」後方，會隨表格一起左右滑動。</div>
   </div>
 
   <main id="main">
@@ -2139,7 +2111,7 @@ th{background:#f8fafc;text-align:left;font-weight:800;white-space:nowrap}
 </section>
   </main>
 
-  <div class="small" style="text-align:center;padding:16px">研究版 2.6｜V26｜更新日期 2026-09-05</div>
+  <div class="small" style="text-align:center;padding:16px">研究版 2.7｜V27｜更新日期 2026-09-05</div>
 </div>
 <button id="backTop" title="回到最上面">↑</button>
 
