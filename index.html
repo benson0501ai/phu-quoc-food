@@ -41,7 +41,7 @@ button{cursor:pointer} button:hover{filter:brightness(.98)} .primary{background:
 .stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px} .pill{background:#fff;color:#0f766e;border-radius:999px;padding:4px 9px;font-weight:700}
 .empty{color:var(--muted);padding:10px 0}
 
-.section{margin:16px 0}
+.section{margin:16px 0;position:relative;overflow:visible}
 .section h2{font-size:20px;margin:0 0 8px;display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;position:sticky;top:var(--section-sticky-top);z-index:18;box-shadow:0 4px 10px rgba(15,23,42,.06)}
 .section.north h2{background:#eff6ff;color:#1d4ed8}
 .section.nw h2{background:#f0fdf4;color:#15803d}
@@ -51,10 +51,10 @@ button{cursor:pointer} button:hover{filter:brightness(.98)} .primary{background:
 .section.south h2{background:#faf5ff;color:#7e22ce}
 .count{font-size:.75em;color:inherit;opacity:.75;font-weight:600}
 
-.table-wrap{overflow:auto;border-radius:14px;border:1px solid var(--line);background:#fff}
+.table-wrap{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;border-radius:14px;border:1px solid var(--line);background:#fff}
 table{width:100%;border-collapse:collapse;min-width:1260px}
 th,td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
-th{position:sticky;top:var(--table-sticky-top);background:#f8fafc;text-align:left;z-index:16;white-space:nowrap}
+th{position:static;background:#f8fafc;text-align:left;z-index:auto;white-space:nowrap}
 tr:hover td{background:#fafafa} tr.chosen td{background:#f0fdfa}
 .center{text-align:center} .name{font-weight:800} .zh{display:block;color:#0f766e;font-weight:700;margin-top:2px}
 .tier{font-weight:900;font-size:1.06em} .tier-Splus{color:#b91c1c;font-size:1.12em} .tier-S{color:#b45309} .tier-A{color:#047857} .tier-B{color:#475569}
@@ -65,10 +65,25 @@ tr:hover td{background:#fafafa} tr.chosen td{background:#f0fdfa}
 .my-table-title{font-weight:800;margin:12px 0 7px;color:#0f766e}
 .footer{text-align:center;color:var(--muted);padding:25px 8px}
 @media(max-width:720px){
-  :root{--font:12px}
+  :root{--font:12px;--section-sticky-top:calc(env(safe-area-inset-top, 0px) + 4px);--table-sticky-top:calc(env(safe-area-inset-top, 0px) + 48px)}
   .wrap{padding:8px} .header{padding:15px;border-radius:13px} .header h1{font-size:20px}
-  .toolbar{top:4px;padding:9px;border-radius:12px} button,select,input[type=text]{padding:7px 8px}
-  #myCard{padding:11px} th,td{padding:7px 6px} .section h2{font-size:17px}
+  .toolbar{position:relative;top:auto;padding:9px;border-radius:12px;z-index:20}
+  button,select,input[type=text]{padding:7px 8px}
+  #myCard{padding:11px}
+  th,td{padding:7px 6px}
+  .section{overflow:visible}
+  .section h2{
+    font-size:17px;
+    top:var(--section-sticky-top);
+    z-index:40;
+    margin-bottom:8px;
+    min-height:40px;
+  }
+  .table-wrap{
+    overflow-x:auto;
+    overflow-y:visible;
+    -webkit-overflow-scrolling:touch;
+  }
 }
 </style>
 </head>
@@ -127,7 +142,7 @@ tr:hover td{background:#fafafa} tr.chosen td{background:#f0fdfa}
 </div>
 
 <main id="sections"></main>
-<footer class="footer">研究版 1.4｜更新日期 2026-09-05｜Google 星等與評論數會持續變動。</footer>
+<footer class="footer">研究版 1.6｜更新日期 2026-09-05｜Google 星等與評論數會持續變動。</footer>
 </div>
 
 <script>
@@ -141,14 +156,23 @@ let chosen = new Set();
 let activeRegion = "全部";
 
 function updateStickyOffsets(){
+  const isMobile=window.matchMedia("(max-width:720px)").matches;
   const toolbar=document.querySelector(".toolbar");
-  if(!toolbar) return;
-  const sectionTop=toolbar.offsetTop>=0 ? toolbar.offsetHeight + 12 : toolbar.offsetHeight + 12;
-  document.documentElement.style.setProperty("--section-sticky-top", sectionTop+"px");
-
   const firstHeader=document.querySelector(".section h2");
-  const headerH=firstHeader ? firstHeader.offsetHeight : 44;
-  document.documentElement.style.setProperty("--table-sticky-top", (sectionTop + headerH + 4)+"px");
+  const headerH=firstHeader ? Math.ceil(firstHeader.getBoundingClientRect().height) : 40;
+
+  if(isMobile){
+    const safeTop=4;
+    document.documentElement.style.setProperty("--section-sticky-top", `calc(env(safe-area-inset-top, 0px) + ${safeTop}px)`);
+    return;
+  }
+
+  if(!toolbar) return;
+  const cs=getComputedStyle(toolbar);
+  const toolbarTop=parseFloat(cs.top)||0;
+  const toolbarH=Math.ceil(toolbar.getBoundingClientRect().height);
+  const sectionTop=toolbarTop + toolbarH + 8;
+  document.documentElement.style.setProperty("--section-sticky-top", sectionTop+"px");
 }
 
 function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
@@ -222,10 +246,14 @@ function updateRegionButtons(){
  });
 }
 document.querySelectorAll(".region-btn").forEach(b=>b.addEventListener("click",()=>{activeRegion=b.dataset.value;render();}));
-window.addEventListener("resize", updateStickyOffsets);
+window.addEventListener("resize", updateStickyOffsets, {passive:true});
+window.addEventListener("orientationchange", ()=>setTimeout(updateStickyOffsets,120), {passive:true});
+if(window.visualViewport){
+  window.visualViewport.addEventListener("resize", updateStickyOffsets, {passive:true});
+}
 const toolbarEl=document.querySelector(".toolbar");
 if(toolbarEl && "ResizeObserver" in window){
-  new ResizeObserver(updateStickyOffsets).observe(toolbarEl);
+  new ResizeObserver(()=>requestAnimationFrame(updateStickyOffsets)).observe(toolbarEl);
 }
 
 
