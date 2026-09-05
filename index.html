@@ -16,21 +16,32 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple
 .header,.toolbar,#myCard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:14px}
 .header h1{margin:0 0 6px;font-size:28px}
 .header p,.small{color:var(--muted)}
-.toolbar{position:relative;z-index:20}
+.toolbar{position:relative;z-index:1000;overflow:visible}
 .region-buttons,.filters,.profile-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .region-buttons{margin-bottom:10px}
 button,input{font:inherit}
 button{border:1px solid #cbd5e1;background:#fff;border-radius:10px;padding:8px 10px;cursor:pointer}
 button.active{font-weight:800;box-shadow:0 0 0 2px rgba(15,118,110,.15)}
+.region-buttons button[data-region-filter="北島"]{background:#dbeafe;color:#1d4ed8;border-color:#93c5fd}
+.region-buttons button[data-region-filter="西北"]{background:#dcfce7;color:#15803d;border-color:#86efac}
+.region-buttons button[data-region-filter="中島"]{background:#fef3c7;color:#a16207;border-color:#fcd34d}
+.region-buttons button[data-region-filter="中南"]{background:#ffedd5;color:#c2410c;border-color:#fdba74}
+.region-buttons button[data-region-filter="東島"]{background:#ede0d4;color:#7c2d12;border-color:#c7a17a}
+.region-buttons button[data-region-filter="南島"]{background:#ede9fe;color:#7e22ce;border-color:#c4b5fd}
+.region-buttons button[data-region-filter="全部"]{background:#e2e8f0;color:#334155;border-color:#94a3b8}
+.region-buttons button:not(.active){opacity:.82}
+.region-buttons button.active{opacity:1;box-shadow:0 0 0 2px rgba(15,118,110,.18),0 2px 8px rgba(15,23,42,.08)}
+body.all-regions .region-buttons button[data-region-filter]:not([data-region-filter="全部"]){opacity:1}
+
 .search{min-width:210px;padding:8px 10px;border:1px solid #cbd5e1;border-radius:10px}
-.multi{position:relative}
+.multi{position:relative;z-index:1100}
 .multi>button{min-width:108px;text-align:left}
-.menu{display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:300;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px rgba(15,23,42,.18);padding:8px;min-width:240px;max-height:320px;overflow:auto}
+.menu{display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:5000;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px rgba(15,23,42,.18);padding:8px;min-width:240px;max-height:320px;overflow:auto}
 .menu.open{display:block}
 .menu label{display:flex;gap:8px;align-items:flex-start;padding:7px;border-radius:8px;cursor:pointer;white-space:normal}
 .menu label:hover{background:#f8fafc}
 .section{position:relative;margin:18px 0 26px}
-.sticky-group{position:sticky;top:var(--sticky-top);z-index:40;background:var(--bg)}
+.sticky-group{position:sticky;top:var(--sticky-top);z-index:100;background:var(--bg)}
 .section h2{margin:0;padding:10px 12px;border-radius:12px 12px 0 0;font-size:20px}
 .count{font-size:.75em;opacity:.72}
 .head-wrap{overflow:hidden;border:1px solid var(--line);border-top:0;background:#f8fafc}
@@ -79,7 +90,7 @@ th{background:#f8fafc;text-align:left;font-weight:800;white-space:nowrap}
   col.c5{width:48px} col.c6{width:84px} col.c7{width:82px} col.c8{width:106px}
   col.c9{width:92px} col.c10{width:182px}
   th,td{padding:7px 6px}
-  .menu{position:fixed;left:12px;right:12px;top:auto;bottom:12px;min-width:0;max-height:58vh}
+  .menu{position:fixed;left:12px;right:12px;top:auto;bottom:12px;min-width:0;max-height:58vh;z-index:9999}
 }
 </style>
 </head>
@@ -2064,7 +2075,7 @@ th{background:#f8fafc;text-align:left;font-weight:800;white-space:nowrap}
 </section>
   </main>
 
-  <div class="small" style="text-align:center;padding:16px">研究版 2.3｜V23｜更新日期 2026-09-05</div>
+  <div class="small" style="text-align:center;padding:16px">研究版 2.4｜V24｜更新日期 2026-09-05</div>
 </div>
 <button id="backTop" title="回到最上面">↑</button>
 
@@ -2083,6 +2094,7 @@ function updateButton(id,label,set){
   if(b)b.textContent=set.size?`${label}：已選 ${set.size}`:`${label}：全部`;
 }
 function applyFilters(){
+  document.body.classList.toggle("all-regions",activeRegion==="全部");
   const q=($("#search").value||"").trim().toLowerCase();
   rows.forEach(row=>{
     const region=row.dataset.region;
