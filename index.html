@@ -126,6 +126,34 @@ button{cursor:pointer} button:hover{filter:brightness(.98)} .primary{background:
 .note{color:#475569;font-size:.91em}
 .my-table-title{font-weight:800;margin:12px 0 7px;color:#0f766e}
 
+.food-table td:nth-child(3),
+.food-table td:nth-child(4),
+.head-table th:nth-child(3),
+.head-table th:nth-child(4){
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+.food-table td:nth-child(3),
+.food-table td:nth-child(4){
+  display:table-cell;
+}
+.food-table td:nth-child(3) > *,
+.food-table td:nth-child(4) > *{
+  max-width:100%;
+}
+.food-table td:nth-child(3),
+.food-table td:nth-child(4){
+  line-height:1.35;
+}
+@supports (-webkit-line-clamp: 3){
+  .food-table td:nth-child(3),
+  .food-table td:nth-child(4){
+    overflow:hidden;
+  }
+}
+
+
 /* 各區域依主題色做交錯底色，提升長清單辨識性 */
 .section.north .food-table tbody tr:nth-child(odd) > td{background:#eaf2ff !important}
 .section.north .food-table tbody tr:nth-child(even) > td{background:#f8fbff !important}
@@ -193,6 +221,53 @@ button{cursor:pointer} button:hover{filter:brightness(.98)} .primary{background:
   }
 }
 
+
+.multi-filter{position:relative}
+.multi-btn{
+  min-width:110px;
+  text-align:left;
+  background:#fff;
+}
+.multi-menu{
+  position:absolute;
+  top:calc(100% + 6px);
+  left:0;
+  min-width:220px;
+  max-height:300px;
+  overflow:auto;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  box-shadow:0 12px 28px rgba(15,23,42,.16);
+  padding:8px;
+  display:none;
+  z-index:200;
+}
+.multi-menu.show{display:block}
+.multi-menu label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 8px;
+  border-radius:8px;
+  cursor:pointer;
+  white-space:normal;
+}
+.multi-menu label:hover{background:#f8fafc}
+.multi-menu input{margin:0}
+@media(max-width:720px){
+  .multi-menu{
+    position:fixed;
+    left:12px;
+    right:12px;
+    top:auto;
+    bottom:12px;
+    max-height:55vh;
+    min-width:0;
+  }
+  .multi-btn{min-width:100px}
+}
+
 </style>
 </head>
 <body>
@@ -250,7 +325,7 @@ button{cursor:pointer} button:hover{filter:brightness(.98)} .primary{background:
 </div>
 
 <main id="sections"></main>
-<footer class="footer">研究版 1.9｜更新日期 2026-09-05｜Google 星等與評論數會持續變動。</footer>
+<footer class="footer">研究版 2.0｜更新日期 2026-09-05｜Google 星等與評論數會持續變動。</footer>
 </div>
 
 <button id="backToTop" type="button" aria-label="回到最上面" title="回到最上面">↑</button>
@@ -263,6 +338,9 @@ const PROFILE_KEY = "phuQuocFoodListV1:lastProfile";
 const FONT_KEY = "phuQuocFoodListV1:fontScale";
 let chosen = new Set();
 let activeRegion = "全部";
+const selectedTypes=new Set();
+const selectedTiers=new Set();
+const selectedRatings=new Set();
 
 function updateStickyOffsets(){
   const isMobile=window.matchMedia("(max-width:720px)").matches;
@@ -326,7 +404,7 @@ function tableHtml(arr){
 }
 function currentFiltered(){
  const t=document.getElementById("typeFilter").value;
- const tier=document.getElementById("tierFilter").value;
+ const tierSelections=[...selectedTiers];
  const rf=document.getElementById("ratingFilter").value;
  const q=document.getElementById("search").value.trim().toLowerCase();
  return DATA.filter(x=>{
@@ -374,7 +452,8 @@ function render(){
      ${tableBodyHtml(arr)}
    </section>`;
  }).join("") || '<div class="card" style="padding:20px;margin-top:15px">沒有符合目前篩選條件的項目。</div>';
- renderMine(); updateRegionButtons(); bindTableScrollSync(); requestAnimationFrame(updateStickyOffsets);
+ renderMine(); updateRegionButtons(); bindTableScrollSync(); renderMultiMenus();
+requestAnimationFrame(updateStickyOffsets);
 }
 function regionLabel(r){
  return ({"北島":"北島｜Grand World 富國大世界・Gành Dầu 甘油角","西北":"西北｜Ông Lang 翁朗","中島":"中島｜Dương Đông 楊東","中南":"中南｜Long Beach 長灘・Cửa Lấp 庫阿拉普","東島":"東島｜Hàm Ninh 咸寧","南島":"南島｜An Thới 安泰・Sunset Town 日落小鎮"})[r]||r;
@@ -442,6 +521,57 @@ const last=localStorage.getItem(PROFILE_KEY);
 if(last){document.getElementById("profileName").value=last;const raw=localStorage.getItem(keyForProfile(last));if(raw)chosen=new Set(JSON.parse(raw));}
 render();
 requestAnimationFrame(updateStickyOffsets);
+
+
+function renderMultiMenus(){
+  const typeOptions=[...new Set(DATA.map(x=>x.type))].sort((a,b)=>a.localeCompare(b,"zh-Hant"));
+  const tierOptions=["S+","S","A","B"];
+  const ratingOptions=[
+    ["4.8","4.8★以上"],
+    ["4.7","4.7★以上"],
+    ["4.5","4.5★以上"],
+    ["有評分","已有評分"],
+    ["查無評論","查無評論"]
+  ];
+
+  const make=(menuId,options,set,buttonPrefix)=>{
+    const menu=document.getElementById(menuId);
+    if(!menu) return;
+    menu.innerHTML=options.map(o=>{
+      const value=Array.isArray(o)?o[0]:o;
+      const label=Array.isArray(o)?o[1]:o;
+      return `<label><input type="checkbox" value="${escapeHtml(value)}" ${set.has(value)?"checked":""}> ${escapeHtml(label)}</label>`;
+    }).join("");
+    menu.querySelectorAll('input[type="checkbox"]').forEach(cb=>{
+      cb.addEventListener("change",()=>{
+        if(cb.checked) set.add(cb.value); else set.delete(cb.value);
+        updateMultiButton(menuId,buttonPrefix,set);
+        render();
+      });
+    });
+    updateMultiButton(menuId,buttonPrefix,set);
+  };
+
+  make("typeMenu",typeOptions,selectedTypes,"類型");
+  make("tierMenu",tierOptions,selectedTiers,"必吃");
+  make("ratingMenu",ratingOptions,selectedRatings,"Google");
+}
+function updateMultiButton(menuId,prefix,set){
+  const menu=document.getElementById(menuId);
+  const btn=document.querySelector(`.multi-btn[data-target="${menuId}"]`);
+  if(!btn) return;
+  btn.textContent=set.size===0?`${prefix}：全部`:`${prefix}：已選 ${set.size}`;
+}
+document.querySelectorAll(".multi-btn").forEach(btn=>{
+  btn.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    const target=document.getElementById(btn.dataset.target);
+    document.querySelectorAll(".multi-menu").forEach(m=>{if(m!==target)m.classList.remove("show")});
+    target.classList.toggle("show");
+  });
+});
+document.addEventListener("click",()=>document.querySelectorAll(".multi-menu").forEach(m=>m.classList.remove("show")));
+document.querySelectorAll(".multi-menu").forEach(m=>m.addEventListener("click",e=>e.stopPropagation()));
 
 const backToTopBtn=document.getElementById("backToTop");
 function updateBackToTop(){
